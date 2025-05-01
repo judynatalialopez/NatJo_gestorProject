@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +13,7 @@ namespace NatJoProject.Models
         private string nombre { get; set; }
         private char indActivo { get; set; }
         private List<Member> miembros { get; set; }
-        private Project proye
+        private Project proyecto { get; set; }
+        private User owner { get; set; }
     }
 }

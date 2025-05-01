@@ -8,5 +8,7 @@ namespace NatJoProject.Models
 {
     class TaskEstado
     {
+        private char estId {  get; set; }
+        private string descripcion { get; set; }
     }
 }
