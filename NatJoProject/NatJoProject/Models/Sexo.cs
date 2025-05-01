@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace NatJoProject.Models
 {
-    public class Pais 
+    class Sexo
     {
-        private String paisId { get; set; }
-        private String nombre { get; set; }
-        private String dominio { get; set; }
-
+        private char sxId;
+        private string descripcion;
     }
 }

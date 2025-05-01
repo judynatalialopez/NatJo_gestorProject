@@ -1,5 +1,5 @@
 ﻿NatJoProject
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
 11407045341
 
-15-1826598389
+111156280656
 206-910054607
 MainWindow.xaml;
 
-False
+True
 

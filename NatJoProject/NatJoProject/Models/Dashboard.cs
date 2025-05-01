@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace NatJoProject.Models
 {
-    public class Pais 
+    class Dashboard
     {
-        private String paisId { get; set; }
-        private String nombre { get; set; }
-        private String dominio { get; set; }
-
+        private int dboardid { set; get; }
+        private User usuario { set; get; }
+        private List<Project> proyectos {  set; get; } 
     }
 }
