@@ -44,12 +44,17 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[9.3.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -69,7 +74,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
