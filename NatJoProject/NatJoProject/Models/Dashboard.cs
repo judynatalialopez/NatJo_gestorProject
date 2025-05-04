@@ -8,8 +8,15 @@ namespace NatJoProject.Models
 {
     class Dashboard
     {
-        private int dboardid { set; get; }
-        private User usuario { set; get; }
-        private List<Project> proyectos {  set; get; } 
+        public int dboardId { set; get; }
+        public User usuario { set; get; }
+        public List<Project> proyectos {  set; get; } 
+
+        public Dashboard(int dboardId, User usuario, List<Project> proyectos) 
+        {
+            this.dboardId = dboardId;
+            this.usuario = usuario;
+            this.proyectos = proyectos;
+        }
     }
 }

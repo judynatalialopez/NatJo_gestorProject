@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace NatJoProject.Models
 {
-    public class Pais
+    class Pais
     {
-        private String paisId { get; set; }
-        private String nombre { get; set; }
-        private String dominio { get; set; }
+        public String paisId { get; set; }
+        public String nombre { get; set; }
+        public String dominio { get; set; }
 
-        public class Pais
+        public Pais(String paisId, String nombre, String dominio)
         {
-            private String paisId();
-            private String nombre();
-
+            this.paisId = paisId;
+            this.nombre = nombre;
+            this.dominio = dominio;
         }
     }
 }

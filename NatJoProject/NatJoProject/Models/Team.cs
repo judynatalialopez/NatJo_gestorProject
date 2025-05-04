@@ -9,11 +9,21 @@ namespace NatJoProject.Models
 {
     class Team
     {
-        private string teamId {  get; set; }
-        private string nombre { get; set; }
-        private char indActivo { get; set; }
-        private List<Member> miembros { get; set; }
-        private Project proyecto { get; set; }
-        private User owner { get; set; }
+        public string teamId {  get; set; }
+        public string nombre { get; set; }
+        public char indActivo { get; set; }
+        public List<Member> miembros { get; set; }
+        public Project proyecto { get; set; }
+        public User owner { get; set; }
+
+        public Team (string teamId, string nombre, char indActivo, List<Member> miembros, Project proyecto, User owner)
+        {
+            this.teamId = teamId;
+            this.nombre = nombre;
+            this.indActivo = indActivo;
+            this.miembros = miembros;
+            this.proyecto = proyecto;
+            this.owner = owner;
+        }
     }
 }

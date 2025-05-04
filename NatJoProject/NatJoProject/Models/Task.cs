@@ -8,13 +8,23 @@ namespace NatJoProject.Models
 {
     class Task
     {
-        private int taskId {  get; set; }
-        private string titulo { get; set; }
-        private string descripcion { get; set; }
-        private List<Member> responsable {  get; set; }
-        private TaskEstado estado { get; set; }
-        private DateTime fEntrerga { get; set; }
-        private List<Comment> comentarios { get; set; }
+        public int taskId {  get; set; }
+        public string titulo { get; set; }
+        public string descripcion { get; set; }
+        public List<Member> responsable {  get; set; }
+        public TaskEstado estado { get; set; }
+        public DateTime fEntrerga { get; set; }
+        public List<Comment> comentarios { get; set; }
 
+        public Task (int taskId, string titulo, string descripcion, List<Member> responsable, TaskEstado estado, DateTime fEntrerga, List<Comment> comentarios)
+        {
+            this.taskId = taskId;
+            this.titulo = titulo;
+            this.descripcion = descripcion;
+            this.responsable = responsable;
+            this.estado = estado;
+            this.fEntrerga = fEntrerga;
+            this.comentarios = comentarios;
+        }
     }
 }
