@@ -16,6 +16,9 @@ namespace NatJoProject.Models
         public Project proyecto { get; set; }
         public User owner { get; set; }
 
+        public Team()
+        {
+        }
         public Team (string teamId, string nombre, char indActivo, List<Member> miembros, Project proyecto, User owner)
         {
             this.teamId = teamId;

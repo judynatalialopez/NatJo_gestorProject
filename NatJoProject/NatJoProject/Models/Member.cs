@@ -13,6 +13,9 @@ namespace NatJoProject.Models
         public char indOwner { get; set; }
         public char indAdmin { get; set; }
 
+        public Member()
+        {
+        }
         public Member(string id,
             string pNombre,
             string? sNombre,

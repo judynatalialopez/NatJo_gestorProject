@@ -11,8 +11,11 @@ namespace NatJoProject.Models
         public string cityId { get; set; }
         public string nombre { get; set; }
         public string codPostal { get; set; }
-        public Pais pais { get; set; } 
+        public Pais pais { get; set; }
 
+        public Ciudad()
+        {
+        }
         public Ciudad(string cityId, string nombre, string codPostal, Pais pais) 
         {
             this.cityId = cityId;

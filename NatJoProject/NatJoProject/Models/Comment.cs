@@ -13,6 +13,9 @@ namespace NatJoProject.Models
         public Member autor { get; set; }  
         public DateTime fcomentario { get; set; }
 
+        public Comment()
+        {
+        }
         public Comment(int commId, string texto, Member autor, DateTime fcomentario) 
         {
             this.commId = commId;

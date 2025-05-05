@@ -30,6 +30,9 @@ namespace NatJoProject.Models
         public char indBloqueado {  get; set; }
         public char indActivo { get; set; }
 
+        public User()
+        {
+        }
         public User(string id, string pNombre, string? sNombre, string pApellido, string ndocIdent, string tipo_docIdent, Pais pais, Ciudad ciudad, Sexo sexo, DateOnly fNacimiento, int nTelefono1, int nTelefono2, string direccion, string login, string pwd, string email, char indBloqueado, char indActivo)
         {
             this.id = id;

@@ -10,8 +10,11 @@ namespace NatJoProject.Models
     {
         public string dboardId { set; get; }
         public User usuario { set; get; }
-        public List<Project> proyectos {  set; get; } 
+        public List<Project> proyectos {  set; get; }
 
+        public Dashboard()
+        {
+        }
         public Dashboard(string dboardId, User usuario, List<Project> proyectos) 
         {
             this.dboardId = dboardId;

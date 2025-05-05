@@ -8,7 +8,7 @@ namespace NatJoProject.Models
 {
     public class Project
     {
-        public int projId {  get; set; }
+        public string projId {  get; set; }
         public string nombre { get; set; }
         public string descripcion {  get; set; } 
         public List<Task> tasks { get; set; }
@@ -16,7 +16,10 @@ namespace NatJoProject.Models
         public DateTime fInicio { get; set; }
         public DateTime fterminacion { get; set;}
 
-        public Project(int projId, string nombre, string descripcion, List<Task> tasks, Team team, DateTime fInicio, DateTime fterminacion) 
+        public Project()
+        {
+        }
+        public Project(string projId, string nombre, string descripcion, List<Task> tasks, Team team, DateTime fInicio, DateTime fterminacion) 
         {
             this.projId = projId;
             this.nombre = nombre;
