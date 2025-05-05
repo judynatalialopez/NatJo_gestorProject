@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NatJoProject.Models
 {
-    class Pais
+    public class Pais
     {
         public String paisId { get; set; }
         public String nombre { get; set; }
@@ -17,7 +17,7 @@ namespace NatJoProject.Models
         {
         }
 
-        public Pais(String paisId, String nombre, String dominio)
+        public Pais(string paisId, string nombre, string dominio)
         {
             this.paisId = paisId;
             this.nombre = nombre;

@@ -1,102 +1,174 @@
 ﻿using System;
+using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
-
 
 namespace NatJoProject.Services
 {
     public class PaisService
     {
-        public static Pais getpais(string paisId)
+        public bool InsertPais(Pais pais)
         {
-            Pais pais = new Pais();
+            var conexion = ConexionDB.conectar();
+            bool result = false;
 
-            string query = "SELECT * FROM pais WHERE paisid = @paisId";
-
-            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+            try
             {
-                using (MySqlCommand command = new MySqlCommand(query, mySqlConnection))
+                string query = @"INSERT INTO paises (pais_id, nombre, dominio)
+                                 VALUES (@pais_id, @nombre, @dominio)";
+
+                using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    command.Parameters.AddWithValue("paisId", paisId);
-                    mySqlConnection.Open();
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    cmd.Parameters.AddWithValue("@pais_id", pais.paisId);
+                    cmd.Parameters.AddWithValue("@nombre", pais.nombre);
+                    cmd.Parameters.AddWithValue("@dominio", pais.dominio);
+
+                    result = cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al insertar país: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return result;
+        }
+
+        public List<Pais> GetAllPaises()
+        {
+            var lista = new List<Pais>();
+            var conexion = ConexionDB.conectar();
+
+            try
+            {
+                string query = "SELECT * FROM paises";
+
+                using (var cmd = new MySqlCommand(query, conexion))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Pais pais = new Pais(
+                            reader["pais_id"].ToString(),
+                            reader["nombre"].ToString(),
+                            reader["dominio"].ToString()
+                        );
+                        lista.Add(pais);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al obtener países: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return lista;
+        }
+
+        public Pais? GetPaisById(string paisId)
+        {
+            Pais? pais = null;
+            var conexion = ConexionDB.conectar();
+
+            try
+            {
+                string query = "SELECT * FROM paises WHERE pais_id = @pais_id";
+
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@pais_id", paisId);
+
+                    using (var reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            pais.paisId = reader.GetString("paisId");
-                            pais.nombre = reader.GetString("nombre");
-                            pais.dominio = reader.GetString("dominio");
+                            pais = new Pais(
+                                reader["pais_id"].ToString(),
+                                reader["nombre"].ToString(),
+                                reader["dominio"].ToString()
+                            );
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al buscar país: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
             }
 
             return pais;
         }
 
-        public Boolean SetPais(Pais pais)
+        public bool UpdatePais(Pais pais)
         {
-            string queryInsert = "INSERT INTO pais (paisId, nombre, dominio) VALUES (@paisId, @nombre, @dominio)";
-            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
-            {
-                using (MySqlCommand command = new MySqlCommand(queryInsert, mySqlConnection))
-                {
-                    command.Parameters.AddWithValue("@paisId", pais.paisId);
-                    command.Parameters.AddWithValue("@nombre", pais.nombre);
-                    command.Parameters.AddWithValue("@dominio", pais.dominio);
+            var conexion = ConexionDB.conectar();
+            bool result = false;
 
-                    mySqlConnection.Open();
-                    int result = command.ExecuteNonQuery();
-                    if (result > 0)
-                    {
-                        return true;
-                    }
+            try
+            {
+                string query = @"UPDATE paises 
+                                 SET nombre = @nombre, dominio = @dominio 
+                                 WHERE pais_id = @pais_id";
+
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@nombre", pais.nombre);
+                    cmd.Parameters.AddWithValue("@dominio", pais.dominio);
+                    cmd.Parameters.AddWithValue("@pais_id", pais.paisId);
+
+                    result = cmd.ExecuteNonQuery() > 0;
                 }
             }
-            return false;
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al actualizar país: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return result;
         }
 
-        public Boolean DeletePais(string paisId)
+        public bool DeletePais(string paisId)
         {
-            String queryDelete = "DELETE FROM pais WHERE paisId = " + paisId;
+            var conexion = ConexionDB.conectar();
+            bool result = false;
 
-            using (MySqlConnection MySqlConnection = new MySqlConnection(stringConex))
+            try
             {
-                using (MySqlCommand command = new MySqlCommand(queryDelete, MySqlConnection))
+                string query = "DELETE FROM paises WHERE pais_id = @pais_id";
+
+                using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    MySqlConnection.Open();
-                    int result = command.ExecuteNonQuery();
-                    if (result > 0)
-                    {
-                        return true;
-                    }
+                    cmd.Parameters.AddWithValue("@pais_id", paisId);
+                    result = cmd.ExecuteNonQuery() > 0;
                 }
             }
-            return false;
-        }
-
-        public Boolean UpdatePais(Pais pais)
-        {
-            string queryUpdate = "UPDATE pais SET  nombre = @nombre, dominio = @dominio WHERE paisId = @paisId";
-
-            using (MySqlConnection mySqlConnection = new MySqlConnection(stringConex))
+            catch (Exception ex)
             {
-                using (MySqlCommand command = new MySqlCommand(queryUpdate, mySqlConnection))
-                {
-                    command.Parameters.AddWithValue("@nombre", pais.nombre);
-                    command.Parameters.AddWithValue("@dominio", pais.dominio);
-                    command.Parameters.AddWithValue("@paisId", pais.paisId);
-
-                    mySqlConnection.Open();
-                    int result = command.ExecuteNonQuery();
-                    if (result > 0)
-                    {
-                        return true;
-                    }
-                }
-                return false;
+                Console.WriteLine("Error al eliminar país: " + ex.Message);
             }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return result;
         }
     }
 }

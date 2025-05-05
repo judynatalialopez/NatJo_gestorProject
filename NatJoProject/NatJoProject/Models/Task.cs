@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NatJoProject.Models
 {
-    class Task
+    public class Task
     {
         public int taskId {  get; set; }
         public string titulo { get; set; }

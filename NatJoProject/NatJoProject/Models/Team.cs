@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NatJoProject.Models
 {
-    class Team
+    public class Team
     {
         public string teamId {  get; set; }
         public string nombre { get; set; }

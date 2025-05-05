@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace NatJoProject.Models
 {
-    class Sexo
+    public class Sexo
     {
-        public char sxId {  get; set; }
+        public int sxId {  get; set; }
         public string descripcion { get; set; }
 
-        public Sexo(char sxId, string descripcion)
+        public Sexo(int sxId, string descripcion)
         {
             this.sxId = sxId;
             this.descripcion = descripcion;

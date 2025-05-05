@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace NatJoProject.Models
 {
-    class TaskEstado
+    public class TaskEstado
     {
-        public char estId {  get; set; }
+        public int estId {  get; set; }
         public string descripcion { get; set; }
 
-        public TaskEstado (char estId, string descripcion)
+        public TaskEstado (int estId, string descripcion)
         {
             this.estId = estId;
             this.descripcion = descripcion;

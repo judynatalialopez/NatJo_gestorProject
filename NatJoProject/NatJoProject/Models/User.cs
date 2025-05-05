@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NatJoProject.Models
 {
-    class User
+    public class User
     {
         public string id { get; set; }
         public string pNombre { get; set; }
@@ -23,13 +23,14 @@ namespace NatJoProject.Models
         public int nTelefono1 { get; set; }
         public int? nTelefono2 { get; set; }
         public string direccion { get; set; }
-        protected string login;
-        private string pwd;
-        protected EmailAddressAttribute email;
+        public string login { get => login; set => login = value; }
+        public string pwd { get => pwd; set => pwd = value; }
+        public string email { get => email; set => email = value; }
+
         public char indBloqueado {  get; set; }
         public char indActivo { get; set; }
 
-        public User(string id, string pNombre, string? sNombre, string pApellido, string ndocIdent, string tipo_docIdent, Pais pais, Ciudad ciudad, Sexo sexo, DateOnly fNacimiento, int nTelefono1, int nTelefono2, string direccion, string login, string pwd, EmailAddressAttribute email, char indBloqueado, char indActivo)
+        public User(string id, string pNombre, string? sNombre, string pApellido, string ndocIdent, string tipo_docIdent, Pais pais, Ciudad ciudad, Sexo sexo, DateOnly fNacimiento, int nTelefono1, int nTelefono2, string direccion, string login, string pwd, string email, char indBloqueado, char indActivo)
         {
             this.id = id;
             this.pNombre = pNombre;

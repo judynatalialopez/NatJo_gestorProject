@@ -9,7 +9,7 @@ namespace NatJoProject.Database
 {
     public class ConexionDB
     {
-        private static readonly string connectionString = "server=localhost; Database=natjoproject,Uid=root,pwd=;";
+        private static readonly string connectionString = "server=localhost;Database=natjoproject;Uid=root;Pwd=;";
 
         public static MySqlConnection conectar()
         {

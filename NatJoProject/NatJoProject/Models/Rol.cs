@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NatJoProject.Models
 {
-    class Rol
+    public class Rol
     {
         public int rolId { get; set; }
         public string descripcion { get; set; }
