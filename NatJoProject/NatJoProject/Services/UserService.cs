@@ -112,6 +112,59 @@ namespace NatJoProject.Services
             return usuarios;
         }
 
+        public User? GetUserById(string id)
+        {
+            var conexion = ConexionDB.conectar();
+            User? user = null;
+
+            try
+            {
+                string query = "SELECT * FROM users WHERE id = @id";
+
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            user = new User(
+                                reader["id"].ToString(),
+                                reader["pNombre"].ToString(),
+                                reader["sNombre"]?.ToString(),
+                                reader["pApellido"].ToString(),
+                                reader["ndocIdent"].ToString(),
+                                reader["tipo_docIdent"].ToString(),
+                                new Pais { paisId = reader["pais_id"].ToString() },
+                                new Ciudad { cityId = reader["ciudad_id"].ToString() },
+                                new Sexo { sxId = reader["sexo_id"].ToString() },
+                                DateOnly.FromDateTime(Convert.ToDateTime(reader["fNacimiento"])),
+                                Convert.ToInt32(reader["nTelefono1"]),
+                                reader["nTelefono2"] == DBNull.Value ? 0 : Convert.ToInt32(reader["nTelefono2"]),
+                                reader["direccion"].ToString(),
+                                reader["login"].ToString(),
+                                reader["pwd"].ToString(),
+                                reader["email"].ToString(),
+                                Convert.ToChar(reader["indBloqueado"]),
+                                Convert.ToChar(reader["indActivo"])
+                            );
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al buscar usuario por ID: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return user;
+        }
+
         public User? GetUserByLogin(string login)
         {
             var conexion = ConexionDB.conectar();
