@@ -12,6 +12,11 @@ namespace NatJoProject.Models
         public String nombre { get; set; }
         public String dominio { get; set; }
 
+
+        public Pais()
+        {
+        }
+
         public Pais(String paisId, String nombre, String dominio)
         {
             this.paisId = paisId;
