@@ -8,16 +8,16 @@ namespace NatJoProject.Models
 {
     public class TaskEstado
     {
-        public string estId {  get; set; }
-        public string descripcion { get; set; }
+        public string EstId {  get; set; }
+        public string Descripcion { get; set; }
 
         public TaskEstado()
         {
         }
-        public TaskEstado (string estId, string descripcion)
+        public TaskEstado (string EstId, string Descripcion)
         {
-            this.estId = estId;
-            this.descripcion = descripcion;
+            this.EstId = EstId;
+            this.Descripcion = Descripcion;
         }
     }
 }

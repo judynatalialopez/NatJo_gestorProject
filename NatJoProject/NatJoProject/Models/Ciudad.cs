@@ -8,20 +8,20 @@ namespace NatJoProject.Models
 {
     public class Ciudad
     {
-        public string cityId { get; set; }
-        public string nombre { get; set; }
-        public string codPostal { get; set; }
-        public Pais pais { get; set; }
+        public string CityId { get; set; }
+        public string Nombre { get; set; }
+        public string CodPostal { get; set; }
+        public Pais Pais { get; set; }
 
         public Ciudad()
         {
         }
-        public Ciudad(string cityId, string nombre, string codPostal, Pais pais) 
+        public Ciudad(string CityId, string Nombre, string CodPostal, Pais Pais) 
         {
-            this.cityId = cityId;
-            this.nombre = nombre;
-            this.codPostal = codPostal;
-            this.pais = pais;
+            this.CityId = CityId;
+            this.Nombre = Nombre;
+            this.CodPostal = CodPostal;
+            this.Pais = Pais;
         }
     }
 }

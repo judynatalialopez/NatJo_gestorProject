@@ -8,16 +8,16 @@ namespace NatJoProject.Models
 {
     public class Sexo
     {
-        public string sxId {  get; set; }
-        public string descripcion { get; set; }
+        public string SxId {  get; set; }
+        public string Descripcion { get; set; }
 
         public Sexo()
         {
         }
-        public Sexo(string sxId, string descripcion)
+        public Sexo(string SxId, string Descripcion)
         {
-            this.sxId = sxId;
-            this.descripcion = descripcion;
+            this.SxId = SxId;
+            this.Descripcion = Descripcion;
         }
     }
 }

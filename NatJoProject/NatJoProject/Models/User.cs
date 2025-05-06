@@ -9,51 +9,51 @@ namespace NatJoProject.Models
 {
     public class User
     {
-        public string id { get; set; }
-        public string pNombre { get; set; }
-        public string? sNombre { get; set; }
-        public string pApellido { get; set; }
-        public string? sApellido { get; set; }
-        public string ndocIdent { get; set; }
-        public string tipo_docIdent { get; set; }
-        public Pais pais { get; set; }
-        public Ciudad ciudad { get; set; }
-        public Sexo sexo { get; set; }
-        public DateOnly fNacimiento { get; set; }
-        public int nTelefono1 { get; set; }
-        public int? nTelefono2 { get; set; }
-        public string direccion { get; set; }
-        public string login { get => login; set => login = value; }
-        public string pwd { get => pwd; set => pwd = value; }
-        public string email { get => email; set => email = value; }
+        public string Id { get; set; }
+        public string Pnombre { get; set; }
+        public string? Snombre { get; set; }
+        public string Papellido { get; set; }
+        public string? Sapellido { get; set; }
+        public string NdocIdent { get; set; }
+        public string Tipo_docIdent { get; set; }
+        public Pais Pais { get; set; }
+        public Ciudad Ciudad { get; set; }
+        public Sexo Sexo { get; set; }
+        public DateOnly Fnacimiento { get; set; }
+        public int Ntelefono1 { get; set; }
+        public int? Ntelefono2 { get; set; }
+        public string Direccion { get; set; }
+        public string Login { get => Pwd; set => Pwd = value; }
+        public string Pwd { get => Pwd; set => Pwd = value; }
+        public string Email { get => Pwd; set => Pwd = value; }
 
-        public char indBloqueado {  get; set; }
-        public char indActivo { get; set; }
+        public char IndBloqueado {  get; set; }
+        public char IndActivo { get; set; }
 
         public User()
         {
         }
-        public User(string id, string pNombre, string? sNombre, string pApellido, string ndocIdent, string tipo_docIdent, Pais pais, Ciudad ciudad, Sexo sexo, DateOnly fNacimiento, int nTelefono1, int nTelefono2, string direccion, string login, string pwd, string email, char indBloqueado, char indActivo)
+        public User(string Id, string Pnombre, string? Snombre, string Papellido, string NdocIdent, string Tipo_docIdent, Pais Pais, Ciudad Ciudad, Sexo Sexo, DateOnly Fnacimiento, int Ntelefono1, int Ntelefono2, string Direccion, string Login, string Pwd, string Email, char IndBloqueado, char IndActivo)
         {
-            this.id = id;
-            this.pNombre = pNombre;
-            this.sNombre = sNombre;
-            this.pApellido = pApellido;
-            this.sApellido = sApellido;
-            this.ndocIdent = ndocIdent;
-            this.tipo_docIdent = tipo_docIdent;
-            this.pais = pais;
-            this.ciudad = ciudad;
-            this.sexo = sexo;
-            this.fNacimiento = fNacimiento;
-            this.nTelefono1 = nTelefono1;
-            this.nTelefono2 = nTelefono2;
-            this.direccion = direccion;
-            this.login = login;
-            this.pwd = pwd;
-            this.email = email;
-            this.indBloqueado = indBloqueado;
-            this.indActivo = indActivo;
+            this.Id = Id;
+            this.Pnombre = Pnombre;
+            this.Snombre = Snombre;
+            this.Papellido = Papellido;
+            this.Sapellido = Sapellido;
+            this.NdocIdent = NdocIdent;
+            this.Tipo_docIdent = Tipo_docIdent;
+            this.Pais = Pais;
+            this.Ciudad = Ciudad;
+            this.Sexo = Sexo;
+            this.Fnacimiento = Fnacimiento;
+            this.Ntelefono1 = Ntelefono1;
+            this.Ntelefono2 = Ntelefono2;
+            this.Direccion = Direccion;
+            this.Login = Login;
+            this.Pwd = Pwd;
+            this.Email = Email;
+            this.IndBloqueado = IndBloqueado;
+            this.IndActivo = IndActivo;
         }
     }
 

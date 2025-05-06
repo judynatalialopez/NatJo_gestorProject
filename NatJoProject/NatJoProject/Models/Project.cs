@@ -8,26 +8,26 @@ namespace NatJoProject.Models
 {
     public class Project
     {
-        public string projId {  get; set; }
-        public string nombre { get; set; }
-        public string descripcion {  get; set; } 
-        public List<Task0> Task0s { get; set; }
-        public Team team { get; set; }
-        public DateTime fInicio { get; set; }
-        public DateTime fterminacion { get; set;}
+        public string ProjId {  get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion {  get; set; } 
+        public List<TaskProject> Tasks { get; set; }
+        public Team Team { get; set; }
+        public DateTime Finicio { get; set; }
+        public DateTime Fterminacion { get; set;}
 
         public Project()
         {
         }
-        public Project(string projId, string nombre, string descripcion, List<Task0> Task0s, Team team, DateTime fInicio, DateTime fterminacion) 
+        public Project(string ProjId, string Nombre, string Descripcion, List<TaskProject> Tasks, Team Team, DateTime Finicio, DateTime Fterminacion) 
         {
-            this.projId = projId;
-            this.nombre = nombre;
-            this.descripcion = descripcion;
-            this.Task0s = Task0s;
-            this.team = team;
-            this.fInicio = fInicio;
-            this.fterminacion = fterminacion;
+            this.ProjId = ProjId;
+            this.Nombre = Nombre;
+            this.Descripcion = Descripcion;
+            this.Tasks = Tasks;
+            this.Team = Team;
+            this.Finicio = Finicio;
+            this.Fterminacion = Fterminacion;
         }
     }
 }

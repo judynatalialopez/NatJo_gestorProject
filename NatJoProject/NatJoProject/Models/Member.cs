@@ -9,40 +9,22 @@ namespace NatJoProject.Models
 {
     public class Member : User
     {
-        public Rol rolUser { get; set; }
-        public char indOwner { get; set; }
-        public char indAdmin { get; set; }
+        public Rol RolUser { get; set; }
+        public char IndOwner { get; set; }
+        public char IndAdmin { get; set; }
 
         public Member()
         {
         }
-        public Member(string id,
-            string pNombre,
-            string? sNombre,
-            string pApellido,
-            string? sApellido,
-            string ndocIdent,
-            string tipo_docIdent,
-            Pais pais,
-            Ciudad ciudad,
-            Sexo sexo,
-            DateOnly fNacimiento,
-            int nTelefono1,
-            int? nTelefono2,
-            string direccion,
-            string login,
-            string pwd,
-            string email,
-            char indBloqueado,
-            char indActivo,
-            Rol rolUser,
-            char indOwner,
-            char indAdmin)
-            : base(id, pNombre, sNombre, pApellido, ndocIdent, tipo_docIdent, pais, ciudad, sexo, fNacimiento, nTelefono1, nTelefono2 ?? 0, direccion, login, pwd, email, indBloqueado, indActivo)
+        public Member(string Id, string Pnombre, string? Snombre, string Papellido, string NdocIdent, string Tipo_docIdent, Pais Pais, Ciudad Ciudad, Sexo Sexo, DateOnly Fnacimiento, int Ntelefono1, int? Ntelefono2, string Direccion, string Login, string Pwd, string Email, char IndBloqueado, char IndActivo,
+            Rol RolUser,
+            char IndOwner,
+            char IndAdmin)
+            : base(Id, Pnombre, Snombre, Papellido, NdocIdent, Tipo_docIdent, Pais, Ciudad, Sexo, Fnacimiento, Ntelefono1, Ntelefono2 ?? 0, Direccion, Login, Pwd, Email, IndBloqueado, IndActivo)
         {
-            this.rolUser = rolUser;
-            this.indOwner = indOwner;
-            this.indAdmin = indAdmin;
+            this.RolUser = RolUser;
+            this.IndOwner = IndOwner;
+            this.IndAdmin = IndAdmin;
         }
     }
 

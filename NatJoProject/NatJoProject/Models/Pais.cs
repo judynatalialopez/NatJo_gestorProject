@@ -8,20 +8,20 @@ namespace NatJoProject.Models
 {
     public class Pais
     {
-        public String paisId { get; set; }
-        public String nombre { get; set; }
-        public String dominio { get; set; }
+        public String PaisId { get; set; }
+        public String Nombre { get; set; }
+        public String Dominio { get; set; }
 
 
         public Pais()
         {
         }
 
-        public Pais(string paisId, string nombre, string dominio)
+        public Pais(string PaisId, string Nombre, string Dominio)
         {
-            this.paisId = paisId;
-            this.nombre = nombre;
-            this.dominio = dominio;
+            this.PaisId = PaisId;
+            this.Nombre = Nombre;
+            this.Dominio = Dominio;
         }
     }
 }

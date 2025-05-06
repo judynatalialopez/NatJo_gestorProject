@@ -8,16 +8,16 @@ namespace NatJoProject.Models
 {
     public class Rol
     {
-        public string rolId { get; set; }
-        public string descripcion { get; set; }
+        public string RolId { get; set; }
+        public string Descripcion { get; set; }
 
         public Rol()
         {
         }
-        public Rol (string rolId, string descripcion)
+        public Rol (string RolId, string Descripcion)
         {
-            this.rolId = rolId;
-            this.descripcion = descripcion;
+            this.RolId = RolId;
+            this.Descripcion = Descripcion;
         }
     }
 }

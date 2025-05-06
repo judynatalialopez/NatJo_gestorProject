@@ -8,20 +8,20 @@ namespace NatJoProject.Models
 {
     public class Comment
     {
-        public int commId { get; set; }
-        public string texto { get; set; }
-        public Member autor { get; set; }  
-        public DateTime fcomentario { get; set; }
+        public int CommId { get; set; }
+        public string Texto { get; set; }
+        public Member Autor { get; set; }  
+        public DateTime Fcomentario { get; set; }
 
         public Comment()
         {
         }
-        public Comment(int commId, string texto, Member autor, DateTime fcomentario) 
+        public Comment(int CommId, string Texto, Member Autor, DateTime Fcomentario) 
         {
-            this.commId = commId;
-            this.texto = texto;
-            this.autor = autor;
-            this.fcomentario = fcomentario;
+            this.CommId = CommId;
+            this.Texto = Texto;
+            this.Autor = Autor;
+            this.Fcomentario = Fcomentario;
         }
     }
 }
