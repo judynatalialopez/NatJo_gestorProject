@@ -33,7 +33,7 @@ namespace NatJoProject.Models
         public User()
         {
         }
-        public User(string Id, string Pnombre, string? Snombre, string Papellido, string NdocIdent, string Tipo_docIdent, Pais Pais, Ciudad Ciudad, Sexo Sexo, DateOnly Fnacimiento, int Ntelefono1, int Ntelefono2, string Direccion, string Login, string Pwd, string Email, char IndBloqueado, char IndActivo)
+        public User(string Id, string Pnombre, string? Snombre, string Papellido, string? Sapellido, string NdocIdent, string Tipo_docIdent, Pais Pais, Ciudad Ciudad, Sexo Sexo, DateOnly Fnacimiento, int Ntelefono1, int Ntelefono2, string Direccion, string Login, string Pwd, string Email, char IndBloqueado, char IndActivo)
         {
             this.Id = Id;
             this.Pnombre = Pnombre;

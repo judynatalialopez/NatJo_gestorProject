@@ -16,13 +16,13 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Miembro {member.id} insertado con éxito.");
+                Console.WriteLine($"[INFO] Miembro {member.Id} insertado con éxito.");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo insertar el Miembro {member.id}.");
+                Console.WriteLine($"[ERROR] No se pudo insertar el Miembro {member.Id}.");
                 Console.ResetColor();
             }
         }
@@ -34,7 +34,7 @@ namespace NatJoProject.Controllers
             if (member != null)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"Miembro encontrado: {member.pNombre} {member.sNombre}");
+                Console.WriteLine($"Miembro encontrado: {member.Pnombre} {member.Snombre}");
                 Console.ResetColor();
             }
             else
@@ -52,13 +52,13 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Miembro {member.id} actualizado con éxito.");
+                Console.WriteLine($"[INFO] Miembro {member.Id} actualizado con éxito.");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo actualizar el Miembro {member.id}.");
+                Console.WriteLine($"[ERROR] No se pudo actualizar el Miembro {member.Id}.");
                 Console.ResetColor();
             }
         }

@@ -16,13 +16,13 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Usuario {user.id} insertado con éxito.");
+                Console.WriteLine($"[INFO] Usuario {user.Id} insertado con éxito.");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo insertar el Usuario {user.id}.");
+                Console.WriteLine($"[ERROR] No se pudo insertar el Usuario {user.Id}.");
                 Console.ResetColor();
             }
         }
@@ -34,7 +34,7 @@ namespace NatJoProject.Controllers
             if (user != null)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"Usuario encontrado: {user.pNombre} {user.pApellido}");
+                Console.WriteLine($"Usuario encontrado: {user.Pnombre} {user.Papellido}");
                 Console.ResetColor();
             }
             else
@@ -53,7 +53,7 @@ namespace NatJoProject.Controllers
             if (user != null)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"Usuario encontrado: {user.pNombre} {user.pApellido} (ID: {user.id})");
+                Console.WriteLine($"Usuario encontrado: {user.Pnombre} {user.Papellido} (ID: {user.Id})");
                 Console.ResetColor();
             }
             else
@@ -71,13 +71,13 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Usuario {user.id} actualizado con éxito.");
+                Console.WriteLine($"[INFO] Usuario {user.Id} actualizado con éxito.");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo actualizar el Usuario {user.id}.");
+                Console.WriteLine($"[ERROR] No se pudo actualizar el Usuario {user.Id}.");
                 Console.ResetColor();
             }
         }
@@ -110,7 +110,7 @@ namespace NatJoProject.Controllers
                 Console.WriteLine($"Total de usuarios encontrados: {users.Count}");
                 foreach (var user in users)
                 {
-                    Console.WriteLine($"ID: {user.id} | Nombre: {user.pNombre} {user.pApellido}");
+                    Console.WriteLine($"ID: {user.Id} | Nombre: {user.Pnombre} {user.Papellido}");
                 }
                 Console.ResetColor();
             }

@@ -22,10 +22,10 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@city_id", ciudad.cityId);
-                    cmd.Parameters.AddWithValue("@nombre", ciudad.nombre);
-                    cmd.Parameters.AddWithValue("@cod_postal", ciudad.codPostal);
-                    cmd.Parameters.AddWithValue("@pais_id", ciudad.pais.paisId);
+                    cmd.Parameters.AddWithValue("@city_id", ciudad.CityId);
+                    cmd.Parameters.AddWithValue("@nombre", ciudad.Nombre);
+                    cmd.Parameters.AddWithValue("@cod_postal", ciudad.CodPostal);
+                    cmd.Parameters.AddWithValue("@pais_id", ciudad.Pais.PaisId);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -137,10 +137,10 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@nombre", ciudad.nombre);
-                    cmd.Parameters.AddWithValue("@cod_postal", ciudad.codPostal);
-                    cmd.Parameters.AddWithValue("@pais_id", ciudad.pais.paisId);
-                    cmd.Parameters.AddWithValue("@city_id", ciudad.cityId);
+                    cmd.Parameters.AddWithValue("@nombre", ciudad.Nombre);
+                    cmd.Parameters.AddWithValue("@cod_postal", ciudad.CodPostal);
+                    cmd.Parameters.AddWithValue("@pais_id", ciudad.Pais.PaisId);
+                    cmd.Parameters.AddWithValue("@city_id", ciudad.CityId);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }

@@ -17,7 +17,7 @@ namespace NatJoProject.Controllers
         {
             bool result = estadoService.InsertEstado(estado);
             Console.ForegroundColor = result ? ConsoleColor.Green : ConsoleColor.Red;
-            Console.WriteLine(result ? $"[INFO] Estado {estado.estId} insertado." : $"[ERROR] No se pudo insertar el estado.");
+            Console.WriteLine(result ? $"[INFO] Estado {estado.EstId} insertado." : $"[ERROR] No se pudo insertar el estado.");
             Console.ResetColor();
         }
 
@@ -27,7 +27,7 @@ namespace NatJoProject.Controllers
             if (estado != null)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"Estado encontrado: {estado.estId} - {estado.descripcion}");
+                Console.WriteLine($"Estado encontrado: {estado.EstId} - {estado.Descripcion}");
             }
             else
             {
@@ -60,7 +60,7 @@ namespace NatJoProject.Controllers
             Console.WriteLine("Listado de Estados:");
             foreach (var est in lista)
             {
-                Console.WriteLine($"ID: {est.estId} | Descripción: {est.descripcion}");
+                Console.WriteLine($"ID: {est.EstId} | Descripción: {est.Descripcion}");
             }
             Console.ResetColor();
         }

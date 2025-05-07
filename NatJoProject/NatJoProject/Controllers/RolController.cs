@@ -14,13 +14,13 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Rol {rol.rolId} insertado con éxito.");
+                Console.WriteLine($"[INFO] Rol {rol.RolId} insertado con éxito.");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo insertar el Rol {rol.rolId}.");
+                Console.WriteLine($"[ERROR] No se pudo insertar el Rol {rol.RolId}.");
                 Console.ResetColor();
             }
         }
@@ -32,7 +32,7 @@ namespace NatJoProject.Controllers
             if (rol != null)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"Rol encontrado: {rol.descripcion}");
+                Console.WriteLine($"Rol encontrado: {rol.Descripcion}");
                 Console.ResetColor();
             }
             else
@@ -50,13 +50,13 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Rol {rol.rolId} actualizado con éxito.");
+                Console.WriteLine($"[INFO] Rol {rol.RolId} actualizado con éxito.");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo actualizar el Rol {rol.rolId}.");
+                Console.WriteLine($"[ERROR] No se pudo actualizar el Rol {rol.RolId}.");
                 Console.ResetColor();
             }
         }

@@ -9,7 +9,7 @@ namespace NatJoProject.Services
     public class ProjectService
     {
         private readonly TeamService teamService = new TeamService();
-        private readonly Task0Service task0Service = new Task0Service();
+        private readonly TaskProjectService task0Service = new TaskProjectService();
 
         public bool InsertProject(Project project)
         {
@@ -23,12 +23,12 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@proj_id", project.projId);
-                    cmd.Parameters.AddWithValue("@nombre", project.nombre);
-                    cmd.Parameters.AddWithValue("@descripcion", project.descripcion);
-                    cmd.Parameters.AddWithValue("@team_id", project.team.teamId);
-                    cmd.Parameters.AddWithValue("@f_inicio", project.fInicio);
-                    cmd.Parameters.AddWithValue("@f_terminacion", project.fterminacion);
+                    cmd.Parameters.AddWithValue("@proj_id", project.ProjId);
+                    cmd.Parameters.AddWithValue("@nombre", project.Nombre);
+                    cmd.Parameters.AddWithValue("@descripcion", project.Descripcion);
+                    cmd.Parameters.AddWithValue("@team_id", project.Team.TeamId);
+                    cmd.Parameters.AddWithValue("@f_inicio", project.Finicio);
+                    cmd.Parameters.AddWithValue("@f_terminacion", project.Fterminacion);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -150,12 +150,12 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@nombre", project.nombre);
-                    cmd.Parameters.AddWithValue("@descripcion", project.descripcion);
-                    cmd.Parameters.AddWithValue("@team_id", project.team.teamId);
-                    cmd.Parameters.AddWithValue("@f_inicio", project.fInicio);
-                    cmd.Parameters.AddWithValue("@f_terminacion", project.fterminacion);
-                    cmd.Parameters.AddWithValue("@proj_id", project.projId);
+                    cmd.Parameters.AddWithValue("@nombre", project.Nombre);
+                    cmd.Parameters.AddWithValue("@descripcion", project.Descripcion);
+                    cmd.Parameters.AddWithValue("@team_id", project.Team.TeamId);
+                    cmd.Parameters.AddWithValue("@f_inicio", project.Finicio);
+                    cmd.Parameters.AddWithValue("@f_terminacion", project.Fterminacion);
+                    cmd.Parameters.AddWithValue("@proj_id", project.ProjId);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }

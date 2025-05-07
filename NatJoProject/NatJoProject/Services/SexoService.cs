@@ -19,8 +19,8 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@sx_id", sexo.sxId);
-                    cmd.Parameters.AddWithValue("@descripcion", sexo.descripcion);
+                    cmd.Parameters.AddWithValue("@sx_id", sexo.SxId);
+                    cmd.Parameters.AddWithValue("@descripcion", sexo.Descripcion);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -56,8 +56,8 @@ namespace NatJoProject.Services
                         {
                             sexo = new Sexo
                             {
-                                sxId = reader["sx_id"].ToString(),
-                                descripcion = reader["descripcion"].ToString()
+                                SxId = reader["sx_id"].ToString(),
+                                Descripcion = reader["descripcion"].ToString()
                             };
                         }
                     }
@@ -92,8 +92,8 @@ namespace NatJoProject.Services
                         {
                             Sexo sexo = new Sexo
                             {
-                                sxId = reader["sx_id"].ToString(),
-                                descripcion = reader["descripcion"].ToString()
+                                SxId = reader["sx_id"].ToString(),
+                                Descripcion = reader["descripcion"].ToString()
                             };
                             sexos.Add(sexo);
                         }
@@ -123,8 +123,8 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@descripcion", sexo.descripcion);
-                    cmd.Parameters.AddWithValue("@sx_id", sexo.sxId);
+                    cmd.Parameters.AddWithValue("@descripcion", sexo.Descripcion);
+                    cmd.Parameters.AddWithValue("@sx_id", sexo.SxId);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }

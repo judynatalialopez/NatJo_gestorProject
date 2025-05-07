@@ -21,8 +21,8 @@ namespace NatJoProject.Services
                 string query = "INSERT INTO estados_task (estado_id, descripcion) VALUES (@id, @desc)";
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@id", estado.estId);
-                    cmd.Parameters.AddWithValue("@desc", estado.descripcion);
+                    cmd.Parameters.AddWithValue("@id", estado.EstId);
+                    cmd.Parameters.AddWithValue("@desc", estado.Descripcion);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -116,8 +116,8 @@ namespace NatJoProject.Services
                 string query = "UPDATE estados_task SET descripcion = @desc WHERE estado_id = @id";
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@desc", estado.descripcion);
-                    cmd.Parameters.AddWithValue("@id", estado.estId);
+                    cmd.Parameters.AddWithValue("@desc", estado.Descripcion);
+                    cmd.Parameters.AddWithValue("@id", estado.EstId);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }

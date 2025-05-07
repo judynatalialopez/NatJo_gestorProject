@@ -19,13 +19,13 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Sexo {sexo.sxId} insertado con éxito.");
+                Console.WriteLine($"[INFO] Sexo {sexo.SxId} insertado con éxito.");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo insertar el Sexo {sexo.sxId}.");
+                Console.WriteLine($"[ERROR] No se pudo insertar el Sexo {sexo.SxId}.");
                 Console.ResetColor();
             }
         }
@@ -37,7 +37,7 @@ namespace NatJoProject.Controllers
             if (sexo != null)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"Sexo encontrado: {sexo.sxId} - {sexo.descripcion}");
+                Console.WriteLine($"Sexo encontrado: {sexo.SxId} - {sexo.Descripcion}");
                 Console.ResetColor();
             }
             else
@@ -55,13 +55,13 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Sexo {sexo.sxId} actualizado con éxito.");
+                Console.WriteLine($"[INFO] Sexo {sexo.SxId} actualizado con éxito.");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo actualizar el Sexo {sexo.sxId}.");
+                Console.WriteLine($"[ERROR] No se pudo actualizar el Sexo {sexo.SxId}.");
                 Console.ResetColor();
             }
         }
@@ -94,7 +94,7 @@ namespace NatJoProject.Controllers
                 Console.WriteLine($"Total de sexos encontrados: {sexos.Count}");
                 foreach (var sexo in sexos)
                 {
-                    Console.WriteLine($"ID: {sexo.sxId} | Descripción: {sexo.descripcion}");
+                    Console.WriteLine($"ID: {sexo.SxId} | Descripción: {sexo.Descripcion}");
                 }
                 Console.ResetColor();
             }

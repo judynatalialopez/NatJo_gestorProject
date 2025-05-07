@@ -20,9 +20,9 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@pais_id", pais.paisId);
-                    cmd.Parameters.AddWithValue("@nombre", pais.nombre);
-                    cmd.Parameters.AddWithValue("@dominio", pais.dominio);
+                    cmd.Parameters.AddWithValue("@pais_id", pais.PaisId);
+                    cmd.Parameters.AddWithValue("@nombre", pais.Nombre);
+                    cmd.Parameters.AddWithValue("@dominio", pais.Dominio);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -125,9 +125,9 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@nombre", pais.nombre);
-                    cmd.Parameters.AddWithValue("@dominio", pais.dominio);
-                    cmd.Parameters.AddWithValue("@pais_id", pais.paisId);
+                    cmd.Parameters.AddWithValue("@nombre", pais.Nombre);
+                    cmd.Parameters.AddWithValue("@dominio", pais.Dominio);
+                    cmd.Parameters.AddWithValue("@pais_id", pais.PaisId);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }

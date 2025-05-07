@@ -19,8 +19,8 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@rol_id", rol.rolId);
-                    cmd.Parameters.AddWithValue("@descripcion", rol.descripcion);
+                    cmd.Parameters.AddWithValue("@rol_id", rol.RolId);
+                    cmd.Parameters.AddWithValue("@descripcion", rol.Descripcion);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -56,8 +56,8 @@ namespace NatJoProject.Services
                         {
                             rol = new Rol
                             {
-                                rolId = reader["rol_id"].ToString(),
-                                descripcion = reader["descripcion"].ToString()
+                                RolId = reader["rol_id"].ToString(),
+                                Descripcion = reader["descripcion"].ToString()
                             };
                         }
                     }
@@ -92,8 +92,8 @@ namespace NatJoProject.Services
                         {
                             Rol rol = new Rol
                             {
-                                rolId = reader["rol_id"].ToString(),
-                                descripcion = reader["descripcion"].ToString()
+                                RolId = reader["rol_id"].ToString(),
+                                Descripcion = reader["descripcion"].ToString()
                             };
                             roles.Add(rol);
                         }
@@ -123,8 +123,8 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@descripcion", rol.descripcion);
-                    cmd.Parameters.AddWithValue("@rol_id", rol.rolId);
+                    cmd.Parameters.AddWithValue("@descripcion", rol.Descripcion);
+                    cmd.Parameters.AddWithValue("@rol_id", rol.RolId);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }

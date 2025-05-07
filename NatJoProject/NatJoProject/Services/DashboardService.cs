@@ -23,20 +23,20 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@dboard_id", dashboard.dboardId);
-                    cmd.Parameters.AddWithValue("@user_id", dashboard.usuario.id);
+                    cmd.Parameters.AddWithValue("@dboard_id", dashboard.DboardId);
+                    cmd.Parameters.AddWithValue("@user_id", dashboard.Usuario.Id);
                     result = cmd.ExecuteNonQuery() > 0;
                 }
 
                 // Asignar proyectos al dashboard
-                foreach (var proj in dashboard.proyectos)
+                foreach (var proj in dashboard.Proyectos)
                 {
                     string relQuery = @"INSERT INTO dashboard_proyectos (dboard_id, proj_id)
                                         VALUES (@dboard_id, @proj_id)";
                     using (var cmd = new MySqlCommand(relQuery, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@dboard_id", dashboard.dboardId);
-                        cmd.Parameters.AddWithValue("@proj_id", proj.projId);
+                        cmd.Parameters.AddWithValue("@dboard_id", dashboard.DboardId);
+                        cmd.Parameters.AddWithValue("@proj_id", proj.ProjId);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -80,7 +80,7 @@ namespace NatJoProject.Services
                 // Cargar proyectos
                 if (dashboard != null)
                 {
-                    dashboard.proyectos = GetProjectsByDashboardId(dboardId);
+                    dashboard.Proyectos = GetProjectsByDashboardId(dboardId);
                 }
             }
             catch (Exception ex)
