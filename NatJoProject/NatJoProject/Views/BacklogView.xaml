@@ -1,0 +1,126 @@
+﻿<Window x:Class="ProjectManager.Views.BacklogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Backlog" Height="720" Width="1280"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundMain}">
+
+    <Window.Resources>
+        <!-- Cargar los estilos localmente si no están en App.xaml -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Theme/BacklogView.xaml.cs"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Menú lateral -->
+        <StackPanel Grid.Column="0" Background="{StaticResource SidebarBackground}">
+            <TextBlock Text="Proyectos"
+                       Style="{StaticResource SidebarHeaderText}" />
+
+            <ListBox x:Name="ProjectList"
+                     Style="{StaticResource ProjectListBox}">
+                <ListBoxItem Content="Proyecto 1"/>
+                <ListBoxItem Content="Proyecto 2"/>
+                <ListBoxItem Content="Proyecto 3"/>
+            </ListBox>
+        </StackPanel>
+
+        <!-- Contenido -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Barra superior -->
+            <DockPanel Grid.Row="0" Background="White" VerticalAlignment="Center">
+                <TextBlock Text="Gestor de Proyectos"
+                           Style="{StaticResource TitleHeaderText}"/>
+
+                <StackPanel Orientation="Horizontal"
+                            DockPanel.Dock="Right"
+                            HorizontalAlignment="Right"
+                            Margin="0,0,20,0">
+                    <TextBlock Text="Juan Pérez"
+                               Style="{StaticResource UserNameText}"/>
+                    <Ellipse Width="32" Height="32">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Resources/profile.jpg"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </StackPanel>
+            </DockPanel>
+
+            <!-- Backlog -->
+            <ScrollViewer Grid.Row="1" Padding="20">
+                <StackPanel Orientation="Vertical">
+
+                    <!-- Sprint 1 -->
+                    <StackPanel Margin="0,0,0,30">
+                        <TextBlock Text="Sprint 1 - Junio 2025"
+                                   Style="{StaticResource SprintHeaderText}"/>
+
+                        <ItemsControl>
+                            <ItemsControl.ItemContainerStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.Margin" Value="0,10,0,0"/>
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+
+                            <ItemsControl.Items>
+                                <Border Style="{StaticResource TaskCard}">
+                                    <StackPanel>
+                                        <TextBlock Text="Tarea: Diseño del login" FontWeight="Bold"/>
+                                        <TextBlock Text="Responsable: Ana López"
+                                                   Style="{StaticResource TaskSubText}"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Style="{StaticResource TaskCard}">
+                                    <StackPanel>
+                                        <TextBlock Text="Tarea: API de autenticación" FontWeight="Bold"/>
+                                        <TextBlock Text="Responsable: Carlos Díaz"
+                                                   Style="{StaticResource TaskSubText}"/>
+                                    </StackPanel>
+                                </Border>
+                            </ItemsControl.Items>
+                        </ItemsControl>
+                    </StackPanel>
+
+                    <!-- Sprint 2 -->
+                    <StackPanel>
+                        <TextBlock Text="Sprint 2 - Julio 2025"
+                                   Style="{StaticResource SprintHeaderText}"/>
+
+                        <ItemsControl>
+                            <ItemsControl.ItemContainerStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.Margin" Value="0,10,0,0"/>
+                                </Style>
+                            </ItemsControl.ItemContainerStyle>
+
+                            <ItemsControl.Items>
+                                <Border Style="{StaticResource TaskCard}">
+                                    <StackPanel>
+                                        <TextBlock Text="Tarea: Dashboard del usuario" FontWeight="Bold"/>
+                                        <TextBlock Text="Responsable: Marta Ruiz"
+                                                   Style="{StaticResource TaskSubText}"/>
+                                    </StackPanel>
+                                </Border>
+                            </ItemsControl.Items>
+                        </ItemsControl>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Window>
+
