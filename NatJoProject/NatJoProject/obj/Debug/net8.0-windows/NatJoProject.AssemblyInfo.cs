@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NatJoProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43cd05eb930b298dc3de910347d7525fc302b567")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ece239f0c3053e2cacedad7aea2e3bc4363ef74f")]
 [assembly: System.Reflection.AssemblyProductAttribute("NatJoProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NatJoProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -5,8 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NatJoProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Login" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
+        <!-- Fondo -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#1E1E2F" Offset="0.0" />
+                <GradientStop Color="#2A2A40" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
 
+        <!-- Panel de login -->
+        <Border Width="350" Padding="30" CornerRadius="15" Background="#FFF2F2F2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Iniciar Sesión" FontSize="24" FontWeight="Bold" Foreground="#6f42c1" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                <!-- Usuario -->
+                <TextBlock Text="Usuario" Margin="0,0,0,5"/>
+                <TextBox Height="35" Padding="10" BorderBrush="#ccc" BorderThickness="1" Margin="0,0,0,15" />
+
+                <!-- Contraseña -->
+                <TextBlock Text="Contraseña" Margin="0,0,0,5"/>
+                <PasswordBox Height="35" Padding="10" BorderBrush="#ccc" BorderThickness="1" Margin="0,0,0,20"/>
+
+                <!-- Botón -->
+                <Button Content="Entrar"
+                        Background="#6f42c1"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Height="40"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        />
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
