@@ -95,7 +95,8 @@ namespace NatJoProject.Services
 
                     if (int.TryParse(task.TaskId, out int taskIdAsInt))
                     {
-                        task.Comentarios = memberService.GetCommentById(taskIdAsInt);//REVISAR CONVERSIÓN STRING A INT
+                        var comentario = commentService.GetCommentById(taskIdAsInt);
+                        task.Comentarios = new List<Comment> { comentario };
                     }
                     else
                     {
@@ -243,20 +244,23 @@ namespace NatJoProject.Services
                             var memberId = reader["member_id"].ToString();
                             var estadoId = reader["estado_id"].ToString();
 
-                            var member = memberService.GetMemberById(memberId);
-                            var estado = taskEstadoService.GetTaskEstadoById(estadoId);
-                            var comments = commentService.GetCommentsByTaskId(taskId);
+                            var miembro = memberService.GetMemberById(memberId);
+                            var estado = estadoService.GetEstadoById(estadoId);
+                            var comentario = commentService.GetCommentById(Convert.ToInt32(taskId));
+
+                            //Obtener lista
+                            var comentarios = new List<Comment> { comentario };
+                            var miembros = new List<Member>() { miembro };
 
                             var task = new TaskProject(
                                 taskId,
                                 reader["titulo"].ToString(),
                                 reader["descripcion"].ToString(),
-                                reader["proj_id"].ToString(),
-                                member,
+                                miembros,
                                 estado,
-                                comments,
-                                Convert.ToDateTime(reader["f_inicio"]),
-                                Convert.ToDateTime(reader["f_entrega"])
+                                Convert.ToDateTime(reader["f_entrega"]),
+                                comentarios
+
                             );
 
                             tasks.Add(task);
