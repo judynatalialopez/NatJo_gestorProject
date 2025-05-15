@@ -3,54 +3,59 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Backlog" Height="720" Width="1280"
         WindowStartupLocation="CenterScreen"
-        Background="{StaticResource BackgroundMain}">
-
-    <Window.Resources>
-        <!-- Cargar los estilos localmente si no están en App.xaml -->
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Theme/BacklogView.xaml.cs"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
+        Background="#F0F2F5">
 
     <Grid>
+        <!-- Columnas principales -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="37.995"/>
+            <ColumnDefinition Width="182.005"/>
+            <!-- Menú lateral -->
             <ColumnDefinition Width="*"/>
+            <!-- Contenido -->
         </Grid.ColumnDefinitions>
 
         <!-- Menú lateral -->
-        <StackPanel Grid.Column="0" Background="{StaticResource SidebarBackground}">
-            <TextBlock Text="Proyectos"
-                       Style="{StaticResource SidebarHeaderText}" />
-
-            <ListBox x:Name="ProjectList"
-                     Style="{StaticResource ProjectListBox}">
+        <StackPanel Grid.Column="0" Background="#061B70" Margin="0,60,0,0" Grid.ColumnSpan="2">
+            <TextBlock Text="Proyectos" 
+                       Foreground="White" 
+                       TextAlignment="Center"
+                       FontSize="22" 
+                       Margin="0,30,0,20"
+                       FontWeight="Bold" RenderTransformOrigin="0.451,-0.22"/>
+            <ListBox x:Name="ProjectList" 
+                     Background="Transparent" 
+                     BorderThickness="0" 
+                     Foreground="White"
+                     Margin="10">
                 <ListBoxItem Content="Proyecto 1"/>
                 <ListBoxItem Content="Proyecto 2"/>
                 <ListBoxItem Content="Proyecto 3"/>
             </ListBox>
         </StackPanel>
 
-        <!-- Contenido -->
-        <Grid Grid.Column="1">
+        <!-- Contenido principal -->
+        <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
+                <!-- Barra superior -->
                 <RowDefinition Height="*"/>
+                <!-- Contenido backlog -->
             </Grid.RowDefinitions>
 
             <!-- Barra superior -->
             <DockPanel Grid.Row="0" Background="White" VerticalAlignment="Center">
-                <TextBlock Text="Gestor de Proyectos"
-                           Style="{StaticResource TitleHeaderText}"/>
+                <!-- Título / Logo -->
+                <TextBlock Text="Gestor de Proyectos" 
+                           FontSize="20" 
+                           FontWeight="Bold" 
+                           Margin="20,0,0,0" 
+                           VerticalAlignment="Center" 
+                           Foreground="#061B70"/>
 
-                <StackPanel Orientation="Horizontal"
-                            DockPanel.Dock="Right"
-                            HorizontalAlignment="Right"
-                            Margin="0,0,20,0">
-                    <TextBlock Text="Juan Pérez"
-                               Style="{StaticResource UserNameText}"/>
+                <!-- Perfil usuario -->
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0,0,20,0">
+                    <TextBlock Text="Juan Pérez" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="#2F3E4D"/>
                     <Ellipse Width="32" Height="32">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="/Resources/profile.jpg"/>
@@ -62,12 +67,9 @@
             <!-- Backlog -->
             <ScrollViewer Grid.Row="1" Padding="20">
                 <StackPanel Orientation="Vertical">
-
                     <!-- Sprint 1 -->
                     <StackPanel Margin="0,0,0,30">
-                        <TextBlock Text="Sprint 1 - Junio 2025"
-                                   Style="{StaticResource SprintHeaderText}"/>
-
+                        <TextBlock Text="Sprint 1 - Junio 2025" FontSize="16" FontWeight="Bold" Foreground="#333"/>
                         <ItemsControl>
                             <ItemsControl.ItemContainerStyle>
                                 <Style>
@@ -76,19 +78,17 @@
                             </ItemsControl.ItemContainerStyle>
 
                             <ItemsControl.Items>
-                                <Border Style="{StaticResource TaskCard}">
+                                <Border Background="White" Padding="10" CornerRadius="5" BorderBrush="#CCC" BorderThickness="1">
                                     <StackPanel>
                                         <TextBlock Text="Tarea: Diseño del login" FontWeight="Bold"/>
-                                        <TextBlock Text="Responsable: Ana López"
-                                                   Style="{StaticResource TaskSubText}"/>
+                                        <TextBlock Text="Responsable: Ana López" FontSize="12" Foreground="Gray"/>
                                     </StackPanel>
                                 </Border>
 
-                                <Border Style="{StaticResource TaskCard}">
+                                <Border Background="White" Padding="10" CornerRadius="5" BorderBrush="#CCC" BorderThickness="1">
                                     <StackPanel>
                                         <TextBlock Text="Tarea: API de autenticación" FontWeight="Bold"/>
-                                        <TextBlock Text="Responsable: Carlos Díaz"
-                                                   Style="{StaticResource TaskSubText}"/>
+                                        <TextBlock Text="Responsable: Carlos Díaz" FontSize="12" Foreground="Gray"/>
                                     </StackPanel>
                                 </Border>
                             </ItemsControl.Items>
@@ -97,9 +97,7 @@
 
                     <!-- Sprint 2 -->
                     <StackPanel>
-                        <TextBlock Text="Sprint 2 - Julio 2025"
-                                   Style="{StaticResource SprintHeaderText}"/>
-
+                        <TextBlock Text="Sprint 2 - Julio 2025" FontSize="16" FontWeight="Bold" Foreground="#333"/>
                         <ItemsControl>
                             <ItemsControl.ItemContainerStyle>
                                 <Style>
@@ -108,11 +106,10 @@
                             </ItemsControl.ItemContainerStyle>
 
                             <ItemsControl.Items>
-                                <Border Style="{StaticResource TaskCard}">
+                                <Border Background="White" Padding="10" CornerRadius="5" BorderBrush="#CCC" BorderThickness="1">
                                     <StackPanel>
                                         <TextBlock Text="Tarea: Dashboard del usuario" FontWeight="Bold"/>
-                                        <TextBlock Text="Responsable: Marta Ruiz"
-                                                   Style="{StaticResource TaskSubText}"/>
+                                        <TextBlock Text="Responsable: Marta Ruiz" FontSize="12" Foreground="Gray"/>
                                     </StackPanel>
                                 </Border>
                             </ItemsControl.Items>
@@ -123,4 +120,3 @@
         </Grid>
     </Grid>
 </Window>
-
