@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using NatJoProject.ViewsPrueba;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,20 @@ namespace NatJoProject
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void BtnIrRegistrarPais(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Register register = new Register();
+                register.Show();
+                //this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir la ventana de registro: " + ex.Message);
+            }
         }
     }
 }
