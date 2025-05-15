@@ -16,20 +16,26 @@
         </Grid.ColumnDefinitions>
 
         <!-- Menú lateral -->
-        <StackPanel Grid.Column="0" Background="#061B70" Margin="0,60,0,0" Grid.ColumnSpan="2">
-            <TextBlock Text="Proyectos" 
-                       Foreground="White" 
+        <StackPanel Grid.Column="0" Background="#DCDCDC" Margin="0,100,0,0" Grid.ColumnSpan="2">
+            <TextBlock Text="Para tí" 
+                       Foreground="#4682B4" 
                        TextAlignment="Center"
                        FontSize="22" 
-                       Margin="0,30,0,20"
+                       FontFamily="Arial"
+                       Margin="30,20,0,20"
                        FontWeight="Bold" RenderTransformOrigin="0.451,-0.22"/>
+
+            <Image Source="/Resources/iconoInis.png"
+                Width="50" Height="50"
+                Margin="20,-50,125,0"/>
+
             <ListBox x:Name="ProjectList" 
                      Background="Transparent" 
                      BorderThickness="0" 
                      Foreground="White"
                      Margin="10">
-                <ListBoxItem Content="Proyecto 1"/>
-                <ListBoxItem Content="Proyecto 2"/>
+                <ListBoxItem Content="Proyectos"/>
+                <ListBoxItem Content="Equipos"/>
                 <ListBoxItem Content="Proyecto 3"/>
             </ListBox>
         </StackPanel>
