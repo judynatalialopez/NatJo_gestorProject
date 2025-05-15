@@ -40,11 +40,12 @@ create table users (
     ndocIdent varchar (15),
     tipo_docIdent varchar (15),
     pais_id varchar (10),
-    city_id varchar (10),
-    sx_id varchar (10),
+    ciudad_id varchar (10),
+    sexo_id varchar (10),
     fNacimiento datetime,
     nTelefono1 varchar (10),
     nTelefono2 varchar (10), 
+    direccion varchar(15),
     login varchar (15),
     pwd varchar (15),
     email varchar (15),
@@ -52,8 +53,8 @@ create table users (
     indActivo char(1),
     primary key (id),
     FOREIGN KEY (pais_id) REFERENCES paises(pais_id),
-    FOREIGN KEY (city_id) REFERENCES ciudades(city_id),
-    FOREIGN KEY (sx_id) REFERENCES sexos(sx_id)
+    FOREIGN KEY (ciudad_id) REFERENCES ciudades(city_id),
+    FOREIGN KEY (sexo_id) REFERENCES sexos(sx_id)
     );
 
 CREATE TABLE comentarios(
@@ -85,12 +86,10 @@ CREATE TABLE tasksproject(
 
 
    CREATE TABLE miembros(
-    member_id varchar(10) NOT null,
     user_id varchar(10),
     rol_id varchar(15),
     ind_owner char,
-    ind_adin char,
-    PRIMARY KEY (member_id),
+    ind_admin char,
     FOREIGN key (user_id) REFERENCES users(id),
     FOREIGN key (rol_id) REFERENCES roles(rol_id)
     );
@@ -99,7 +98,7 @@ CREATE TABLE team_members(
     team_id varchar(10) NOT null,
     member_id varchar(10),
     PRIMARY KEY (team_id),
-    FOREIGN KEY (member_id) REFERENCES miembros(member_id)
+    FOREIGN KEY (member_id) REFERENCES miembros(user_id)
     );
 
 CREATE TABLE proyectos(
@@ -137,3 +136,4 @@ CREATE TABLE dashboards(
     FOREIGN KEY (dashboard_id) REFERENCES dashboard_proyectos(dashboard_id),
     FOREIGN key  (user_id) REFERENCES users(id)
     );
+    
