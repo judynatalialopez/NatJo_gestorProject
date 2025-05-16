@@ -26,8 +26,8 @@ namespace NatJoProject
         {
             try
             {
-                Register register = new Register();
-                register.Show();
+                Paises paises = new Paises();
+                paises.Show();
                 this.Close();
             }
             catch (Exception ex)

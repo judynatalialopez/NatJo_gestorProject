@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ANGEL\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\NatJoProject.csproj": {}
+    "C:\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\NatJoProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ANGEL\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\NatJoProject.csproj": {
+    "C:\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\NatJoProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ANGEL\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\NatJoProject.csproj",
+        "projectUniqueName": "C:\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\NatJoProject.csproj",
         "projectName": "NatJoProject",
-        "projectPath": "C:\\Users\\ANGEL\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\NatJoProject.csproj",
-        "packagesPath": "C:\\Users\\ANGEL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ANGEL\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\obj\\",
+        "projectPath": "C:\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\NatJoProject.csproj",
+        "packagesPath": "C:\\Users\\Judy Natalia\\.nuget\\packages\\",
+        "outputPath": "C:\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ANGEL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Judy Natalia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,7 +43,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -69,7 +74,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
