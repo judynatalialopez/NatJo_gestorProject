@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 15-05-2025 a las 01:35:15
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 16-05-2025 a las 07:14:55
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,6 +33,14 @@ CREATE TABLE `ciudades` (
   `cod_postal` varchar(15) NOT NULL,
   `pais_id` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `ciudades`
+--
+
+INSERT INTO `ciudades` (`city_id`, `nombre`, `cod_postal`, `pais_id`) VALUES
+('1', 'Panam? City', '0801', '1'),
+('2', 'Bogot?', '1101', '2');
 
 -- --------------------------------------------------------
 
@@ -86,11 +94,10 @@ CREATE TABLE `estados_task` (
 --
 
 CREATE TABLE `miembros` (
-  `member_id` varchar(10) NOT NULL,
   `user_id` varchar(10) DEFAULT NULL,
   `rol_id` varchar(15) DEFAULT NULL,
   `ind_owner` char(1) DEFAULT NULL,
-  `ind_adin` char(1) DEFAULT NULL
+  `ind_admin` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -104,6 +111,14 @@ CREATE TABLE `paises` (
   `nombre` varchar(25) NOT NULL,
   `dominio` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `paises`
+--
+
+INSERT INTO `paises` (`pais_id`, `nombre`, `dominio`) VALUES
+('1', 'Panam?', 'pa'),
+('2', 'Colombia', 'co');
 
 -- --------------------------------------------------------
 
@@ -141,6 +156,14 @@ CREATE TABLE `sexos` (
   `sx_id` varchar(10) NOT NULL,
   `descripcion` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `sexos`
+--
+
+INSERT INTO `sexos` (`sx_id`, `descripcion`) VALUES
+('1', 'Masculino'),
+('2', 'Femenino');
 
 -- --------------------------------------------------------
 
@@ -196,17 +219,26 @@ CREATE TABLE `users` (
   `ndocIdent` varchar(15) DEFAULT NULL,
   `tipo_docIdent` varchar(15) DEFAULT NULL,
   `pais_id` varchar(10) DEFAULT NULL,
-  `city_id` varchar(10) DEFAULT NULL,
-  `sx_id` varchar(10) DEFAULT NULL,
+  `ciudad_id` varchar(10) DEFAULT NULL,
+  `sexo_id` varchar(10) DEFAULT NULL,
   `fNacimiento` datetime DEFAULT NULL,
   `nTelefono1` varchar(10) DEFAULT NULL,
   `nTelefono2` varchar(10) DEFAULT NULL,
+  `direccion` varchar(15) DEFAULT NULL,
   `login` varchar(15) DEFAULT NULL,
   `pwd` varchar(15) DEFAULT NULL,
   `email` varchar(15) DEFAULT NULL,
   `indBloqueado` char(1) DEFAULT NULL,
   `indActivo` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `pNombre`, `sNombre`, `pApellido`, `sApellido`, `ndocIdent`, `tipo_docIdent`, `pais_id`, `ciudad_id`, `sexo_id`, `fNacimiento`, `nTelefono1`, `nTelefono2`, `direccion`, `login`, `pwd`, `email`, `indBloqueado`, `indActivo`) VALUES
+('11', 'aa', 'aa', 'aa', 'aa', '11', 'aa', '1', '1', '2', '2025-05-03 00:00:00', '3213', '3213', 'asada', 'aasa', 'aasa', 'aasa', 'N', 'S'),
+('12', 'asa', 'as', 'asa', 'asa', '12', 'asd', '2', '2', '1', '2025-05-03 00:00:00', '3213', '3213', 'aasad', 'asda', 'asda', 'asda', 'N', 'S');
 
 --
 -- Índices para tablas volcadas
@@ -249,7 +281,6 @@ ALTER TABLE `estados_task`
 -- Indices de la tabla `miembros`
 --
 ALTER TABLE `miembros`
-  ADD PRIMARY KEY (`member_id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `rol_id` (`rol_id`);
 
@@ -306,8 +337,8 @@ ALTER TABLE `team_members`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pais_id` (`pais_id`),
-  ADD KEY `city_id` (`city_id`),
-  ADD KEY `sx_id` (`sx_id`);
+  ADD KEY `ciudad_id` (`ciudad_id`),
+  ADD KEY `sexo_id` (`sexo_id`);
 
 --
 -- Restricciones para tablas volcadas
@@ -369,15 +400,15 @@ ALTER TABLE `teams`
 -- Filtros para la tabla `team_members`
 --
 ALTER TABLE `team_members`
-  ADD CONSTRAINT `team_members_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `miembros` (`member_id`);
+  ADD CONSTRAINT `team_members_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `miembros` (`user_id`);
 
 --
 -- Filtros para la tabla `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`pais_id`) REFERENCES `paises` (`pais_id`),
-  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`city_id`) REFERENCES `ciudades` (`city_id`),
-  ADD CONSTRAINT `users_ibfk_3` FOREIGN KEY (`sx_id`) REFERENCES `sexos` (`sx_id`);
+  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`ciudad_id`) REFERENCES `ciudades` (`city_id`),
+  ADD CONSTRAINT `users_ibfk_3` FOREIGN KEY (`sexo_id`) REFERENCES `sexos` (`sx_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
