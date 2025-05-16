@@ -26,8 +26,8 @@ namespace NatJoProject
         {
             try
             {
-                Paises paises = new Paises();
-                paises.Show();
+                Roles roles = new Roles();
+                roles.Show();
                 this.Close();
             }
             catch (Exception ex)
