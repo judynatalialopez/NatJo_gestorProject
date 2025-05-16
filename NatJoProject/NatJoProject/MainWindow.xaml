@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NatJoProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="566" Width="800">
     <Grid>
-        <Button Content="Registrar pais" Width="200" Height="50" Click="BtnIrRegistrarPais"/>
+        <Button Content="Registrarse" Width="200" Height="50" Click="BtnIrRegistrarPais" Margin="300,283,300,101"/>
+        <Button Content="Registrar pais" Width="200" Height="50" Click="BtnRegistrarse" Margin="300,362,300,22"/>
     </Grid>
 </Window>

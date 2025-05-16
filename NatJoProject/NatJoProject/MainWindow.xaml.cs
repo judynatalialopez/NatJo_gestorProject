@@ -28,7 +28,21 @@ namespace NatJoProject
             {
                 Register register = new Register();
                 register.Show();
-                //this.Close();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir la ventana de registro: " + ex.Message);
+            }
+        }
+
+        private void BtnRegistrarse(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Registro registro = new Registro();
+                registro.Show();
+                this.Close();
             }
             catch (Exception ex)
             {

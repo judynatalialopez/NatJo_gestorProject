@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
@@ -87,8 +88,8 @@ namespace NatJoProject.Services
                             new Ciudad { CityId = reader["ciudad_id"].ToString() },
                             new Sexo { SxId = reader["sexo_id"].ToString() },
                             DateOnly.FromDateTime(Convert.ToDateTime(reader["fNacimiento"])),
-                            Convert.ToInt32(reader["nTelefono1"]),
-                            reader["nTelefono2"] == DBNull.Value ? 0 : Convert.ToInt32(reader["nTelefono2"]),
+                            reader["nTelefono1"].ToString(),
+                            reader["nTelefono2"] == DBNull.Value ? "" : reader["nTelefono2"].ToString(),
                             reader["direccion"].ToString(),
                             reader["login"].ToString(),
                             reader["pwd"].ToString(),
@@ -142,8 +143,8 @@ namespace NatJoProject.Services
                                 new Ciudad { CityId = reader["ciudad_id"].ToString() },
                                 new Sexo { SxId = reader["sexo_id"].ToString() },
                                 DateOnly.FromDateTime(Convert.ToDateTime(reader["fNacimiento"])),
-                                Convert.ToInt32(reader["nTelefono1"]),
-                                reader["nTelefono2"] == DBNull.Value ? 0 : Convert.ToInt32(reader["nTelefono2"]),
+                                reader["nTelefono1"].ToString(),
+                                reader["nTelefono2"] == DBNull.Value ? "" : reader["nTelefono2"].ToString(),
                                 reader["direccion"].ToString(),
                                 reader["login"].ToString(),
                                 reader["pwd"].ToString(),
@@ -196,8 +197,8 @@ namespace NatJoProject.Services
                                 new Ciudad { CityId = reader["ciudad_id"].ToString() },
                                 new Sexo { SxId = reader["sexo_id"].ToString() },
                                 DateOnly.FromDateTime(Convert.ToDateTime(reader["fNacimiento"])),
-                                Convert.ToInt32(reader["nTelefono1"]),
-                                reader["nTelefono2"] == DBNull.Value ? 0 : Convert.ToInt32(reader["nTelefono2"]),
+                                reader["nTelefono1"].ToString(),
+                                reader["nTelefono2"] == DBNull.Value ? "" : reader["nTelefono2"].ToString(),
                                 reader["direccion"].ToString(),
                                 reader["login"].ToString(),
                                 reader["pwd"].ToString(),
@@ -211,7 +212,7 @@ namespace NatJoProject.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al buscar usuario: " + ex.Message);
+                MessageBox.Show("Error al buscar usuario: " + ex.Message);
             }
             finally
             {

@@ -84,7 +84,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void GetAllSexos()
+        public List<Sexo> GetAllSexos()
         {
             var sexos = sexoService.GetAllSexos();
 
@@ -104,6 +104,8 @@ namespace NatJoProject.Controllers
                 Console.WriteLine("No se encontraron sexos.");
                 Console.ResetColor();
             }
+
+            return sexos;
         }
     }
 }

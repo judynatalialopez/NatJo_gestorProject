@@ -49,7 +49,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void GetAllCiudades()
+        public List<Ciudad> GetAllCiudades()
         {
             var ciudades = ciudadService.GetAllCiudades();
 
@@ -69,6 +69,8 @@ namespace NatJoProject.Controllers
                 Console.WriteLine("No se encontraron ciudades.");
                 Console.ResetColor();
             }
+
+            return ciudades;
         }
 
         public void UpdateCiudad(Ciudad ciudad)
