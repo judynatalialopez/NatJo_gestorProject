@@ -29,25 +29,24 @@ namespace NatJoProject.ViewsPrueba
         
         private void InsertEstado(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtId.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
             {
-                MessageBox.Show("Por favor, complete todos los campos.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+                Console.WriteLine("Por favor, complete todos los campos.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             TaskEstado taskestado = new TaskEstado
             {
-                EstId = txtId.Text.Trim(),
                 Descripcion = txtDescripcion.Text.Trim()
             };
             try
             {
                 taskestadoController.InsertEstado(taskestado);
-                MessageBox.Show($"Sexo '{taskestado.EstId}' insertado con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Task estado '{taskestado.EstId}' insertado con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"No se pudo insertar el Sexo '{taskestado.EstId}'.\n\nDetalles: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"No se pudo insertar Task estado '{taskestado.EstId}'.\n\nDetalles: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

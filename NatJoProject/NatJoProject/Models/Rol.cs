@@ -8,15 +8,23 @@ namespace NatJoProject.Models
 {
     public class Rol
     {
-        public string RolId { get; set; }
+        public int RolId { get; set; }
         public string Descripcion { get; set; }
 
         public Rol()
         {
         }
-        public Rol (string RolId, string Descripcion)
+
+        //METODO CONSTRUCTOR QUE RECIBE ID
+        public Rol (int RolId, string Descripcion)
         {
             this.RolId = RolId;
+            this.Descripcion = Descripcion;
+        }
+
+        //METODO CONSTRUCTOR QUE NO RECIBE ID
+        public Rol(string Descripcion)
+        {
             this.Descripcion = Descripcion;
         }
     }

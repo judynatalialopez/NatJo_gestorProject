@@ -97,11 +97,11 @@ namespace NatJoProject.ViewsPrueba
             try
             {
                 userController.InsertUser(user);
-                MessageBox.Show($"Sexo '{user.Id}' insertado con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Usuario '{user.Id}' insertado con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"No se pudo insertar el Sexo '{user.Id}'.\n\nDetalles: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"No se pudo insertar el Usuario '{user.Id}'.\n\nDetalles: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using NatJoProject.Models;
 using NatJoProject.Services;
 
@@ -27,7 +28,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void GetPaisById(string paisId)
+        public void GetPaisById(int paisId)
         {
             var pais = paisService.GetPaisById(paisId);
 
@@ -63,7 +64,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void DeletePais(string paisId)
+        public void DeletePais(int paisId)
         {
             bool result = paisService.DeletePais(paisId);
 

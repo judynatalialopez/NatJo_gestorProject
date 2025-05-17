@@ -112,25 +112,6 @@
                 VerticalContentAlignment="Center"
                 Padding="10,0,0,0"
                 Canvas.Left="163" Canvas.Top="288" HorizontalAlignment="Left" VerticalAlignment="Top" />
-                <TextBlock Text="Id Pais"
-                Foreground="DarkGray"
-                FontSize="12"
-                FontWeight="Medium"
-                FontFamily="Montserrat"
-                Canvas.Left="163" Canvas.Top="95" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                <TextBox x:Name="txtId"
-                FontSize="13"
-                FontWeight="Medium"
-                FontFamily="Montserrat"
-                Foreground="Black"
-                CaretBrush="Black"
-                BorderBrush="Black"
-                BorderThickness="0,0,0,2"
-                Width="200"
-                Height="28"
-                VerticalContentAlignment="Center"
-                Padding="10,0,0,0"
-                Canvas.Left="163" Canvas.Top="125" HorizontalAlignment="Center" VerticalAlignment="Top" />
             </Canvas>
         </Border>
     </Border>

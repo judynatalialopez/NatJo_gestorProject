@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using NatJoProject.Models;
 using NatJoProject.Services;
 
@@ -10,7 +11,7 @@ namespace NatJoProject.Controllers
         private readonly TaskProjectService task0Service = new TaskProjectService();
 
         // Método para obtener tareas por proyecto
-        public void GetTasksByProjectId(string projId)
+        public void GetTasksByProjectId(int projId)
         {
             var tasks = task0Service.GetTasksByProjectId(projId);
 
@@ -40,7 +41,7 @@ namespace NatJoProject.Controllers
             Console.ResetColor();
         }
 
-        public void GetTask0ById(string taskId)
+        public void GetTask0ById(int taskId)
         {
             var task = task0Service.GetTaskProjectById(taskId);
             if (task != null)
@@ -78,7 +79,7 @@ namespace NatJoProject.Controllers
             Console.ResetColor();
         }
 
-        public void DeleteTask0(string taskId)
+        public void DeleteTask0(int taskId)
         {
             bool result = task0Service.DeleteTaskProject(taskId);
             Console.ForegroundColor = result ? ConsoleColor.Green : ConsoleColor.Red;

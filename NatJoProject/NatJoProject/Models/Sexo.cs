@@ -8,15 +8,23 @@ namespace NatJoProject.Models
 {
     public class Sexo
     {
-        public string SxId {  get; set; }
+        public int SxId {  get; set; }
         public string Descripcion { get; set; }
 
         public Sexo()
         {
         }
-        public Sexo(string SxId, string Descripcion)
+
+        //METODO CONSTRUCTOR QUE RECIBE ID
+        public Sexo(int SxId, string Descripcion)
         {
             this.SxId = SxId;
+            this.Descripcion = Descripcion;
+        }
+
+        //METODO CONSTRUCTOR QUE NO RECIBE ID
+        public Sexo(string Descripcion)
+        {
             this.Descripcion = Descripcion;
         }
     }

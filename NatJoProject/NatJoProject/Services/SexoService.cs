@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
@@ -15,11 +16,10 @@ namespace NatJoProject.Services
 
             try
             {
-                string query = "INSERT INTO sexos (sx_id, descripcion) VALUES (@sx_id, @descripcion)";
+                string query = "INSERT INTO sexos (descripcion) VALUES (@descripcion)";
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@sx_id", sexo.SxId);
                     cmd.Parameters.AddWithValue("@descripcion", sexo.Descripcion);
 
                     result = cmd.ExecuteNonQuery() > 0;
@@ -37,7 +37,7 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public Sexo? GetSexoById(string sxId)
+        public Sexo? GetSexoById(int sxId)
         {
             var conexion = ConexionDB.conectar();
             Sexo? sexo = null;
@@ -56,7 +56,7 @@ namespace NatJoProject.Services
                         {
                             sexo = new Sexo
                             {
-                                SxId = reader["sx_id"].ToString(),
+                                SxId = Convert.ToInt32(reader["sx_id"].ToString()),
                                 Descripcion = reader["descripcion"].ToString()
                             };
                         }
@@ -92,7 +92,7 @@ namespace NatJoProject.Services
                         {
                             Sexo sexo = new Sexo
                             {
-                                SxId = reader["sx_id"].ToString(),
+                                SxId = Convert.ToInt32(reader["sx_id"].ToString()),
                                 Descripcion = reader["descripcion"].ToString()
                             };
                             sexos.Add(sexo);
@@ -141,7 +141,7 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public bool DeleteSexo(string sxId)
+        public bool DeleteSexo(int sxId)
         {
             var conexion = ConexionDB.conectar();
             bool result = false;

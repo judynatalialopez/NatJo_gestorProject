@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2025 a las 07:14:55
+-- Tiempo de generación: 17-05-2025 a las 20:57:18
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `ciudades` (
-  `city_id` varchar(10) NOT NULL,
+  `city_id` int(11) NOT NULL,
   `nombre` varchar(15) NOT NULL,
   `cod_postal` varchar(15) NOT NULL,
-  `pais_id` varchar(10) DEFAULT NULL
+  `pais_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -39,8 +39,7 @@ CREATE TABLE `ciudades` (
 --
 
 INSERT INTO `ciudades` (`city_id`, `nombre`, `cod_postal`, `pais_id`) VALUES
-('1', 'Panam? City', '0801', '1'),
-('2', 'Bogot?', '1101', '2');
+(1, 'Bogota', '0000', 1);
 
 -- --------------------------------------------------------
 
@@ -61,7 +60,7 @@ CREATE TABLE `comentarios` (
 --
 
 CREATE TABLE `dashboards` (
-  `dashboard_id` varchar(10) DEFAULT NULL,
+  `dashboard_id` int(11) DEFAULT NULL,
   `user_id` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -72,8 +71,8 @@ CREATE TABLE `dashboards` (
 --
 
 CREATE TABLE `dashboard_proyectos` (
-  `dashboard_id` varchar(10) NOT NULL,
-  `proj_id` varchar(15) DEFAULT NULL
+  `dashboard_id` int(11) NOT NULL,
+  `proj_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -83,7 +82,7 @@ CREATE TABLE `dashboard_proyectos` (
 --
 
 CREATE TABLE `estados_task` (
-  `estado_id` varchar(10) NOT NULL,
+  `estado_id` int(11) NOT NULL,
   `descripcion` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -95,7 +94,7 @@ CREATE TABLE `estados_task` (
 
 CREATE TABLE `miembros` (
   `user_id` varchar(10) DEFAULT NULL,
-  `rol_id` varchar(15) DEFAULT NULL,
+  `rol_id` int(11) DEFAULT NULL,
   `ind_owner` char(1) DEFAULT NULL,
   `ind_admin` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -107,7 +106,7 @@ CREATE TABLE `miembros` (
 --
 
 CREATE TABLE `paises` (
-  `pais_id` varchar(10) NOT NULL,
+  `pais_id` int(11) NOT NULL,
   `nombre` varchar(25) NOT NULL,
   `dominio` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -117,8 +116,7 @@ CREATE TABLE `paises` (
 --
 
 INSERT INTO `paises` (`pais_id`, `nombre`, `dominio`) VALUES
-('1', 'Panam?', 'pa'),
-('2', 'Colombia', 'co');
+(1, 'Colombia', 'Cundinamarca');
 
 -- --------------------------------------------------------
 
@@ -127,10 +125,10 @@ INSERT INTO `paises` (`pais_id`, `nombre`, `dominio`) VALUES
 --
 
 CREATE TABLE `proyectos` (
-  `proj_id` varchar(15) NOT NULL,
+  `proj_id` int(11) NOT NULL,
   `nombre` varchar(15) DEFAULT NULL,
   `descripcion` varchar(15) DEFAULT NULL,
-  `team_id` varchar(10) DEFAULT NULL,
+  `team_id` int(11) DEFAULT NULL,
   `f_inicio` datetime DEFAULT NULL,
   `f_terminacion` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -142,7 +140,7 @@ CREATE TABLE `proyectos` (
 --
 
 CREATE TABLE `roles` (
-  `rol_id` varchar(10) NOT NULL,
+  `rol_id` int(11) NOT NULL,
   `descripcion` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -153,7 +151,7 @@ CREATE TABLE `roles` (
 --
 
 CREATE TABLE `sexos` (
-  `sx_id` varchar(10) NOT NULL,
+  `sx_id` int(11) NOT NULL,
   `descripcion` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -162,8 +160,8 @@ CREATE TABLE `sexos` (
 --
 
 INSERT INTO `sexos` (`sx_id`, `descripcion`) VALUES
-('1', 'Masculino'),
-('2', 'Femenino');
+(1, 'Masculino'),
+(2, 'Femenino');
 
 -- --------------------------------------------------------
 
@@ -172,10 +170,10 @@ INSERT INTO `sexos` (`sx_id`, `descripcion`) VALUES
 --
 
 CREATE TABLE `tasksproject` (
-  `tasks_id` varchar(10) NOT NULL,
+  `tasks_id` int(11) NOT NULL,
   `titulo` varchar(25) DEFAULT NULL,
   `descripcion` varchar(25) DEFAULT NULL,
-  `estado_id` varchar(10) DEFAULT NULL,
+  `estado_id` int(11) DEFAULT NULL,
   `f_entrega` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -186,10 +184,10 @@ CREATE TABLE `tasksproject` (
 --
 
 CREATE TABLE `teams` (
-  `team_id` varchar(10) DEFAULT NULL,
+  `team_id` int(11) DEFAULT NULL,
   `nombre` varchar(15) DEFAULT NULL,
   `ind_activo` char(1) DEFAULT NULL,
-  `proj_id` varchar(15) DEFAULT NULL,
+  `proj_id` int(11) DEFAULT NULL,
   `owner_id` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -200,7 +198,7 @@ CREATE TABLE `teams` (
 --
 
 CREATE TABLE `team_members` (
-  `team_id` varchar(10) NOT NULL,
+  `team_id` int(11) NOT NULL,
   `member_id` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -218,9 +216,9 @@ CREATE TABLE `users` (
   `sApellido` varchar(15) DEFAULT NULL,
   `ndocIdent` varchar(15) DEFAULT NULL,
   `tipo_docIdent` varchar(15) DEFAULT NULL,
-  `pais_id` varchar(10) DEFAULT NULL,
-  `ciudad_id` varchar(10) DEFAULT NULL,
-  `sexo_id` varchar(10) DEFAULT NULL,
+  `pais_id` int(11) DEFAULT NULL,
+  `ciudad_id` int(11) DEFAULT NULL,
+  `sexo_id` int(11) DEFAULT NULL,
   `fNacimiento` datetime DEFAULT NULL,
   `nTelefono1` varchar(10) DEFAULT NULL,
   `nTelefono2` varchar(10) DEFAULT NULL,
@@ -237,8 +235,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `pNombre`, `sNombre`, `pApellido`, `sApellido`, `ndocIdent`, `tipo_docIdent`, `pais_id`, `ciudad_id`, `sexo_id`, `fNacimiento`, `nTelefono1`, `nTelefono2`, `direccion`, `login`, `pwd`, `email`, `indBloqueado`, `indActivo`) VALUES
-('11', 'aa', 'aa', 'aa', 'aa', '11', 'aa', '1', '1', '2', '2025-05-03 00:00:00', '3213', '3213', 'asada', 'aasa', 'aasa', 'aasa', 'N', 'S'),
-('12', 'asa', 'as', 'asa', 'asa', '12', 'asd', '2', '2', '1', '2025-05-03 00:00:00', '3213', '3213', 'aasad', 'asda', 'asda', 'asda', 'N', 'S');
+('1047037318', 'Angel', 'David', 'Acuna', 'Meza', '1047037318', 'TI', 1, 1, 1, '2025-05-01 00:00:00', '3024330119', '3024330119', 'calle249354', 'angel@gmail.com', 'angel@gmail.com', 'angel@gmail.com', 'N', 'S');
 
 --
 -- Índices para tablas volcadas
@@ -339,6 +336,64 @@ ALTER TABLE `users`
   ADD KEY `pais_id` (`pais_id`),
   ADD KEY `ciudad_id` (`ciudad_id`),
   ADD KEY `sexo_id` (`sexo_id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `ciudades`
+--
+ALTER TABLE `ciudades`
+  MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `dashboard_proyectos`
+--
+ALTER TABLE `dashboard_proyectos`
+  MODIFY `dashboard_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `estados_task`
+--
+ALTER TABLE `estados_task`
+  MODIFY `estado_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `paises`
+--
+ALTER TABLE `paises`
+  MODIFY `pais_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `proyectos`
+--
+ALTER TABLE `proyectos`
+  MODIFY `proj_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `sexos`
+--
+ALTER TABLE `sexos`
+  MODIFY `sx_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `tasksproject`
+--
+ALTER TABLE `tasksproject`
+  MODIFY `tasks_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `team_members`
+--
+ALTER TABLE `team_members`
+  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

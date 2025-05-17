@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using NatJoProject.Models;
 using NatJoProject.Services;
 
@@ -30,7 +31,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void GetSexoById(string sxId)
+        public void GetSexoById(int sxId)
         {
             var sexo = sexoService.GetSexoById(sxId);
 
@@ -66,7 +67,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void DeleteSexo(string sxId)
+        public void DeleteSexo(int sxId)
         {
             bool result = sexoService.DeleteSexo(sxId);
 

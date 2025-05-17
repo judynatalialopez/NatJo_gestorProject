@@ -1,5 +1,6 @@
 ﻿using NatJoProject.Models;
 using NatJoProject.Services;
+using System.Windows;
 
 namespace NatJoProject.Controllers
 {
@@ -25,7 +26,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void GetRolById(string rolId)
+        public void GetRolById(int rolId)
         {
             var rol = rolService.GetRolById(rolId);
 
@@ -61,7 +62,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void DeleteRol(string rolId)
+        public void DeleteRol(int rolId)
         {
             bool result = rolService.DeleteRol(rolId);
 

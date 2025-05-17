@@ -17,7 +17,7 @@ namespace NatJoProject.ViewsPrueba
         }
         private void InsertPais_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtId.Text) || string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtDominio.Text))
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtDominio.Text))
             {
                 MessageBox.Show("Por favor, complete todos los campos.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -25,7 +25,6 @@ namespace NatJoProject.ViewsPrueba
 
             Pais pais = new Pais
             {
-                PaisId = txtId.Text.Trim(),
                 Nombre = txtNombre.Text.Trim(),
                 Dominio = txtDominio.Text.Trim()
             };

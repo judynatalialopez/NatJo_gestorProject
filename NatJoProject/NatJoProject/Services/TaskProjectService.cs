@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
@@ -19,12 +20,11 @@ namespace NatJoProject.Services
 
             try
             {
-                string query = @"INSERT INTO tasks (task_id, titulo, descripcion, estado_id, f_entrega)
-                                 VALUES (@task_id, @titulo, @descripcion, @estado_id, @f_entrega)";
+                string query = @"INSERT INTO tasks (titulo, descripcion, estado_id, f_entrega)
+                                 VALUES (@titulo, @descripcion, @estado_id, @f_entrega)";
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@task_id", task.TaskId);
                     cmd.Parameters.AddWithValue("@titulo", task.Titulo);
                     cmd.Parameters.AddWithValue("@descripcion", task.Descripcion);
                     cmd.Parameters.AddWithValue("@estado_id", task.Estado.EstId);
@@ -56,7 +56,7 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public TaskProject? GetTaskProjectById(string taskId)
+        public TaskProject? GetTaskProjectById(int taskId)
         {
             TaskProject? task = null;
             var conexion = ConexionDB.conectar();
@@ -73,11 +73,11 @@ namespace NatJoProject.Services
                     {
                         if (reader.Read())
                         {
-                            var estado = estadoService.GetEstadoById(reader["estado_id"].ToString());
+                            var estado = estadoService.GetEstadoById(Convert.ToInt32(reader["estado_id"].ToString()));
                             var fechaEntrega = Convert.ToDateTime(reader["f_entrega"]);
 
                             task = new TaskProject(
-                                reader["task_id"].ToString(),
+                                Convert.ToInt32(reader["task_id"].ToString()),
                                 reader["titulo"].ToString(),
                                 reader["descripcion"].ToString(),
                                 new List<Member>(),
@@ -93,16 +93,8 @@ namespace NatJoProject.Services
                 {
                     task.Responsable = GetResponsables(task.TaskId);
 
-                    if (int.TryParse(task.TaskId, out int taskIdAsInt))
-                    {
-                        var comentario = commentService.GetCommentById(taskIdAsInt);
-                        task.Comentarios = new List<Comment> { comentario };
-                    }
-                    else
-                    {
-                        Console.WriteLine($"[ERROR] taskId '{task.TaskId}' no es un número válido.");
-                        task.Comentarios = new List<Comment>();
-                    }
+                    var comentario = commentService.GetCommentById(task.TaskId);
+                    task.Comentarios = new List<Comment> { comentario };
                 }
 
             }
@@ -118,7 +110,7 @@ namespace NatJoProject.Services
             return task;
         }
 
-        private List<Member> GetResponsables(string taskId)
+        private List<Member> GetResponsables(int taskId)
         {
             var lista = new List<Member>();
             var conexion = ConexionDB.conectar();
@@ -162,7 +154,7 @@ namespace NatJoProject.Services
                 {
                     while (reader.Read())
                     {
-                        var task = GetTaskProjectById(reader["task_id"].ToString());
+                        var task = GetTaskProjectById(Convert.ToInt32(reader["task_id"].ToString()));
                         if (task != null)
                             lista.Add(task);
                     }
@@ -223,7 +215,7 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public List<TaskProject> GetTasksByProjectId(string projId)
+        public List<TaskProject> GetTasksByProjectId(int projId)
         {
             var tasks = new List<TaskProject>();
             var conexion = ConexionDB.conectar();
@@ -240,9 +232,9 @@ namespace NatJoProject.Services
                     {
                         while (reader.Read())
                         {
-                            var taskId = reader["task_id"].ToString();
+                            var taskId = Convert.ToInt32(reader["task_id"].ToString());
                             var memberId = reader["member_id"].ToString();
-                            var estadoId = reader["estado_id"].ToString();
+                            var estadoId = Convert.ToInt32(reader["estado_id"].ToString());
 
                             var miembro = memberService.GetMemberById(memberId);
                             var estado = estadoService.GetEstadoById(estadoId);
@@ -281,7 +273,7 @@ namespace NatJoProject.Services
         }
 
 
-        public bool DeleteTaskProject(string taskId)
+        public bool DeleteTaskProject(int taskId)
         {
             var conexion = ConexionDB.conectar();
             bool result = false;

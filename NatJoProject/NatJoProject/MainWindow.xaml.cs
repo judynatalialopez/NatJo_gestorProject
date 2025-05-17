@@ -22,21 +22,64 @@ namespace NatJoProject
             InitializeComponent();
         }
 
-        private void BtnIrRegistrarPais(object sender, RoutedEventArgs e)
+        private void BtnInsertarInsertarEstado(object sender, RoutedEventArgs e)
         {
             try
             {
-                Estados_Task estados_task = new Estados_Task();
-                estados_task.Show();
+                Estados_Task estados_Task = new Estados_Task();
+                estados_Task.Show();
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al abrir la ventana de registro: " + ex.Message);
+                Console.WriteLine("Error al abrir la ventana de registro: " + ex.Message);
             }
         }
 
-        private void BtnRegistrarse(object sender, RoutedEventArgs e)
+        private void BtnInsertarPais(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Paises paises = new Paises();
+                paises.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al abrir la ventana de registro: " + ex.Message);
+            }
+        }
+
+        private void BtnInsertarRol(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Roles roles = new Roles();
+                roles.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al abrir la ventana de registro: " + ex.Message);
+            }
+        }
+
+        private void BtnInsertarSexo(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Register register = new Register();
+                register.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al abrir la ventana de registro: " + ex.Message);
+            }
+
+        }
+
+        private void BtnInsertarUsuario(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -46,7 +89,7 @@ namespace NatJoProject
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al abrir la ventana de registro: " + ex.Message);
+                Console.WriteLine("Error al abrir la ventana de registro: " + ex.Message);
             }
         }
     }

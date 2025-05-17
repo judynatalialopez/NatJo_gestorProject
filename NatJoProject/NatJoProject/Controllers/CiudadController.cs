@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using NatJoProject.Models;
 using NatJoProject.Services;
 
@@ -30,7 +31,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void GetCiudadById(string cityId)
+        public void GetCiudadById(int cityId)
         {
             var ciudad = ciudadService.GetCiudadById(cityId);
 
@@ -91,7 +92,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void DeleteCiudad(string cityId)
+        public void DeleteCiudad(int cityId)
         {
             bool result = ciudadService.DeleteCiudad(cityId);
 

@@ -16,9 +16,19 @@ namespace NatJoProject.Models
         public Comment()
         {
         }
+
+        //METODO CONSTRUCTOR QUE RECIBE ID
         public Comment(int CommId, string Texto, Member Autor, DateTime Fcomentario) 
         {
             this.CommId = CommId;
+            this.Texto = Texto;
+            this.Autor = Autor;
+            this.Fcomentario = Fcomentario;
+        }
+
+        //METODO CONSTRUCTOR QUE NO RECIBE ID
+        public Comment(string Texto, Member Autor, DateTime Fcomentario)
+        {
             this.Texto = Texto;
             this.Autor = Autor;
             this.Fcomentario = Fcomentario;

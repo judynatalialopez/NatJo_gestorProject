@@ -28,7 +28,7 @@ namespace NatJoProject.ViewsPrueba
         }
         private void InsertRol_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtId.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
             {
                 MessageBox.Show("por favor, complete todos los campos.", "validacion", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -36,18 +36,17 @@ namespace NatJoProject.ViewsPrueba
 
             Rol rol = new Rol
             {
-                RolId = txtId.Text.Trim(),
                 Descripcion = txtDescripcion.Text.Trim()
             };
 
             try
             {
                 rolController.InsertRol(rol);
-                MessageBox.Show($"Sexo '{rol.RolId}' insertado con exito.", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Rol '{rol.RolId}' insertado con exito.", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"No se pudo insertar el sexo '{rol.RolId}'.\n\nDetalles: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"No se pudo insertar el Rol '{rol.RolId}'.\n\nDetalles: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

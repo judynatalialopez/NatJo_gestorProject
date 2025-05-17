@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using NatJoProject.Models;
 using NatJoProject.Services;
 
@@ -29,7 +30,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void BuscarPorId(string id)
+        public void BuscarPorId(int id)
         {
             var dashboard = dashboardService.GetDashboardById(id);
             if (dashboard != null)
@@ -45,7 +46,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void EliminarDashboard(string id)
+        public void EliminarDashboard(int id)
         {
             if (dashboardService.DeleteDashboard(id))
                 Console.WriteLine("Dashboard eliminado correctamente.");

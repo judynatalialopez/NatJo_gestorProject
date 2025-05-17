@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using NatJoProject.Models;
 using NatJoProject.Services;
 
@@ -20,7 +21,7 @@ namespace NatJoProject.Controllers
                 Console.WriteLine($"[ERROR] No se pudo insertar el proyecto {project.ProjId}.");
         }
 
-        public void GetProjectById(string projId)
+        public void GetProjectById(int projId)
         {
             var project = projectService.GetProjectById(projId);
             if (project != null)
@@ -58,7 +59,7 @@ namespace NatJoProject.Controllers
                 Console.WriteLine($"[ERROR] No se pudo actualizar el proyecto {project.ProjId}.");
         }
 
-        public void DeleteProject(string projId)
+        public void DeleteProject(int projId)
         {
             if (projectService.DeleteProject(projId))
                 Console.WriteLine($"[INFO] Proyecto {projId} eliminado correctamente.");

@@ -84,9 +84,9 @@ namespace NatJoProject.Services
                             reader["sApellido"].ToString(),
                             reader["ndocIdent"].ToString(),
                             reader["tipo_docIdent"].ToString(),
-                            new Pais { PaisId = reader["pais_id"].ToString() },
-                            new Ciudad { CityId = reader["ciudad_id"].ToString() },
-                            new Sexo { SxId = reader["sexo_id"].ToString() },
+                            new Pais { PaisId = Convert.ToInt32(reader["pais_id"].ToString()) },
+                            new Ciudad { CityId = Convert.ToInt32(reader["ciudad_id"].ToString()) },
+                            new Sexo { SxId = Convert.ToInt32(reader["sexo_id"].ToString()) },
                             DateOnly.FromDateTime(Convert.ToDateTime(reader["fNacimiento"])),
                             reader["nTelefono1"].ToString(),
                             reader["nTelefono2"] == DBNull.Value ? "" : reader["nTelefono2"].ToString(),
@@ -139,9 +139,9 @@ namespace NatJoProject.Services
                                 reader["sApellido"].ToString(),
                                 reader["ndocIdent"].ToString(),
                                 reader["tipo_docIdent"].ToString(),
-                                new Pais { PaisId = reader["pais_id"].ToString() },
-                                new Ciudad { CityId = reader["ciudad_id"].ToString() },
-                                new Sexo { SxId = reader["sexo_id"].ToString() },
+                                new Pais { PaisId = Convert.ToInt32(reader["pais_id"].ToString()) },
+                                new Ciudad { CityId = Convert.ToInt32(reader["ciudad_id"].ToString()) },
+                                new Sexo { SxId = Convert.ToInt32(reader["sexo_id"].ToString()) },
                                 DateOnly.FromDateTime(Convert.ToDateTime(reader["fNacimiento"])),
                                 reader["nTelefono1"].ToString(),
                                 reader["nTelefono2"] == DBNull.Value ? "" : reader["nTelefono2"].ToString(),
@@ -193,9 +193,9 @@ namespace NatJoProject.Services
                                 reader["pApellido"].ToString(),
                                 reader["ndocIdent"].ToString(),
                                 reader["tipo_docIdent"].ToString(),
-                                new Pais { PaisId = reader["pais_id"].ToString() },
-                                new Ciudad { CityId = reader["ciudad_id"].ToString() },
-                                new Sexo { SxId = reader["sexo_id"].ToString() },
+                                new Pais { PaisId = Convert.ToInt32(reader["pais_id"].ToString()) },
+                                new Ciudad { CityId = Convert.ToInt32(reader["ciudad_id"].ToString()) },
+                                new Sexo { SxId = Convert.ToInt32(reader["sexo_id"].ToString()) },
                                 DateOnly.FromDateTime(Convert.ToDateTime(reader["fNacimiento"])),
                                 reader["nTelefono1"].ToString(),
                                 reader["nTelefono2"] == DBNull.Value ? "" : reader["nTelefono2"].ToString(),
@@ -212,7 +212,7 @@ namespace NatJoProject.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al buscar usuario: " + ex.Message);
+                Console.WriteLine("Error al buscar usuario: " + ex.Message);
             }
             finally
             {

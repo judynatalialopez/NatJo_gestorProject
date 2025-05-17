@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
@@ -17,12 +18,11 @@ namespace NatJoProject.Services
 
             try
             {
-                string query = @"INSERT INTO ciudades (city_id, nombre, cod_postal, pais_id)
-                                 VALUES (@city_id, @nombre, @cod_postal, @pais_id)";
+                string query = @"INSERT INTO ciudades (nombre, cod_postal, pais_id)
+                                 VALUES (@nombre, @cod_postal, @pais_id)";
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@city_id", ciudad.CityId);
                     cmd.Parameters.AddWithValue("@nombre", ciudad.Nombre);
                     cmd.Parameters.AddWithValue("@cod_postal", ciudad.CodPostal);
                     cmd.Parameters.AddWithValue("@pais_id", ciudad.Pais.PaisId);
@@ -56,11 +56,11 @@ namespace NatJoProject.Services
                 {
                     while (reader.Read())
                     {
-                        string paisId = reader["pais_id"].ToString();
+                        int paisId = Convert.ToInt32(reader["pais_id"].ToString());
                         Pais? pais = paisService.GetPaisById(paisId);
 
                         Ciudad ciudad = new Ciudad(
-                            reader["city_id"].ToString(),
+                            Convert.ToInt32(reader["city_id"]),
                             reader["nombre"].ToString(),
                             reader["cod_postal"].ToString(),
                             pais!
@@ -82,7 +82,7 @@ namespace NatJoProject.Services
             return lista;
         }
 
-        public Ciudad? GetCiudadById(string cityId)
+        public Ciudad? GetCiudadById(int cityId)
         {
             Ciudad? ciudad = null;
             var conexion = ConexionDB.conectar();
@@ -99,11 +99,11 @@ namespace NatJoProject.Services
                     {
                         if (reader.Read())
                         {
-                            string paisId = reader["pais_id"].ToString();
+                            int paisId = Convert.ToInt32(reader["pais_id"].ToString());
                             Pais? pais = paisService.GetPaisById(paisId);
 
                             ciudad = new Ciudad(
-                                reader["city_id"].ToString(),
+                                Convert.ToInt32(reader["city_id"]),
                                 reader["nombre"].ToString(),
                                 reader["cod_postal"].ToString(),
                                 pais!
@@ -157,7 +157,7 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public bool DeleteCiudad(string cityId)
+        public bool DeleteCiudad(int cityId)
         {
             var conexion = ConexionDB.conectar();
             bool result = false;

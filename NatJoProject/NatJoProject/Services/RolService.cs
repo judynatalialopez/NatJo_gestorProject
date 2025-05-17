@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
@@ -15,11 +16,10 @@ namespace NatJoProject.Services
 
             try
             {
-                string query = "INSERT INTO roles (rol_id, descripcion) VALUES (@rol_id, @descripcion)";
+                string query = "INSERT INTO roles (descripcion) VALUES (@descripcion)";
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@rol_id", rol.RolId);
                     cmd.Parameters.AddWithValue("@descripcion", rol.Descripcion);
 
                     result = cmd.ExecuteNonQuery() > 0;
@@ -37,7 +37,7 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public Rol? GetRolById(string rolId)
+        public Rol? GetRolById(int rolId)
         {
             var conexion = ConexionDB.conectar();
             Rol? rol = null;
@@ -56,7 +56,7 @@ namespace NatJoProject.Services
                         {
                             rol = new Rol
                             {
-                                RolId = reader["rol_id"].ToString(),
+                                RolId = Convert.ToInt32(reader["rol_id"].ToString()),
                                 Descripcion = reader["descripcion"].ToString()
                             };
                         }
@@ -92,7 +92,7 @@ namespace NatJoProject.Services
                         {
                             Rol rol = new Rol
                             {
-                                RolId = reader["rol_id"].ToString(),
+                                RolId = Convert.ToInt32(reader["rol_id"].ToString()),
                                 Descripcion = reader["descripcion"].ToString()
                             };
                             roles.Add(rol);
@@ -141,7 +141,7 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public bool DeleteRol(string rolId)
+        public bool DeleteRol(int rolId)
         {
             var conexion = ConexionDB.conectar();
             bool result = false;

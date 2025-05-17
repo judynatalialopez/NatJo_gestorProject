@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
@@ -68,7 +69,7 @@ namespace NatJoProject.Services
                     {
                         if (reader.Read())
                         {
-                            Rol? rol = rolService.GetRolById(reader["rol_id"].ToString());
+                            Rol? rol = rolService.GetRolById(Convert.ToInt32(reader["rol_id"].ToString()));
                             char indOwner = Convert.ToChar(reader["ind_owner"]);
                             char indAdmin = Convert.ToChar(reader["ind_admin"]);
 

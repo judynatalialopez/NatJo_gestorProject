@@ -7,7 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="566" Width="800">
     <Grid>
-        <Button Content="Registrarse" Width="200" Height="50" Click="BtnIrRegistrarPais" Margin="300,283,300,101"/>
-        <Button Content="Registrar pais" Width="200" Height="50" Click="BtnRegistrarse" Margin="300,362,300,22"/>
+        <Button Content="Sexo" Width="200" Height="50" Click="BtnInsertarSexo" Margin="300,283,300,101"/>
+        <Button Content="Rol" Width="200" Height="50" Click="BtnInsertarRol" Margin="300,250,300,250"/>
+        <Button Content="Usuario" Width="200" Height="50" Click="BtnInsertarUsuario" Margin="300,362,300,22"/>
+        <Button Content="Estado task" Width="200" Height="50" Click="BtnInsertarInsertarEstado" Margin="300,95,300,405"/>
+        <Button Content="Pais" Width="200" Height="50" Click="BtnInsertarPais" Margin="291,174,309,326"/>
     </Grid>
 </Window>

@@ -19,7 +19,7 @@ namespace NatJoProject.ViewsPrueba
 
         private void InsertarSexo_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtId.Text) || string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
             {
                 MessageBox.Show("Por favor, complete todos los campos.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -27,7 +27,6 @@ namespace NatJoProject.ViewsPrueba
 
             Sexo sexo = new Sexo
             {
-                SxId = txtId.Text.Trim(),
                 Descripcion = txtDescripcion.Text.Trim()
             };
 

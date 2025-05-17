@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using NatJoProject.Models;
 using NatJoProject.Services;
+using System.Windows;
 
 namespace NatJoProject.Controllers
 {
@@ -21,7 +22,7 @@ namespace NatJoProject.Controllers
             Console.ResetColor();
         }
 
-        public void GetEstadoById(string id)
+        public void GetEstadoById(int id)
         {
             var estado = estadoService.GetEstadoById(id);
             if (estado != null)
@@ -45,7 +46,7 @@ namespace NatJoProject.Controllers
             Console.ResetColor();
         }
 
-        public void DeleteEstado(string id)
+        public void DeleteEstado(int id)
         {
             bool result = estadoService.DeleteEstado(id);
             Console.ForegroundColor = result ? ConsoleColor.Green : ConsoleColor.Red;

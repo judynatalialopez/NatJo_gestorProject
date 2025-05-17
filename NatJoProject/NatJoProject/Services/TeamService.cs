@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
@@ -78,7 +79,7 @@ namespace NatJoProject.Services
                     {
                         if (reader.Read())
                         {
-                            string projectId = reader["project_id"].ToString();
+                            int projectId = Convert.ToInt32(reader["project_id"].ToString());
                             string ownerId = reader["owner_id"].ToString();
 
                             Project? proyecto = projectService.GetProjectById(projectId);
@@ -86,7 +87,7 @@ namespace NatJoProject.Services
 
                             team = new Team
                             {
-                                TeamId = reader["team_id"].ToString(),
+                                TeamId = Convert.ToInt32(reader["team_id"].ToString()),
                                 Nombre = reader["nombre"].ToString(),
                                 IndActivo = Convert.ToChar(reader["ind_activo"]),
                                 Proyecto = proyecto!,

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
@@ -18,12 +19,11 @@ namespace NatJoProject.Services
 
             try
             {
-                string query = @"INSERT INTO dashboards (dboard_id, user_id) 
-                                 VALUES (@dboard_id, @user_id)";
+                string query = @"INSERT INTO dashboards (user_id) 
+                                 VALUES (@user_id)";
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@dboard_id", dashboard.DboardId);
                     cmd.Parameters.AddWithValue("@user_id", dashboard.Usuario.Id);
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -53,7 +53,7 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public Dashboard? GetDashboardById(string dboardId)
+        public Dashboard? GetDashboardById(int dboardId)
         {
             Dashboard? dashboard = null;
             var conexion = ConexionDB.conectar();
@@ -95,7 +95,7 @@ namespace NatJoProject.Services
             return dashboard;
         }
 
-        private List<Project> GetProjectsByDashboardId(string dboardId)
+        private List<Project> GetProjectsByDashboardId(int dboardId)
         {
             var proyectos = new List<Project>();
             var conexion = ConexionDB.conectar();
@@ -111,7 +111,7 @@ namespace NatJoProject.Services
                     {
                         while (reader.Read())
                         {
-                            string projId = reader["proj_id"].ToString();
+                            int projId = Convert.ToInt32(reader["proj_id"].ToString());
                             var proyecto = projectService.GetProjectById(projId);
                             if (proyecto != null)
                                 proyectos.Add(proyecto);
@@ -145,7 +145,7 @@ namespace NatJoProject.Services
                 {
                     while (reader.Read())
                     {
-                        string dboardId = reader["dboard_id"].ToString();
+                        int dboardId = Convert.ToInt32(reader["dboard_id"].ToString());
                         string userId = reader["user_id"].ToString();
                         User? user = userService.GetUserById(userId);
 
@@ -168,7 +168,7 @@ namespace NatJoProject.Services
             return dashboards;
         }
 
-        public bool DeleteDashboard(string dboardId)
+        public bool DeleteDashboard(int dboardId)
         {
             var conexion = ConexionDB.conectar();
             bool result = false;
