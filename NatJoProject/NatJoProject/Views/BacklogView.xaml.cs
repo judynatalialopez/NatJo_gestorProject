@@ -19,9 +19,9 @@ namespace NatJoProject.Views
     /// </summary>
     public partial class BacklogView : Window
     {
-        public BacklogView()
+       /* public BacklogView()
         {
             InitializeComponent();
-        }
+        }*/
     }
 }

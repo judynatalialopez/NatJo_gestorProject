@@ -37,7 +37,7 @@
                         BorderThickness="0"
                         Cursor="Hand"
                         />
-                <Button Content="registrarse"
+                <Button Content="Registrarse"
                         Background="#061B70"
                         Foreground="White"
                         FontWeight="Bold"
