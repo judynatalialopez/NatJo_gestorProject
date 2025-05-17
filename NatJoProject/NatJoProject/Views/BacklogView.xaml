@@ -1,7 +1,11 @@
 ﻿<Window x:Class="ProjectManager.Views.BacklogView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Backlog" Height="720" Width="1280"
+        Title="Backlog" Height="688" Width="1563"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowState="Maximized"
+        Topmost="True"
         WindowStartupLocation="CenterScreen"
         Background="#F0F2F5">
 
@@ -33,10 +37,10 @@
                      Background="Transparent" 
                      BorderThickness="0" 
                      Foreground="White"
-                     Margin="10">
-                <ListBoxItem Content="Proyectos"/>
-                <ListBoxItem Content="Equipos"/>
-                <ListBoxItem Content="Proyecto 3"/>
+                     Margin="10" Height="448">
+                <Button Content="Mi Dashboard" Click="Dashboard_Click"/>
+                <Button Content="Proyectos" Click="Proyectos_Click"/>
+                <Button Content="Equipos" Click="Teams_Click"/>
             </ListBox>
         </StackPanel>
 
@@ -70,59 +74,9 @@
                 </StackPanel>
             </DockPanel>
 
-            <!-- Backlog -->
-            <ScrollViewer Grid.Row="1" Padding="20">
-                <StackPanel Orientation="Vertical">
-                    <!-- Sprint 1 -->
-                    <StackPanel Margin="0,0,0,30">
-                        <TextBlock Text="Sprint 1 - Junio 2025" FontSize="16" FontWeight="Bold" Foreground="#333"/>
-                        <ItemsControl>
-                            <ItemsControl.ItemContainerStyle>
-                                <Style>
-                                    <Setter Property="FrameworkElement.Margin" Value="0,10,0,0"/>
-                                </Style>
-                            </ItemsControl.ItemContainerStyle>
 
-                            <ItemsControl.Items>
-                                <Border Background="White" Padding="10" CornerRadius="5" BorderBrush="#CCC" BorderThickness="1">
-                                    <StackPanel>
-                                        <TextBlock Text="Tarea: Diseño del login" FontWeight="Bold"/>
-                                        <TextBlock Text="Responsable: Ana López" FontSize="12" Foreground="Gray"/>
-                                    </StackPanel>
-                                </Border>
+            <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
 
-                                <Border Background="White" Padding="10" CornerRadius="5" BorderBrush="#CCC" BorderThickness="1">
-                                    <StackPanel>
-                                        <TextBlock Text="Tarea: API de autenticación" FontWeight="Bold"/>
-                                        <TextBlock Text="Responsable: Carlos Díaz" FontSize="12" Foreground="Gray"/>
-                                    </StackPanel>
-                                </Border>
-                            </ItemsControl.Items>
-                        </ItemsControl>
-                    </StackPanel>
-
-                    <!-- Sprint 2 -->
-                    <StackPanel>
-                        <TextBlock Text="Sprint 2 - Julio 2025" FontSize="16" FontWeight="Bold" Foreground="#333"/>
-                        <ItemsControl>
-                            <ItemsControl.ItemContainerStyle>
-                                <Style>
-                                    <Setter Property="FrameworkElement.Margin" Value="0,10,0,0"/>
-                                </Style>
-                            </ItemsControl.ItemContainerStyle>
-
-                            <ItemsControl.Items>
-                                <Border Background="White" Padding="10" CornerRadius="5" BorderBrush="#CCC" BorderThickness="1">
-                                    <StackPanel>
-                                        <TextBlock Text="Tarea: Dashboard del usuario" FontWeight="Bold"/>
-                                        <TextBlock Text="Responsable: Marta Ruiz" FontSize="12" Foreground="Gray"/>
-                                    </StackPanel>
-                                </Border>
-                            </ItemsControl.Items>
-                        </ItemsControl>
-                    </StackPanel>
-                </StackPanel>
-            </ScrollViewer>
         </Grid>
     </Grid>
 </Window>

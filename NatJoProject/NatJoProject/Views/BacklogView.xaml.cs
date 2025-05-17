@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NatJoProject.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,19 @@ namespace NatJoProject.Views
     /// </summary>
     public partial class BacklogView : Window
     {
-       /* public BacklogView()
+        public BacklogView()
         {
             InitializeComponent();
-        }*/
+
+            private void Dashboard_Click(object sender, RoutedEventArgs e)
+            {
+                MainFrame.Navigate(new DashboardPage());
+            }
+
+            private void Backlog_Click(object sender, RoutedEventArgs e)
+            {
+                MainFrame.Navigate(new BacklogPage());
+            }
+        }
     }
 }
