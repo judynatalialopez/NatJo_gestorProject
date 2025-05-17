@@ -8,15 +8,23 @@ namespace NatJoProject.Models
 {
     public class TaskEstado
     {
-        public string EstId {  get; set; }
+        public int EstId {  get; set; }
         public string Descripcion { get; set; }
 
         public TaskEstado()
         {
         }
-        public TaskEstado (string EstId, string Descripcion)
+
+        //METODO CONSTRUCTOR QUE RECIBE ID
+        public TaskEstado (int EstId, string Descripcion)
         {
             this.EstId = EstId;
+            this.Descripcion = Descripcion;
+        }
+
+        //METODO CONSTRUCTOR QUE NO RECIBE ID
+        public TaskEstado(string Descripcion)
+        {
             this.Descripcion = Descripcion;
         }
     }

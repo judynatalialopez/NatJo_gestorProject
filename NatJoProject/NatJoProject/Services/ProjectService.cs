@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
     public class ProjectService
     {
         private readonly TeamService teamService = new TeamService();
-        private readonly Task0Service task0Service = new Task0Service();
+        private readonly TaskProjectService task0Service = new TaskProjectService();
 
         public bool InsertProject(Project project)
         {
@@ -18,17 +19,16 @@ namespace NatJoProject.Services
 
             try
             {
-                string query = @"INSERT INTO proyectos (proj_id, nombre, descripcion, team_id, f_inicio, f_terminacion)
-                                 VALUES (@proj_id, @nombre, @descripcion, @team_id, @f_inicio, @f_terminacion)";
+                string query = @"INSERT INTO proyectos (nombre, descripcion, team_id, f_inicio, f_terminacion)
+                                 VALUES (@nombre, @descripcion, @team_id, @f_inicio, @f_terminacion)";
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@proj_id", project.projId);
-                    cmd.Parameters.AddWithValue("@nombre", project.nombre);
-                    cmd.Parameters.AddWithValue("@descripcion", project.descripcion);
-                    cmd.Parameters.AddWithValue("@team_id", project.team.teamId);
-                    cmd.Parameters.AddWithValue("@f_inicio", project.fInicio);
-                    cmd.Parameters.AddWithValue("@f_terminacion", project.fterminacion);
+                    cmd.Parameters.AddWithValue("@nombre", project.Nombre);
+                    cmd.Parameters.AddWithValue("@descripcion", project.Descripcion);
+                    cmd.Parameters.AddWithValue("@team_id", project.Team.TeamId);
+                    cmd.Parameters.AddWithValue("@f_inicio", project.Finicio);
+                    cmd.Parameters.AddWithValue("@f_terminacion", project.Fterminacion);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -45,7 +45,7 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public Project? GetProjectById(string projId)
+        public Project? GetProjectById(int projId)
         {
             Project? project = null;
             var conexion = ConexionDB.conectar();
@@ -68,7 +68,7 @@ namespace NatJoProject.Services
                             var tasks = task0Service.GetTasksByProjectId(projId);
 
                             project = new Project(
-                                reader["proj_id"].ToString(),
+                                Convert.ToInt32(reader["proj_id"].ToString()),
                                 reader["nombre"].ToString(),
                                 reader["descripcion"].ToString(),
                                 tasks,
@@ -106,7 +106,7 @@ namespace NatJoProject.Services
                 {
                     while (reader.Read())
                     {
-                        string projId = reader["proj_id"].ToString();
+                        int projId = Convert.ToInt32(reader["proj_id"].ToString());
                         var team = teamService.GetTeamById(reader["team_id"].ToString());
                         var tasks = task0Service.GetTasksByProjectId(projId);
 
@@ -150,12 +150,12 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@nombre", project.nombre);
-                    cmd.Parameters.AddWithValue("@descripcion", project.descripcion);
-                    cmd.Parameters.AddWithValue("@team_id", project.team.teamId);
-                    cmd.Parameters.AddWithValue("@f_inicio", project.fInicio);
-                    cmd.Parameters.AddWithValue("@f_terminacion", project.fterminacion);
-                    cmd.Parameters.AddWithValue("@proj_id", project.projId);
+                    cmd.Parameters.AddWithValue("@nombre", project.Nombre);
+                    cmd.Parameters.AddWithValue("@descripcion", project.Descripcion);
+                    cmd.Parameters.AddWithValue("@team_id", project.Team.TeamId);
+                    cmd.Parameters.AddWithValue("@f_inicio", project.Finicio);
+                    cmd.Parameters.AddWithValue("@f_terminacion", project.Fterminacion);
+                    cmd.Parameters.AddWithValue("@proj_id", project.ProjId);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -172,7 +172,7 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public bool DeleteProject(string projId)
+        public bool DeleteProject(int projId)
         {
             var conexion = ConexionDB.conectar();
             bool result = false;

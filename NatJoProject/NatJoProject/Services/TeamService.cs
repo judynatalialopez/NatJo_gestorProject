@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
@@ -24,26 +25,26 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@team_id", team.teamId);
-                    cmd.Parameters.AddWithValue("@nombre", team.nombre);
-                    cmd.Parameters.AddWithValue("@ind_activo", team.indActivo);
-                    cmd.Parameters.AddWithValue("@project_id", team.proyecto.projId);
-                    cmd.Parameters.AddWithValue("@owner_id", team.owner.id);
+                    cmd.Parameters.AddWithValue("@team_id", team.TeamId);
+                    cmd.Parameters.AddWithValue("@nombre", team.Nombre);
+                    cmd.Parameters.AddWithValue("@ind_activo", team.IndActivo);
+                    cmd.Parameters.AddWithValue("@project_id", team.Proyecto.ProjId);
+                    cmd.Parameters.AddWithValue("@owner_id", team.Proyecto.ProjId);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
 
-                if (result && team.miembros != null)
+                if (result && team.Miembros != null)
                 {
-                    foreach (var miembro in team.miembros)
+                    foreach (var miembro in team.Miembros)
                     {
                         string miembroQuery = @"INSERT INTO team_members (team_id, member_id)
                                                 VALUES (@team_id, @member_id)";
 
                         using (var cmd = new MySqlCommand(miembroQuery, conexion))
                         {
-                            cmd.Parameters.AddWithValue("@team_id", team.teamId);
-                            cmd.Parameters.AddWithValue("@member_id", miembro.id);
+                            cmd.Parameters.AddWithValue("@team_id", team.TeamId);
+                            cmd.Parameters.AddWithValue("@member_id", miembro.Id);
                             cmd.ExecuteNonQuery();
                         }
                     }
@@ -78,7 +79,7 @@ namespace NatJoProject.Services
                     {
                         if (reader.Read())
                         {
-                            string projectId = reader["project_id"].ToString();
+                            int projectId = Convert.ToInt32(reader["project_id"].ToString());
                             string ownerId = reader["owner_id"].ToString();
 
                             Project? proyecto = projectService.GetProjectById(projectId);
@@ -86,12 +87,12 @@ namespace NatJoProject.Services
 
                             team = new Team
                             {
-                                teamId = reader["team_id"].ToString(),
-                                nombre = reader["nombre"].ToString(),
-                                indActivo = Convert.ToChar(reader["ind_activo"]),
-                                proyecto = proyecto!,
-                                owner = owner!,
-                                miembros = new List<Member>()
+                                TeamId = Convert.ToInt32(reader["team_id"].ToString()),
+                                Nombre = reader["nombre"].ToString(),
+                                IndActivo = Convert.ToChar(reader["ind_activo"]),
+                                Proyecto = proyecto!,
+                                Owner = owner!,
+                                Miembros = new List<Member>()
                             };
                         }
                     }
@@ -112,7 +113,7 @@ namespace NatJoProject.Services
                                 string memberId = reader["member_id"].ToString();
                                 Member? miembro = memberService.GetMemberById(memberId);
                                 if (miembro != null)
-                                    team.miembros.Add(miembro);
+                                    team.Miembros.Add(miembro);
                             }
                         }
                     }
@@ -177,11 +178,11 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@nombre", team.nombre);
-                    cmd.Parameters.AddWithValue("@ind_activo", team.indActivo);
-                    cmd.Parameters.AddWithValue("@project_id", team.proyecto.projId);
-                    cmd.Parameters.AddWithValue("@owner_id", team.owner.id);
-                    cmd.Parameters.AddWithValue("@team_id", team.teamId);
+                    cmd.Parameters.AddWithValue("@nombre", team.Nombre);
+                    cmd.Parameters.AddWithValue("@ind_activo", team.IndActivo);
+                    cmd.Parameters.AddWithValue("@project_id", team.Proyecto.ProjId);
+                    cmd.Parameters.AddWithValue("@owner_id", team.Proyecto.ProjId);
+                    cmd.Parameters.AddWithValue("@team_id", team.TeamId);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -190,18 +191,18 @@ namespace NatJoProject.Services
                 string deleteQuery = "DELETE FROM team_members WHERE team_id = @team_id";
                 using (var cmd = new MySqlCommand(deleteQuery, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@team_id", team.teamId);
+                    cmd.Parameters.AddWithValue("@team_id", team.TeamId);
                     cmd.ExecuteNonQuery();
                 }
 
-                foreach (var miembro in team.miembros)
+                foreach (var miembro in team.Miembros)
                 {
                     string insertQuery = @"INSERT INTO team_members (team_id, member_id) 
                                            VALUES (@team_id, @member_id)";
                     using (var cmd = new MySqlCommand(insertQuery, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@team_id", team.teamId);
-                        cmd.Parameters.AddWithValue("@member_id", miembro.id);
+                        cmd.Parameters.AddWithValue("@team_id", team.TeamId);
+                        cmd.Parameters.AddWithValue("@member_id", miembro.Id);
                         cmd.ExecuteNonQuery();
                     }
                 }

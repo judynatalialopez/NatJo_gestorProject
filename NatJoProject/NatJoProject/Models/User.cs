@@ -20,11 +20,11 @@ namespace NatJoProject.Models
         public Ciudad Ciudad { get; set; }
         public Sexo Sexo { get; set; }
         public DateOnly Fnacimiento { get; set; }
-        public int Ntelefono1 { get; set; }
-        public int? Ntelefono2 { get; set; }
+        public string Ntelefono1 { get; set; }
+        public string? Ntelefono2 { get; set; }
         public string Direccion { get; set; }
-        public string Login { get => Pwd; set => Pwd = value; }
-        public string Pwd { get => Pwd; set => Pwd = value; }
+        public string Login { get; set; }
+        public string Pwd { get; set; }
         public string Email { get => Pwd; set => Pwd = value; }
 
         public char IndBloqueado {  get; set; }
@@ -33,7 +33,8 @@ namespace NatJoProject.Models
         public User()
         {
         }
-        public User(string Id, string Pnombre, string? Snombre, string Papellido, string NdocIdent, string Tipo_docIdent, Pais Pais, Ciudad Ciudad, Sexo Sexo, DateOnly Fnacimiento, int Ntelefono1, int Ntelefono2, string Direccion, string Login, string Pwd, string Email, char IndBloqueado, char IndActivo)
+
+        public User(string Id, string Pnombre, string? Snombre, string Papellido, string? Sapellido, string NdocIdent, string Tipo_docIdent, Pais Pais, Ciudad Ciudad, Sexo Sexo, DateOnly Fnacimiento, string Ntelefono1, string Ntelefono2, string Direccion, string Login, string Pwd, string Email, char IndBloqueado, char IndActivo)
         {
             this.Id = Id;
             this.Pnombre = Pnombre;

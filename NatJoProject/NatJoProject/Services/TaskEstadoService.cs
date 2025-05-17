@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
@@ -18,11 +19,10 @@ namespace NatJoProject.Services
 
             try
             {
-                string query = "INSERT INTO estados_task (estado_id, descripcion) VALUES (@id, @desc)";
+                string query = "INSERT INTO estados_task (descripcion) VALUES (@desc)";
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@id", estado.estId);
-                    cmd.Parameters.AddWithValue("@desc", estado.descripcion);
+                    cmd.Parameters.AddWithValue("@desc", estado.Descripcion);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -39,7 +39,7 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public TaskEstado? GetEstadoById(string id)
+        public TaskEstado? GetEstadoById(int id)
         {
             TaskEstado? estado = null;
             var conexion = ConexionDB.conectar();
@@ -55,7 +55,7 @@ namespace NatJoProject.Services
                         if (reader.Read())
                         {
                             estado = new TaskEstado(
-                                reader["estado_id"].ToString(),
+                                Convert.ToInt32(reader["estado_id"].ToString()),
                                 reader["descripcion"].ToString()
                             );
                         }
@@ -88,7 +88,7 @@ namespace NatJoProject.Services
                     while (reader.Read())
                     {
                         lista.Add(new TaskEstado(
-                            reader["estado_id"].ToString(),
+                            Convert.ToInt32(reader["estado_id"].ToString()),
                             reader["descripcion"].ToString()
                         ));
                     }
@@ -116,8 +116,8 @@ namespace NatJoProject.Services
                 string query = "UPDATE estados_task SET descripcion = @desc WHERE estado_id = @id";
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@desc", estado.descripcion);
-                    cmd.Parameters.AddWithValue("@id", estado.estId);
+                    cmd.Parameters.AddWithValue("@desc", estado.Descripcion);
+                    cmd.Parameters.AddWithValue("@id", estado.EstId);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -134,7 +134,7 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public bool DeleteEstado(string id)
+        public bool DeleteEstado(int id)
         {
             var conexion = ConexionDB.conectar();
             bool result = false;

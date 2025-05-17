@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
@@ -26,25 +27,25 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@id", user.id);
-                    cmd.Parameters.AddWithValue("@pNombre", user.pNombre);
-                    cmd.Parameters.AddWithValue("@sNombre", user.sNombre ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@pApellido", user.pApellido);
-                    cmd.Parameters.AddWithValue("@sApellido", user.sApellido ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@ndocIdent", user.ndocIdent);
-                    cmd.Parameters.AddWithValue("@tipo_docIdent", user.tipo_docIdent);
-                    cmd.Parameters.AddWithValue("@pais_id", user.pais.paisId);
-                    cmd.Parameters.AddWithValue("@ciudad_id", user.ciudad.cityId);
-                    cmd.Parameters.AddWithValue("@sexo_id", user.sexo.sxId);
-                    cmd.Parameters.AddWithValue("@fNacimiento", user.fNacimiento.ToDateTime(TimeOnly.MinValue));
-                    cmd.Parameters.AddWithValue("@nTelefono1", user.nTelefono1);
-                    cmd.Parameters.AddWithValue("@nTelefono2", user.nTelefono2 ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@direccion", user.direccion);
-                    cmd.Parameters.AddWithValue("@login", user.login);
-                    cmd.Parameters.AddWithValue("@pwd", user.pwd);
-                    cmd.Parameters.AddWithValue("@email", user.email);
-                    cmd.Parameters.AddWithValue("@indBloqueado", user.indBloqueado);
-                    cmd.Parameters.AddWithValue("@indActivo", user.indActivo);
+                    cmd.Parameters.AddWithValue("@id", user.Id);
+                    cmd.Parameters.AddWithValue("@pNombre", user.Pnombre);
+                    cmd.Parameters.AddWithValue("@sNombre", user.Snombre ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@pApellido", user.Papellido);
+                    cmd.Parameters.AddWithValue("@sApellido", user.Sapellido ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@ndocIdent", user.NdocIdent);
+                    cmd.Parameters.AddWithValue("@tipo_docIdent", user.Tipo_docIdent);
+                    cmd.Parameters.AddWithValue("@pais_id", user.Pais.PaisId);
+                    cmd.Parameters.AddWithValue("@ciudad_id", user.Ciudad.CityId);
+                    cmd.Parameters.AddWithValue("@sexo_id", user.Sexo.SxId);
+                    cmd.Parameters.AddWithValue("@fNacimiento", user.Fnacimiento.ToDateTime(TimeOnly.MinValue));
+                    cmd.Parameters.AddWithValue("@nTelefono1", user.Ntelefono1);
+                    cmd.Parameters.AddWithValue("@nTelefono2", user.Ntelefono2 ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@direccion", user.Direccion);
+                    cmd.Parameters.AddWithValue("@login", user.Login);
+                    cmd.Parameters.AddWithValue("@pwd", user.Pwd);
+                    cmd.Parameters.AddWithValue("@email", user.Email);
+                    cmd.Parameters.AddWithValue("@indBloqueado", user.IndBloqueado);
+                    cmd.Parameters.AddWithValue("@indActivo", user.IndActivo);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -80,14 +81,15 @@ namespace NatJoProject.Services
                             reader["pNombre"].ToString(),
                             reader["sNombre"]?.ToString(),
                             reader["pApellido"].ToString(),
+                            reader["sApellido"].ToString(),
                             reader["ndocIdent"].ToString(),
                             reader["tipo_docIdent"].ToString(),
-                            new Pais { paisId = reader["pais_id"].ToString() },
-                            new Ciudad { cityId = reader["ciudad_id"].ToString() },
-                            new Sexo { sxId = reader["sexo_id"].ToString() },
+                            new Pais { PaisId = Convert.ToInt32(reader["pais_id"].ToString()) },
+                            new Ciudad { CityId = Convert.ToInt32(reader["ciudad_id"].ToString()) },
+                            new Sexo { SxId = Convert.ToInt32(reader["sexo_id"].ToString()) },
                             DateOnly.FromDateTime(Convert.ToDateTime(reader["fNacimiento"])),
-                            Convert.ToInt32(reader["nTelefono1"]),
-                            reader["nTelefono2"] == DBNull.Value ? 0 : Convert.ToInt32(reader["nTelefono2"]),
+                            reader["nTelefono1"].ToString(),
+                            reader["nTelefono2"] == DBNull.Value ? "" : reader["nTelefono2"].ToString(),
                             reader["direccion"].ToString(),
                             reader["login"].ToString(),
                             reader["pwd"].ToString(),
@@ -134,14 +136,15 @@ namespace NatJoProject.Services
                                 reader["pNombre"].ToString(),
                                 reader["sNombre"]?.ToString(),
                                 reader["pApellido"].ToString(),
+                                reader["sApellido"].ToString(),
                                 reader["ndocIdent"].ToString(),
                                 reader["tipo_docIdent"].ToString(),
-                                new Pais { paisId = reader["pais_id"].ToString() },
-                                new Ciudad { cityId = reader["ciudad_id"].ToString() },
-                                new Sexo { sxId = reader["sexo_id"].ToString() },
+                                new Pais { PaisId = Convert.ToInt32(reader["pais_id"].ToString()) },
+                                new Ciudad { CityId = Convert.ToInt32(reader["ciudad_id"].ToString()) },
+                                new Sexo { SxId = Convert.ToInt32(reader["sexo_id"].ToString()) },
                                 DateOnly.FromDateTime(Convert.ToDateTime(reader["fNacimiento"])),
-                                Convert.ToInt32(reader["nTelefono1"]),
-                                reader["nTelefono2"] == DBNull.Value ? 0 : Convert.ToInt32(reader["nTelefono2"]),
+                                reader["nTelefono1"].ToString(),
+                                reader["nTelefono2"] == DBNull.Value ? "" : reader["nTelefono2"].ToString(),
                                 reader["direccion"].ToString(),
                                 reader["login"].ToString(),
                                 reader["pwd"].ToString(),
@@ -186,15 +189,16 @@ namespace NatJoProject.Services
                                 reader["id"].ToString(),
                                 reader["pNombre"].ToString(),
                                 reader["sNombre"]?.ToString(),
+                                reader["sApellido"].ToString(),
                                 reader["pApellido"].ToString(),
                                 reader["ndocIdent"].ToString(),
                                 reader["tipo_docIdent"].ToString(),
-                                new Pais { paisId = reader["pais_id"].ToString() },
-                                new Ciudad { cityId = reader["ciudad_id"].ToString() },
-                                new Sexo { sxId = reader["sexo_id"].ToString() },
+                                new Pais { PaisId = Convert.ToInt32(reader["pais_id"].ToString()) },
+                                new Ciudad { CityId = Convert.ToInt32(reader["ciudad_id"].ToString()) },
+                                new Sexo { SxId = Convert.ToInt32(reader["sexo_id"].ToString()) },
                                 DateOnly.FromDateTime(Convert.ToDateTime(reader["fNacimiento"])),
-                                Convert.ToInt32(reader["nTelefono1"]),
-                                reader["nTelefono2"] == DBNull.Value ? 0 : Convert.ToInt32(reader["nTelefono2"]),
+                                reader["nTelefono1"].ToString(),
+                                reader["nTelefono2"] == DBNull.Value ? "" : reader["nTelefono2"].ToString(),
                                 reader["direccion"].ToString(),
                                 reader["login"].ToString(),
                                 reader["pwd"].ToString(),
@@ -248,25 +252,25 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@id", user.id);
-                    cmd.Parameters.AddWithValue("@pNombre", user.pNombre);
-                    cmd.Parameters.AddWithValue("@sNombre", user.sNombre ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@pApellido", user.pApellido);
-                    cmd.Parameters.AddWithValue("@sApellido", user.sApellido ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@ndocIdent", user.ndocIdent);
-                    cmd.Parameters.AddWithValue("@tipo_docIdent", user.tipo_docIdent);
-                    cmd.Parameters.AddWithValue("@pais_id", user.pais.paisId);
-                    cmd.Parameters.AddWithValue("@ciudad_id", user.ciudad.cityId);
-                    cmd.Parameters.AddWithValue("@sexo_id", user.sexo.sxId);
-                    cmd.Parameters.AddWithValue("@fNacimiento", user.fNacimiento.ToDateTime(TimeOnly.MinValue));
-                    cmd.Parameters.AddWithValue("@nTelefono1", user.nTelefono1);
-                    cmd.Parameters.AddWithValue("@nTelefono2", user.nTelefono2 ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@direccion", user.direccion);
-                    cmd.Parameters.AddWithValue("@login", user.login);
-                    cmd.Parameters.AddWithValue("@pwd", user.pwd);
-                    cmd.Parameters.AddWithValue("@email", user.email);
-                    cmd.Parameters.AddWithValue("@indBloqueado", user.indBloqueado);
-                    cmd.Parameters.AddWithValue("@indActivo", user.indActivo);
+                    cmd.Parameters.AddWithValue("@id", user.Id);
+                    cmd.Parameters.AddWithValue("@pNombre", user.Pnombre);
+                    cmd.Parameters.AddWithValue("@sNombre", user.Snombre ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@pApellido", user.Papellido);
+                    cmd.Parameters.AddWithValue("@sApellido", user.Sapellido ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@ndocIdent", user.NdocIdent);
+                    cmd.Parameters.AddWithValue("@tipo_docIdent", user.Tipo_docIdent);
+                    cmd.Parameters.AddWithValue("@pais_id", user.Pais.PaisId);
+                    cmd.Parameters.AddWithValue("@ciudad_id", user.Ciudad.CityId);
+                    cmd.Parameters.AddWithValue("@sexo_id", user.Sexo.SxId);
+                    cmd.Parameters.AddWithValue("@fNacimiento", user.Fnacimiento.ToDateTime(TimeOnly.MinValue));
+                    cmd.Parameters.AddWithValue("@nTelefono1", user.Ntelefono1);
+                    cmd.Parameters.AddWithValue("@nTelefono2", user.Ntelefono2 ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@direccion", user.Direccion);
+                    cmd.Parameters.AddWithValue("@login", user.Login);
+                    cmd.Parameters.AddWithValue("@pwd", user.Pwd);
+                    cmd.Parameters.AddWithValue("@email", user.Email);
+                    cmd.Parameters.AddWithValue("@indBloqueado", user.IndBloqueado);
+                    cmd.Parameters.AddWithValue("@indActivo", user.IndActivo);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }

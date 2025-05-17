@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using NatJoProject.Models;
 using NatJoProject.Services;
 
@@ -23,7 +24,7 @@ namespace NatJoProject.Controllers
             if (comment != null)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"ID: {comment.commId}, Texto: {comment.texto}, Autor: {comment.autor.pNombre}, Fecha: {comment.fcomentario}");
+                Console.WriteLine($"ID: {comment.CommId}, Texto: {comment.Texto}, Autor: {comment.Autor.Pnombre}, Fecha: {comment.Fcomentario}");
             }
             else
             {
@@ -40,7 +41,7 @@ namespace NatJoProject.Controllers
             Console.WriteLine("Listado de Comentarios:");
             foreach (var c in lista)
             {
-                Console.WriteLine($"ID: {c.commId} | Texto: {c.texto} | Autor: {c.autor.pNombre} {c.autor.pApellido} | Fecha: {c.fcomentario}");
+                Console.WriteLine($"ID: {c.CommId} | Texto: {c.Texto} | Autor: {c.Autor.Pnombre} {c.Autor.Papellido} | Fecha: {c.Fcomentario}");
             }
             Console.ResetColor();
         }

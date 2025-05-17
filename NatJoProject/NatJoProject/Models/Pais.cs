@@ -8,18 +8,26 @@ namespace NatJoProject.Models
 {
     public class Pais
     {
-        public String PaisId { get; set; }
-        public String Nombre { get; set; }
-        public String Dominio { get; set; }
+        public int PaisId { get; set; }
+        public string Nombre { get; set; }
+        public string Dominio { get; set; }
 
 
         public Pais()
         {
         }
 
-        public Pais(string PaisId, string Nombre, string Dominio)
+        //METODO CONSTRUCTOR QUE RECIBE ID
+        public Pais(int PaisId, string Nombre, string Dominio)
         {
             this.PaisId = PaisId;
+            this.Nombre = Nombre;
+            this.Dominio = Dominio;
+        }
+
+        //METODO CONSTRUCTOR QUE NO RECIBE ID
+        public Pais(string Nombre, string Dominio)
+        {
             this.Nombre = Nombre;
             this.Dominio = Dominio;
         }

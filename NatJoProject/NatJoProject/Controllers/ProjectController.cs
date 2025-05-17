@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using NatJoProject.Models;
 using NatJoProject.Services;
 
@@ -15,17 +16,17 @@ namespace NatJoProject.Controllers
         public void InsertProject(Project project)
         {
             if (projectService.InsertProject(project))
-                Console.WriteLine($"[INFO] Proyecto {project.projId} insertado correctamente.");
+                Console.WriteLine($"[INFO] Proyecto {project.ProjId} insertado correctamente.");
             else
-                Console.WriteLine($"[ERROR] No se pudo insertar el proyecto {project.projId}.");
+                Console.WriteLine($"[ERROR] No se pudo insertar el proyecto {project.ProjId}.");
         }
 
-        public void GetProjectById(string projId)
+        public void GetProjectById(int projId)
         {
             var project = projectService.GetProjectById(projId);
             if (project != null)
             {
-                Console.WriteLine($"Proyecto: {project.nombre} - {project.descripcion} - {project.fInicio:yyyy-MM-dd} a {project.fterminacion:yyyy-MM-dd}");
+                Console.WriteLine($"Proyecto: {project.Nombre} - {project.Descripcion} - {project.Finicio:yyyy-MM-dd} a {project.Fterminacion:yyyy-MM-dd}");
             }
             else
             {
@@ -41,7 +42,7 @@ namespace NatJoProject.Controllers
                 Console.WriteLine($"Se encontraron {projects.Count} proyectos:");
                 foreach (var p in projects)
                 {
-                    Console.WriteLine($"- {p.projId}: {p.nombre} ({p.fInicio:yyyy-MM-dd})");
+                    Console.WriteLine($"- {p.ProjId}: {p.Nombre} ({p.Finicio:yyyy-MM-dd})");
                 }
             }
             else
@@ -53,12 +54,12 @@ namespace NatJoProject.Controllers
         public void UpdateProject(Project project)
         {
             if (projectService.UpdateProject(project))
-                Console.WriteLine($"[INFO] Proyecto {project.projId} actualizado correctamente.");
+                Console.WriteLine($"[INFO] Proyecto {project.ProjId} actualizado correctamente.");
             else
-                Console.WriteLine($"[ERROR] No se pudo actualizar el proyecto {project.projId}.");
+                Console.WriteLine($"[ERROR] No se pudo actualizar el proyecto {project.ProjId}.");
         }
 
-        public void DeleteProject(string projId)
+        public void DeleteProject(int projId)
         {
             if (projectService.DeleteProject(projId))
                 Console.WriteLine($"[INFO] Proyecto {projId} eliminado correctamente.");

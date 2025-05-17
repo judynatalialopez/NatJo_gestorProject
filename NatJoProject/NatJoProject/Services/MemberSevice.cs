@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
@@ -27,10 +28,10 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@user_id", member.id);
-                    cmd.Parameters.AddWithValue("@rol_id", member.rolUser.rolId);
-                    cmd.Parameters.AddWithValue("@ind_owner", member.indOwner);
-                    cmd.Parameters.AddWithValue("@ind_admin", member.indAdmin);
+                    cmd.Parameters.AddWithValue("@user_id", member.Id);
+                    cmd.Parameters.AddWithValue("@rol_id", member.RolUser.RolId);
+                    cmd.Parameters.AddWithValue("@ind_owner", member.IndOwner);
+                    cmd.Parameters.AddWithValue("@ind_admin", member.IndAdmin);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -68,30 +69,30 @@ namespace NatJoProject.Services
                     {
                         if (reader.Read())
                         {
-                            Rol? rol = rolService.GetRolById(reader["rol_id"].ToString());
+                            Rol? rol = rolService.GetRolById(Convert.ToInt32(reader["rol_id"].ToString()));
                             char indOwner = Convert.ToChar(reader["ind_owner"]);
                             char indAdmin = Convert.ToChar(reader["ind_admin"]);
 
                             member = new Member(
-                                user.id,
-                                user.pNombre,
-                                user.sNombre,
-                                user.pApellido,
-                                user.sApellido,
-                                user.ndocIdent,
-                                user.tipo_docIdent,
-                                user.pais,
-                                user.ciudad,
-                                user.sexo,
-                                user.fNacimiento,
-                                user.nTelefono1,
-                                user.nTelefono2,
-                                user.direccion,
-                                user.login,
-                                user.pwd,
-                                user.email,
-                                user.indBloqueado,
-                                user.indActivo,
+                                user.Id,
+                                user.Pnombre,
+                                user.Snombre,
+                                user.Papellido,
+                                user.Sapellido,
+                                user.NdocIdent,
+                                user.Tipo_docIdent,
+                                user.Pais,
+                                user.Ciudad,
+                                user.Sexo,
+                                user.Fnacimiento,
+                                user.Ntelefono1,
+                                user.Ntelefono2,
+                                user.Direccion,
+                                user.Login,
+                                user.Pwd,
+                                user.Email,
+                                user.IndBloqueado,
+                                user.IndActivo,
                                 rol!,
                                 indOwner,
                                 indAdmin
@@ -119,7 +120,7 @@ namespace NatJoProject.Services
 
             foreach (var user in users)
             {
-                var member = GetMemberById(user.id);
+                var member = GetMemberById(user.Id);
                 if (member != null)
                     lista.Add(member);
             }
@@ -142,10 +143,10 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@rol_id", member.rolUser.rolId);
-                    cmd.Parameters.AddWithValue("@ind_owner", member.indOwner);
-                    cmd.Parameters.AddWithValue("@ind_admin", member.indAdmin);
-                    cmd.Parameters.AddWithValue("@user_id", member.id);
+                    cmd.Parameters.AddWithValue("@rol_id", member.RolUser.RolId);
+                    cmd.Parameters.AddWithValue("@ind_owner", member.IndOwner);
+                    cmd.Parameters.AddWithValue("@ind_admin", member.IndAdmin);
+                    cmd.Parameters.AddWithValue("@user_id", member.Id);
 
                     memberUpdated = cmd.ExecuteNonQuery() > 0;
                 }

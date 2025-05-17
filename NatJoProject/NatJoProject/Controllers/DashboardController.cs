@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using NatJoProject.Models;
 using NatJoProject.Services;
 
@@ -22,22 +23,22 @@ namespace NatJoProject.Controllers
             var dashboards = dashboardService.GetAllDashboards();
             foreach (var d in dashboards)
             {
-                Console.WriteLine($"Dashboard: {d.dboardId} - Usuario: {d.usuario.pNombre} {d.usuario.pApellido}");
+                Console.WriteLine($"Dashboard: {d.DboardId} - Usuario: {d.Usuario.Pnombre} {d.Usuario.Papellido}");
                 Console.WriteLine("Proyectos:");
-                foreach (var p in d.proyectos)
-                    Console.WriteLine($"\t{p.nombre} - {p.descripcion}");
+                foreach (var p in d.Proyectos)
+                    Console.WriteLine($"\t{p.Nombre} - {p.Descripcion}");
             }
         }
 
-        public void BuscarPorId(string id)
+        public void BuscarPorId(int id)
         {
             var dashboard = dashboardService.GetDashboardById(id);
             if (dashboard != null)
             {
-                Console.WriteLine($"Dashboard: {dashboard.dboardId} - Usuario: {dashboard.usuario.pNombre} {dashboard.usuario.pApellido}");
+                Console.WriteLine($"Dashboard: {dashboard.DboardId} - Usuario: {dashboard.Usuario.Pnombre} {dashboard.Usuario.Papellido}");
                 Console.WriteLine("Proyectos:");
-                foreach (var p in dashboard.proyectos)
-                    Console.WriteLine($"\t{p.nombre} - {p.descripcion}");
+                foreach (var p in dashboard.Proyectos)
+                    Console.WriteLine($"\t{p.Nombre} - {p.Descripcion}");
             }
             else
             {
@@ -45,7 +46,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void EliminarDashboard(string id)
+        public void EliminarDashboard(int id)
         {
             if (dashboardService.DeleteDashboard(id))
                 Console.WriteLine("Dashboard eliminado correctamente.");

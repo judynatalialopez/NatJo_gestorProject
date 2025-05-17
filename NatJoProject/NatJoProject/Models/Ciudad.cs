@@ -8,7 +8,7 @@ namespace NatJoProject.Models
 {
     public class Ciudad
     {
-        public string CityId { get; set; }
+        public int CityId { get; set; }
         public string Nombre { get; set; }
         public string CodPostal { get; set; }
         public Pais Pais { get; set; }
@@ -16,9 +16,19 @@ namespace NatJoProject.Models
         public Ciudad()
         {
         }
-        public Ciudad(string CityId, string Nombre, string CodPostal, Pais Pais) 
+
+        //METODO CONSTRUCTOR QUE RECIBE ID
+        public Ciudad(int CityId, string Nombre, string CodPostal, Pais Pais) 
         {
             this.CityId = CityId;
+            this.Nombre = Nombre;
+            this.CodPostal = CodPostal;
+            this.Pais = Pais;
+        }
+
+        //METODO CONSTRUCTOR QUE NO RECIBE ID
+        public Ciudad(string Nombre, string CodPostal, Pais Pais)
+        {
             this.Nombre = Nombre;
             this.CodPostal = CodPostal;
             this.Pais = Pais;

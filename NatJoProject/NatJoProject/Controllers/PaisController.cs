@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using NatJoProject.Models;
 using NatJoProject.Services;
 
@@ -16,25 +17,25 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] País {pais.paisId} insertado con éxito.");
+                Console.WriteLine($"[INFO] País {pais.PaisId} insertado con éxito.");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo insertar el País {pais.paisId}.");
+                Console.WriteLine($"[ERROR] No se pudo insertar el País {pais.PaisId}.");
                 Console.ResetColor();
             }
         }
 
-        public void GetPaisById(string paisId)
+        public void GetPaisById(int paisId)
         {
             var pais = paisService.GetPaisById(paisId);
 
             if (pais != null)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"País encontrado: {pais.nombre} ({pais.dominio})");
+                Console.WriteLine($"País encontrado: {pais.Nombre} ({pais.Dominio})");
                 Console.ResetColor();
             }
             else
@@ -52,18 +53,18 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] País {pais.paisId} actualizado con éxito.");
+                Console.WriteLine($"[INFO] País {pais.PaisId} actualizado con éxito.");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo actualizar el País {pais.paisId}.");
+                Console.WriteLine($"[ERROR] No se pudo actualizar el País {pais.PaisId}.");
                 Console.ResetColor();
             }
         }
 
-        public void DeletePais(string paisId)
+        public void DeletePais(int paisId)
         {
             bool result = paisService.DeletePais(paisId);
 

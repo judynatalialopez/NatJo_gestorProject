@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using NatJoProject.Models;
 using NatJoProject.Database;
+using System.Windows;
 
 namespace NatJoProject.Services
 {
@@ -15,14 +16,13 @@ namespace NatJoProject.Services
 
             try
             {
-                string query = @"INSERT INTO paises (pais_id, nombre, dominio)
-                                 VALUES (@pais_id, @nombre, @dominio)";
+                string query = @"INSERT INTO paises (nombre, dominio)
+                                 VALUES (@nombre, @dominio)";
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@pais_id", pais.paisId);
-                    cmd.Parameters.AddWithValue("@nombre", pais.nombre);
-                    cmd.Parameters.AddWithValue("@dominio", pais.dominio);
+                    cmd.Parameters.AddWithValue("@nombre", pais.Nombre);
+                    cmd.Parameters.AddWithValue("@dominio", pais.Dominio);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -54,7 +54,7 @@ namespace NatJoProject.Services
                     while (reader.Read())
                     {
                         Pais pais = new Pais(
-                            reader["pais_id"].ToString(),
+                            Convert.ToInt32(reader["pais_id"].ToString()),
                             reader["nombre"].ToString(),
                             reader["dominio"].ToString()
                         );
@@ -74,7 +74,7 @@ namespace NatJoProject.Services
             return lista;
         }
 
-        public Pais? GetPaisById(string paisId)
+        public Pais? GetPaisById(int paisId)
         {
             Pais? pais = null;
             var conexion = ConexionDB.conectar();
@@ -92,7 +92,7 @@ namespace NatJoProject.Services
                         if (reader.Read())
                         {
                             pais = new Pais(
-                                reader["pais_id"].ToString(),
+                                Convert.ToInt32(reader["pais_id"].ToString()),
                                 reader["nombre"].ToString(),
                                 reader["dominio"].ToString()
                             );
@@ -125,9 +125,9 @@ namespace NatJoProject.Services
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@nombre", pais.nombre);
-                    cmd.Parameters.AddWithValue("@dominio", pais.dominio);
-                    cmd.Parameters.AddWithValue("@pais_id", pais.paisId);
+                    cmd.Parameters.AddWithValue("@nombre", pais.Nombre);
+                    cmd.Parameters.AddWithValue("@dominio", pais.Dominio);
+                    cmd.Parameters.AddWithValue("@pais_id", pais.PaisId);
 
                     result = cmd.ExecuteNonQuery() > 0;
                 }
@@ -144,7 +144,7 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public bool DeletePais(string paisId)
+        public bool DeletePais(int paisId)
         {
             var conexion = ConexionDB.conectar();
             bool result = false;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using NatJoProject.Models;
 using NatJoProject.Services;
 
@@ -19,25 +20,25 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Sexo {sexo.sxId} insertado con éxito.");
+                Console.WriteLine($"[INFO] Sexo {sexo.SxId} insertado con éxito.");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo insertar el Sexo {sexo.sxId}.");
+                Console.WriteLine($"[ERROR] No se pudo insertar el Sexo {sexo.SxId}.");
                 Console.ResetColor();
             }
         }
 
-        public void GetSexoById(string sxId)
+        public void GetSexoById(int sxId)
         {
             var sexo = sexoService.GetSexoById(sxId);
 
             if (sexo != null)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"Sexo encontrado: {sexo.sxId} - {sexo.descripcion}");
+                Console.WriteLine($"Sexo encontrado: {sexo.SxId} - {sexo.Descripcion}");
                 Console.ResetColor();
             }
             else
@@ -55,18 +56,18 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Sexo {sexo.sxId} actualizado con éxito.");
+                Console.WriteLine($"[INFO] Sexo {sexo.SxId} actualizado con éxito.");
                 Console.ResetColor();
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo actualizar el Sexo {sexo.sxId}.");
+                Console.WriteLine($"[ERROR] No se pudo actualizar el Sexo {sexo.SxId}.");
                 Console.ResetColor();
             }
         }
 
-        public void DeleteSexo(string sxId)
+        public void DeleteSexo(int sxId)
         {
             bool result = sexoService.DeleteSexo(sxId);
 
@@ -84,7 +85,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void GetAllSexos()
+        public List<Sexo> GetAllSexos()
         {
             var sexos = sexoService.GetAllSexos();
 
@@ -94,7 +95,7 @@ namespace NatJoProject.Controllers
                 Console.WriteLine($"Total de sexos encontrados: {sexos.Count}");
                 foreach (var sexo in sexos)
                 {
-                    Console.WriteLine($"ID: {sexo.sxId} | Descripción: {sexo.descripcion}");
+                    Console.WriteLine($"ID: {sexo.SxId} | Descripción: {sexo.Descripcion}");
                 }
                 Console.ResetColor();
             }
@@ -104,6 +105,8 @@ namespace NatJoProject.Controllers
                 Console.WriteLine("No se encontraron sexos.");
                 Console.ResetColor();
             }
+
+            return sexos;
         }
     }
 }

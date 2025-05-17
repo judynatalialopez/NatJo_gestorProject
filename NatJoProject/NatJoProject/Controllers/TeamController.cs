@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using NatJoProject.Models;
 using NatJoProject.Services;
 
@@ -19,12 +20,12 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Equipo {team.teamId} insertado correctamente.");
+                Console.WriteLine($"[INFO] Equipo {team.TeamId} insertado correctamente.");
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo insertar el equipo {team.teamId}.");
+                Console.WriteLine($"[ERROR] No se pudo insertar el equipo {team.TeamId}.");
             }
 
             Console.ResetColor();
@@ -37,11 +38,11 @@ namespace NatJoProject.Controllers
             if (team != null)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"Equipo: {team.nombre} (ID: {team.teamId})");
-                Console.WriteLine($"Proyecto: {team.proyecto.nombre}, Owner: {team.owner.pNombre} {team.owner.pApellido}");
-                Console.WriteLine($"Miembros: {team.miembros.Count}");
-                foreach (var m in team.miembros)
-                    Console.WriteLine($" - {m.pNombre} {m.pApellido} ({m.rolUser.descripcion})");
+                Console.WriteLine($"Equipo: {team.Nombre} (ID: {team.TeamId})");
+                Console.WriteLine($"Proyecto: {team.Proyecto.Nombre}, Owner: {team.Owner.Pnombre} {team.Owner.Papellido}");
+                Console.WriteLine($"Miembros: {team.Miembros.Count}");
+                foreach (var m in team.Miembros)
+                    Console.WriteLine($" - {m.Pnombre} {m.Papellido} ({m.RolUser.Descripcion})");
             }
             else
             {
@@ -60,7 +61,7 @@ namespace NatJoProject.Controllers
             Console.WriteLine($"Total de equipos: {teams.Count}");
             foreach (var team in teams)
             {
-                Console.WriteLine($"ID: {team.teamId} | Nombre: {team.nombre} | Activo: {team.indActivo}");
+                Console.WriteLine($"ID: {team.TeamId} | Nombre: {team.Nombre} | Activo: {team.IndActivo}");
             }
             Console.ResetColor();
         }
@@ -72,12 +73,12 @@ namespace NatJoProject.Controllers
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Equipo {team.teamId} actualizado correctamente.");
+                Console.WriteLine($"[INFO] Equipo {team.TeamId} actualizado correctamente.");
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo actualizar el equipo {team.teamId}.");
+                Console.WriteLine($"[ERROR] No se pudo actualizar el equipo {team.TeamId}.");
             }
 
             Console.ResetColor();
