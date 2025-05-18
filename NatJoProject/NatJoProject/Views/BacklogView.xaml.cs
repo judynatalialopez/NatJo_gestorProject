@@ -1,4 +1,7 @@
 ﻿using NatJoProject.Pages;
+using NatJoProject.Models;
+using NatJoProject.Controllers;
+using SesionApp = NatJoProject.Session.Session;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,21 +23,66 @@ namespace NatJoProject.Views
     /// </summary>
     public partial class BacklogView : Window
     {
-        /*
         public BacklogView()
         {
             InitializeComponent();
 
-            private void Dashboard_Click(object sender, RoutedEventArgs e)
-            {
-                MainFrame.Navigate(new DashboardPage());
-            }
+        }
 
-            private void Backlog_Click(object sender, RoutedEventArgs e)
+        private void Dashboard_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new DashboardPage());
+        }
+
+        private void Proyectos_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new ProjectPage());
+        }
+
+        private void Teams_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new TeamPage());
+        }
+
+        private void UserProfile_Click(object sender, RoutedEventArgs e)
+        {
+            var usuario = Session.Session.UsuarioActual;
+
+            if (usuario != null)
             {
-                MainFrame.Navigate(new BacklogPage());
+                string nombreCompleto = $"{usuario.Pnombre} {usuario.Snombre} {usuario.Papellido} {usuario.Sapellido}".Replace("  ", " ");
+                UserNameText.Text = $"Nombre: {nombreCompleto}";
+                UserDocText.Text = $"Documento: {usuario.Tipo_docIdent} {usuario.NdocIdent}";
+                UserLocationText.Text = $"Ubicación: {usuario.Ciudad?.Nombre}, {usuario.Pais?.Nombre}";
+                UserEmailText.Text = $"Email: {usuario.Email}";
+
+                // Mostrar popup
+                UserPopup.PlacementTarget = sender as Button;
+                UserPopup.IsOpen = true;
+            }
+            else
+            {
+                MessageBox.Show("No hay ningún usuario en sesión.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-        */
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show(
+                "¿Estás seguro de que deseas cerrar sesión?",
+                "Confirmar cierre de sesión",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question
+            );
+
+            if (result == MessageBoxResult.Yes)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close(); // Cierra la ventana actual
+            }
+        }
+
+
     }
 }

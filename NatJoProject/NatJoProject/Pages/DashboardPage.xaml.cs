@@ -1,4 +1,8 @@
-﻿using System;
+﻿using NatJoProject.Pages;
+using NatJoProject.Models;
+using NatJoProject.Controllers;
+using SesionApp = NatJoProject.Session.Session;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +19,103 @@ using System.Windows.Shapes;
 
 namespace NatJoProject.Pages
 {
-    /// <summary>
-    /// Lógica de interacción para DashboardPage.xaml
-    /// </summary>
     public partial class DashboardPage : Page
     {
+        private readonly DashboardController dashboardController = new DashboardController();
+
         public DashboardPage()
         {
             InitializeComponent();
+            CargarProyectos();
+        }
+
+        private void CargarProyectos()
+        {
+            try
+            {
+                var userId = SesionApp.UsuarioActual?.Id;
+
+                if (string.IsNullOrEmpty(userId))
+                {
+                    txtSinProyectos.Text = "Error: usuario no autenticado.";
+                    txtSinProyectos.Visibility = Visibility.Visible;
+                    return;
+                }
+
+                List<Project> proyectos = dashboardController.GetProjectsByUserId(userId);
+
+                if (proyectos == null || proyectos.Count == 0)
+                {
+                    txtSinProyectos.Visibility = Visibility.Visible;
+                    return;
+                }
+
+                txtSinProyectos.Visibility = Visibility.Collapsed;
+
+                foreach (var proyecto in proyectos)
+                {
+                    var card = CrearCardProyecto(proyecto);
+                    wrapProyectos.Children.Add(card);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR: " + ex.Message, "Error al cargar el Dashboard", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
+        private Border CrearCardProyecto(Project proyecto)
+        {
+            var border = new Border
+            {
+                Width = 280,
+                Height = 160,
+                Margin = new Thickness(10),
+                CornerRadius = new CornerRadius(12),
+                Background = Brushes.White,
+                BorderBrush = Brushes.LightGray,
+                BorderThickness = new Thickness(1),
+                Effect = new System.Windows.Media.Effects.DropShadowEffect
+                {
+                    ShadowDepth = 2,
+                    Color = Colors.Gray,
+                    Opacity = 0.4
+                }
+            };
+
+            var stack = new StackPanel
+            {
+                Margin = new Thickness(15)
+            };
+
+            stack.Children.Add(new TextBlock
+            {
+                Text = proyecto.Nombre,
+                FontSize = 16,
+                FontWeight = FontWeights.Bold,
+                Foreground = new SolidColorBrush(Color.FromRgb(33, 47, 61)),
+                Margin = new Thickness(0, 0, 0, 6)
+            });
+
+            stack.Children.Add(new TextBlock
+            {
+                Text = proyecto.Descripcion,
+                TextWrapping = TextWrapping.Wrap,
+                Foreground = Brushes.DimGray,
+                FontSize = 13
+            });
+
+            stack.Children.Add(new TextBlock
+            {
+                Text = $"Inicio: {proyecto.Finicio:dd/MM/yyyy} - Fin: {proyecto.Fterminacion:dd/MM/yyyy}",
+                Margin = new Thickness(0, 10, 0, 0),
+                Foreground = Brushes.SteelBlue,
+                FontSize = 12
+            });
+
+            border.Child = stack;
+            return border;
         }
     }
 }
