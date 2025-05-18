@@ -15,9 +15,6 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Image Source="/Resources/logo.png"
-            Margin="0,10,2,514"/>
-
         <!-- Panel de login -->
         <Border Width="350" Padding="30" CornerRadius="15" Background="#FFF2F2F2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel>
@@ -25,11 +22,11 @@
 
                 <!-- Usuario -->
                 <TextBlock Text="Usuario" Margin="0,0,0,5"/>
-                <TextBox Height="35" Padding="10" BorderBrush="#ccc" BorderThickness="1" Margin="0,0,0,15" />
+                <TextBox Height="35" Padding="10" BorderBrush="#ccc" BorderThickness="1" Margin="0,0,0,15" Name="txtEmail" />
 
                 <!-- Contraseña -->
                 <TextBlock Text="Contraseña" Margin="0,0,0,5"/>
-                <PasswordBox Height="35" Padding="10" BorderBrush="#ccc" BorderThickness="1" Margin="0,0,0,20"/>
+                <PasswordBox Height="35" Padding="10" BorderBrush="#ccc" BorderThickness="1" Margin="0,0,0,20" Name="txtPwd"/>
 
                 <!-- Botón -->
                 <Button Content="Entrar"
@@ -39,7 +36,7 @@
                         Height="40"
                         BorderThickness="0"
                         Cursor="Hand"
-                        />
+                        Click="btnLogin"/>
                 <Button Content="Registrarse"
                         Background="#061B70"
                         Foreground="White"
@@ -47,7 +44,7 @@
                         Height="40"
                         BorderThickness="0"
                         Cursor="Hand"
-                        Margin="0,5,0,0" Click="Button_Click"
+                        Margin="0,5,0,0" Click="btnRegistro"
                         />
             </StackPanel>
         </Border>

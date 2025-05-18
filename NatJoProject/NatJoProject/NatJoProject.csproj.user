@@ -2,27 +2,24 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="Pages\DashboardPage.xaml.cs">
+    <Compile Update="ViewsPrueba\Estados_Task.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Pages\ProjectPage.xaml.cs">
+    <Compile Update="ViewsPrueba\Paises.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Pages\TeamPage.xaml.cs">
+    <Compile Update="ViewsPrueba\Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\BacklogView.xaml.cs">
+    <Compile Update="ViewsPrueba\Roles.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Pages\DashboardPage.xaml">
+    <Page Update="ViewsPrueba\Register.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Pages\ProjectPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Pages\TeamPage.xaml">
+    <Page Update="Views\Registro.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
