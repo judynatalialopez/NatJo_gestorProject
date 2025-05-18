@@ -68,7 +68,7 @@ namespace ProjectManager.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/NatJoProject;component/views/backlogview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/NatJoProject;V1.0.0.0;component/views/backlogview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\BacklogView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

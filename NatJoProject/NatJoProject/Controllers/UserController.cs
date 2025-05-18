@@ -27,6 +27,25 @@ namespace NatJoProject.Controllers
                 Console.ResetColor();
             }
         }
+        public bool LoginUser(string email, string pwd)
+        {
+            bool loginSuccess = userService.UserLogin(email, pwd);
+
+            if (loginSuccess)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"[LOGIN ÉXITO] Bienvenido");
+                Console.ResetColor();
+                return true;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("[LOGIN ERROR] Email o contraseña incorrectos.");
+                Console.ResetColor();
+                return false;
+            }
+        }
 
         public void GetUserByLogin(string login)
         {
