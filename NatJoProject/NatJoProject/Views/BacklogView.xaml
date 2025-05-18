@@ -38,9 +38,9 @@
                      BorderThickness="0" 
                      Foreground="White"
                      Margin="10" Height="448">
-                <Button Content="Mi Dashboard" Click="Dashboard_Click"/>
-                <Button Content="Proyectos" Click="Proyectos_Click"/>
-                <Button Content="Equipos" Click="Teams_Click"/>
+                <Button Content="Mi Dashboard"/>
+                <Button Content="Proyectos"/>
+                <Button Content="Equipos"/>
             </ListBox>
         </StackPanel>
 

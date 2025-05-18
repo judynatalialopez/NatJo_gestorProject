@@ -20,6 +20,7 @@ namespace NatJoProject.Views
     /// </summary>
     public partial class BacklogView : Window
     {
+        /*
         public BacklogView()
         {
             InitializeComponent();
@@ -34,5 +35,6 @@ namespace NatJoProject.Views
                 MainFrame.Navigate(new BacklogPage());
             }
         }
+        */
     }
 }
