@@ -65,5 +65,5 @@ namespace NatJoProject.Controllers
             }
             Console.ResetColor();
         }
-    } 
+    }
 }

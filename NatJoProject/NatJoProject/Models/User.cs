@@ -25,7 +25,7 @@ namespace NatJoProject.Models
         public string Direccion { get; set; }
         public string Login { get; set; }
         public string Pwd { get; set; }
-        public string Email { get => Pwd; set => Pwd = value; }
+        public string Email { get; set; }
 
         public char IndBloqueado {  get; set; }
         public char IndActivo { get; set; }

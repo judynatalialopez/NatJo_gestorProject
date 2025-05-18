@@ -168,6 +168,38 @@ namespace NatJoProject.Services
             return user;
         }
 
+        public bool UserLogin(string email, string pwd)
+        {
+            var conexion = ConexionDB.conectar();
+            bool loginSuccess = false;
+
+            try
+            {
+                string query = @"SELECT 1 FROM users WHERE email = @email AND pwd = @pwd LIMIT 1";
+
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@pwd", pwd);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        loginSuccess = reader.Read(); // Si devuelve al menos una fila, el login es correcto
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al intentar login: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return loginSuccess;
+        }
+
         public User? GetUserByLogin(string login)
         {
             var conexion = ConexionDB.conectar();
@@ -220,6 +252,62 @@ namespace NatJoProject.Services
             }
 
             return user;
+        }
+
+        public bool VerifyEmail(string email)
+        {
+            var conexion = ConexionDB.conectar();
+            bool existe = false;
+
+            try
+            {
+                string query = "SELECT COUNT(*) FROM users WHERE email = @Email";
+
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    var count = Convert.ToInt32(cmd.ExecuteScalar());
+                    existe = count > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al verificar email: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return existe;
+        }
+
+        public bool VerifyDocId(string docId)
+        {
+            var conexion = ConexionDB.conectar();
+            bool existe = false;
+
+            try
+            {
+                string query = "SELECT COUNT(*) FROM users WHERE ndocIdent = @ndocIdent";
+
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@ndocIdent", docId);
+                    var count = Convert.ToInt32(cmd.ExecuteScalar());
+                    existe = count > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al verificar ndocIdent: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return existe;
         }
 
         public bool UpdateUser(User user)

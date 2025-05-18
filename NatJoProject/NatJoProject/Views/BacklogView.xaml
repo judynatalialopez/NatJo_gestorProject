@@ -19,52 +19,29 @@
             <!-- Contenido -->
         </Grid.ColumnDefinitions>
 
-        <Image Source="/Resources/logo.png" Height="100"
-      Margin="0,0,2,590" Grid.ColumnSpan="2"/>
-
         <!-- Menú lateral -->
         <StackPanel Grid.Column="0" Background="#DCDCDC" Margin="0,100,0,0" Grid.ColumnSpan="2">
             <TextBlock Text="Para tí" 
-                   Foreground="#4682B4" 
-                   TextAlignment="Center"
-                   FontSize="22" 
-                   FontFamily="Arial"
-                   Margin="30,20,0,20"
-                   FontWeight="Bold" RenderTransformOrigin="0.451,-0.22"/>
+                       Foreground="#4682B4" 
+                       TextAlignment="Center"
+                       FontSize="22" 
+                       FontFamily="Arial"
+                       Margin="30,20,0,20"
+                       FontWeight="Bold" RenderTransformOrigin="0.451,-0.22"/>
 
             <Image Source="/Resources/iconoInis.png"
-            Width="50" Height="50"
-            Margin="20,-50,125,0"/>
+                Width="50" Height="50"
+                Margin="20,-50,125,0"/>
 
             <ListBox x:Name="ProjectList" 
-         Background="Transparent" 
-         BorderThickness="0" 
-         Foreground="White"
-         Margin="10" Height="448">
-
-                <ListBoxItem BorderThickness="0" Background="Transparent">
-                    <StackPanel Orientation="Horizontal" Margin="30,20,0,0">
-                        <Image Source="/Resources/iconDBoard.png" Width="30" Height="30" Margin="0,0,10,0"/>
-                        <Button Content="Mi Dashboard" Click="Dashboard_Click" Foreground="#4682B4" FontSize="15" BorderThickness="0"/>
-                    </StackPanel>
-                </ListBoxItem>
-
-                <ListBoxItem BorderThickness="0" Background="Transparent">
-                    <StackPanel Orientation="Horizontal" Margin="30,20,0,0">
-                        <Image Source="/Resources/iconProyecto.png" Width="35" Height="30" Margin="0,0,10,0"/>
-                        <Button Content="Proyectos" Click="Proyectos_Click" Foreground="#4682B4" FontSize="15" BorderThickness="0"/>
-                    </StackPanel>
-                </ListBoxItem>
-
-                <ListBoxItem BorderThickness="0" Background="Transparent">
-                    <StackPanel Orientation="Horizontal" Margin="30,20,0,0">
-                        <Image Source="/Resources/iconTeam.png" Width="30" Height="35" Margin="0,0,10,0"/>
-                        <Button Content="Equipos" Click="Teams_Click" FontSize="15" Foreground="#4682B4" BorderThickness="0"/>
-                    </StackPanel>
-                </ListBoxItem>
-
+                     Background="Transparent" 
+                     BorderThickness="0" 
+                     Foreground="White"
+                     Margin="10" Height="448">
+                <Button Content="Mi Dashboard"/>
+                <Button Content="Proyectos"/>
+                <Button Content="Equipos"/>
             </ListBox>
-
         </StackPanel>
 
         <!-- Contenido principal -->
@@ -77,34 +54,28 @@
             </Grid.RowDefinitions>
 
             <!-- Barra superior -->
-            <DockPanel Background="White" VerticalAlignment="Center" Margin="0,0,0,0" Height="87" RenderTransformOrigin="0.499,0.729">
+            <DockPanel Grid.Row="0" Background="White" VerticalAlignment="Center">
                 <!-- Título / Logo -->
-                <TextBlock Text="Gestor de Proyectos NatJo" 
-                       FontSize="20" 
-                       FontWeight="Bold" 
-                       Margin="20,0,0,0" 
-                       VerticalAlignment="Center" 
-                       Foreground="#061B70"/>
+                <TextBlock Text="Gestor de Proyectos" 
+                           FontSize="20" 
+                           FontWeight="Bold" 
+                           Margin="20,0,0,0" 
+                           VerticalAlignment="Center" 
+                           Foreground="#061B70"/>
 
                 <!-- Perfil usuario -->
-                <Button DockPanel.Dock="Right"
-                HorizontalAlignment="Right"
-                Margin="0,0,20,0"
-                Background="Transparent"
-                BorderThickness="0"
-                Click="UserProfile_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Juan Pérez" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="#2F3E4D"/>
-                        <Ellipse Width="32" Height="32">
-
-                        </Ellipse>
-                    </StackPanel>
-                </Button>
-
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0,0,20,0">
+                    <TextBlock Text="Juan Pérez" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="#2F3E4D"/>
+                    <Ellipse Width="32" Height="32">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Resources/profile.jpg"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </StackPanel>
             </DockPanel>
 
 
-            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,45,0,60" Grid.Row="1"/>
+            <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
 
         </Grid>
     </Grid>
