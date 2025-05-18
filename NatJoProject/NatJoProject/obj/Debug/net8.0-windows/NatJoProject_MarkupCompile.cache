@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
-2-1432153984
+6-393382047
 
-43-1381927865
+46293723981
 206-1495605178
-MainWindow.xaml;Views\BacklogView.xaml;
+MainWindow.xaml;Pages\DashboardPage.xaml;Pages\ProjectPage.xaml;Pages\TeamPage.xaml;Pages\TeamsPage.xaml;Views\BacklogView.xaml;
 
-False
+True
 

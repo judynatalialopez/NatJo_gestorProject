@@ -39,3 +39,7 @@ C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\NatJoP
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ref\NatJoProject.dll
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\BacklogView.baml
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\BacklogView.g.cs
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\DashboardPage.g.cs
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\TeamsPage.g.cs
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\ProjectPage.g.cs
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\TeamPage.g.cs

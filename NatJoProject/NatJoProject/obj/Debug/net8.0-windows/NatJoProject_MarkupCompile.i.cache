@@ -9,12 +9,12 @@ NatJoProject
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
-3-118898994
 
-46275282859
+71399601477
+
+481583949377
 206-1495605178
-MainWindow.xaml;Pages\DashboardPage.xaml;Views\BacklogView.xaml;
+App.xaml;MainWindow.xaml;Pages\DashboardPage.xaml;Pages\ProjectPage.xaml;Pages\TeamPage.xaml;Pages\TeamsPage.xaml;Views\BacklogView.xaml;
 
 True
 

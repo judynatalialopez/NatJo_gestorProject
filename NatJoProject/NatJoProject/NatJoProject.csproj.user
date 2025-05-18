@@ -5,12 +5,30 @@
     <Compile Update="Pages\DashboardPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\ProjectPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\TeamPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\BacklogView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\TeamsPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\DashboardPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ProjectPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\TeamPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\TeamsPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
