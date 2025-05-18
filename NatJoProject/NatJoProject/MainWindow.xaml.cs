@@ -1,6 +1,7 @@
 ﻿using NatJoProject.Controllers;
+using NatJoProject.Models;
 using NatJoProject.Views;
-using NatJoProject.ViewsPrueba;
+using SesionApp = NatJoProject.Session.Session;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NatJoProject.ViewsPrueba;
 
 namespace NatJoProject
 {
@@ -50,6 +52,10 @@ namespace NatJoProject
             if (loginExitoso)
             {
                 MessageBox.Show("¡Login exitoso!", "Bienvenido", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                //Obtener usuario por el login
+                User? usuario = userController.GetUserByLogin(email);
+                SesionApp.UsuarioActual = usuario;
 
                 BacklogView backlogView = new BacklogView();
                 backlogView.Show();

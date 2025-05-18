@@ -254,6 +254,62 @@ namespace NatJoProject.Services
             return user;
         }
 
+        public bool VerifyEmail(string email)
+        {
+            var conexion = ConexionDB.conectar();
+            bool existe = false;
+
+            try
+            {
+                string query = "SELECT COUNT(*) FROM users WHERE email = @Email";
+
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    var count = Convert.ToInt32(cmd.ExecuteScalar());
+                    existe = count > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al verificar email: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return existe;
+        }
+
+        public bool VerifyDocId(string docId)
+        {
+            var conexion = ConexionDB.conectar();
+            bool existe = false;
+
+            try
+            {
+                string query = "SELECT COUNT(*) FROM users WHERE ndocIdent = @ndocIdent";
+
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@ndocIdent", docId);
+                    var count = Convert.ToInt32(cmd.ExecuteScalar());
+                    existe = count > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al verificar ndocIdent: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return existe;
+        }
+
         public bool UpdateUser(User user)
         {
             var conexion = ConexionDB.conectar();

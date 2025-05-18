@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using MySql.Data.MySqlClient;
+using NatJoProject.Database;
 using NatJoProject.Models;
 using NatJoProject.Services;
 
@@ -27,6 +29,7 @@ namespace NatJoProject.Controllers
                 Console.ResetColor();
             }
         }
+
         public bool LoginUser(string email, string pwd)
         {
             bool loginSuccess = userService.UserLogin(email, pwd);
@@ -47,7 +50,47 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void GetUserByLogin(string login)
+        public bool VerifyEmail(string email)
+        {
+            bool existe = userService.VerifyEmail(email);
+
+            if (existe)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"[VALIDACIÓN EMAIL] El email '{email}' ya está registrado.");
+                Console.ResetColor();
+                return true;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"[VALIDACIÓN EMAIL] El email '{email}' está disponible.");
+                Console.ResetColor();
+                return false;
+            }
+        }
+
+        public bool VerifyDocId(string docId)
+        {
+            bool existe = userService.VerifyDocId(docId);
+
+            if (existe)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"[VALIDACIÓN documento] El documento '{docId}' ya está registrado.");
+                Console.ResetColor();
+                return true;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"[VALIDACIÓN documento] El documento '{docId}' está disponible.");
+                Console.ResetColor();
+                return false;
+            }
+        }
+
+        public User? GetUserByLogin(string login)
         {
             var user = userService.GetUserByLogin(login);
 
@@ -63,6 +106,8 @@ namespace NatJoProject.Controllers
                 Console.WriteLine($"No se encontró el usuario con login {login}.");
                 Console.ResetColor();
             }
+
+            return user; 
         }
 
         // Nuevo método para obtener usuario por ID

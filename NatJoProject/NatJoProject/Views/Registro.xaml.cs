@@ -48,32 +48,6 @@ namespace NatJoProject.ViewsPrueba
 
         private void Registrarse_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtDocumentoID.Text) || string.IsNullOrWhiteSpace(txtTipoDoc.Text)
-        || string.IsNullOrWhiteSpace(txtPrimerNombre.Text) || string.IsNullOrWhiteSpace(txtSegundoNombre.Text)
-        || string.IsNullOrWhiteSpace(txtPrimerApellido.Text) || string.IsNullOrWhiteSpace(txtSegundoApellido.Text)
-        || string.IsNullOrWhiteSpace(cbCiudad.Text) || string.IsNullOrWhiteSpace(cbSexo.Text)
-        || string.IsNullOrWhiteSpace(txtFechaNacimiento.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text)
-        || string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtContraseña.Password)
-        || string.IsNullOrWhiteSpace(txtDireccion.Text))
-            {
-                MessageBox.Show("Por favor, complete todos los campos.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            DateTime fechaNacimiento;
-            if (!DateTime.TryParse(txtFechaNacimiento.Text.Trim(), out fechaNacimiento))
-            {
-                MessageBox.Show("Fecha de nacimiento inválida.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            // Validar número de teléfono (exactamente 10 dígitos)
-            string telefono = txtTelefono.Text.Trim();
-            if (telefono.Length != 10 || !telefono.All(char.IsDigit))
-            {
-                MessageBox.Show("El número de teléfono debe tener exactamente 10 dígitos numéricos.", "Validación Teléfono", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
 
             // Validar número de documento (exactamente 10 caracteres, solo dígitos)
             string documento = txtDocumentoID.Text.Trim();
@@ -108,6 +82,46 @@ namespace NatJoProject.ViewsPrueba
                 return;
             }
 
+            DateTime fechaNacimiento;
+            if (!DateTime.TryParse(txtFechaNacimiento.Text.Trim(), out fechaNacimiento))
+            {
+                MessageBox.Show("Fecha de nacimiento inválida.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Validar número de teléfono (exactamente 10 dígitos)
+            string telefono = txtTelefono.Text.Trim();
+            if (telefono.Length != 10 || !telefono.All(char.IsDigit))
+            {
+                MessageBox.Show("El número de teléfono debe tener exactamente 10 dígitos numéricos.", "Validación Teléfono", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Antes de crear el usuario, validar si el email ya existe:
+            if (userController.VerifyDocId(txtDocumentoID.Text.Trim()))
+            {
+                MessageBox.Show("El documento ingresado ya está registrado. Por favor, use otro documento.", "Validación Documento", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Antes de crear el usuario, validar si el email ya existe:
+            if (userController.VerifyEmail(txtEmail.Text.Trim()))
+            {
+                MessageBox.Show("El email ingresado ya está registrado. Por favor, use otro email.", "Validación Email", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;  
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDocumentoID.Text) || string.IsNullOrWhiteSpace(txtTipoDoc.Text)
+                || string.IsNullOrWhiteSpace(txtPrimerNombre.Text) || string.IsNullOrWhiteSpace(txtSegundoNombre.Text)
+                || string.IsNullOrWhiteSpace(txtPrimerApellido.Text) || string.IsNullOrWhiteSpace(txtSegundoApellido.Text)
+                || string.IsNullOrWhiteSpace(cbCiudad.Text) || string.IsNullOrWhiteSpace(cbSexo.Text)
+                || string.IsNullOrWhiteSpace(txtFechaNacimiento.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text)
+                || string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtContraseña.Password)
+                || string.IsNullOrWhiteSpace(txtDireccion.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
             // Obtener los objetos seleccionados de los combos
             Sexo sexoSeleccionado = (Sexo)cbSexo.SelectedItem;
