@@ -9,7 +9,7 @@ namespace NatJoProject.Services
 {
     public class ProjectService
     {
-        private readonly TeamService teamService = new TeamService();
+        private readonly TeamService teamService = new TeamService(new MemberService());
         private readonly TaskProjectService task0Service = new TaskProjectService();
 
         public bool InsertProject(Project project)

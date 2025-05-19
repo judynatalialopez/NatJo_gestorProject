@@ -8,26 +8,26 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DashboardPage">
 
-            <Grid Background="#F5F6FA">
-                <!-- Mensaje de "sin proyectos" -->
-                <TextBlock x:Name="txtSinProyectos"
-                   Text="Aún no tienes proyectos asignados"
-                   FontSize="20"
-                   FontWeight="Bold"
-                   Foreground="Gray"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Visibility="Collapsed"/>
+    <Grid Background="#F5F6FA">
+        <!-- Mensaje de "sin proyectos" -->
+        <TextBlock x:Name="txtSinProyectos"
+       Text="Aún no tienes proyectos asignados"
+       FontSize="20"
+       FontWeight="Bold"
+       Foreground="Gray"
+       HorizontalAlignment="Center"
+       VerticalAlignment="Center"
+       Visibility="Collapsed"/>
 
-                <!-- Contenedor de proyectos -->
-                <ScrollViewer Margin="20">
-                    <WrapPanel x:Name="wrapProyectos"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Top"
-                       ItemWidth="300"
-                       ItemHeight="180"
-                       Orientation="Horizontal"
-                       Margin="0,20,0,20"/>
-                </ScrollViewer>
-            </Grid>
+        <!-- Contenedor de proyectos -->
+        <ScrollViewer Margin="20">
+            <WrapPanel x:Name="wrapProyectos"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Top"
+           ItemWidth="300"
+           ItemHeight="180"
+           Orientation="Horizontal"
+           Margin="0,20,0,20"/>
+        </ScrollViewer>
+    </Grid>
 </Page>

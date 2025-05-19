@@ -11,8 +11,7 @@ namespace NatJoProject.Controllers
 {
     public class TeamController
     {
-        private readonly TeamService teamService = new TeamService();
-
+        private readonly TeamService teamService = new TeamService(new MemberService());
         public void InsertTeam(Team team)
         {
             bool result = teamService.InsertTeam(team);

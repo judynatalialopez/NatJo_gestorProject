@@ -1,5 +1,4 @@
-﻿using NatJoProject.Pages;
-using NatJoProject.Models;
+﻿using NatJoProject.Models;
 using NatJoProject.Controllers;
 using SesionApp = NatJoProject.Session.Session;
 using System;
@@ -19,6 +18,9 @@ using System.Windows.Shapes;
 
 namespace NatJoProject.Pages
 {
+    /// <summary>
+    /// Lógica de interacción para DashboardPage.xaml
+    /// </summary>
     public partial class DashboardPage : Page
     {
         private readonly DashboardController dashboardController = new DashboardController();
@@ -34,7 +36,7 @@ namespace NatJoProject.Pages
             await Task.Run(() => CargarProyectosSeguro());
         }
 
-       
+
         private void CargarProyectosSeguro()
         {
             try
@@ -128,3 +130,4 @@ namespace NatJoProject.Pages
         }
     }
 }
+

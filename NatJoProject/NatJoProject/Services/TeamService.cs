@@ -9,9 +9,15 @@ namespace NatJoProject.Services
 {
     public class TeamService
     {
-        private readonly MemberService memberService = new MemberService();
         private readonly ProjectService projectService = new ProjectService();
         private readonly UserService userService = new UserService();
+        private readonly MemberService memberService;
+
+        public TeamService(MemberService memberService)
+        {
+            this.memberService = memberService;
+        }
+
 
         public bool InsertTeam(Team team)
         {
