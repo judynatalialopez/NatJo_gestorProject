@@ -94,7 +94,11 @@
                 BorderThickness="0"
                 Click="UserProfile_Click">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Juan Pérez" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="#2F3E4D"/>
+                        <TextBlock x:Name="UserDisplayName"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,0"
+                           Foreground="#2F3E4D"/>
+
                         <Ellipse Width="32" Height="32">
 
                         </Ellipse>
@@ -112,7 +116,7 @@
                         <TextBlock x:Name="UserLocationText" TextWrapping="Wrap" Margin="0,0,0,5"/>
                         <TextBlock x:Name="UserEmailText" TextWrapping="Wrap" Margin="0,0,0,10"/>
 
-                        <Button Content="Cerrar sesión" Background="#e74c3c" Foreground="White" Click="Logout_Click" />
+                        <Button Content="Cerrar sesión" Background="#ada6cf" Foreground="White" Click="Logout_Click" />
                     </StackPanel>
                 </Border>
             </Popup>

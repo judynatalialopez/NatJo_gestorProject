@@ -36,13 +36,13 @@ namespace NatJoProject.ViewsPrueba
         {
             var sexos = sexoController.GetAllSexos();
             cbSexo.ItemsSource = sexos;
-            cbSexo.DisplayMemberPath = "Descripcion"; // ya lo tienes para sexo
+            cbSexo.DisplayMemberPath = "Descripcion"; 
             cbSexo.SelectedValuePath = "SxId";
 
             var ciudades = ciudadController.GetAllCiudades();
             cbCiudad.ItemsSource = ciudades;
-            cbCiudad.DisplayMemberPath = "Nombre";     // Aquí indicas qué propiedad mostrar
-            cbCiudad.SelectedValuePath = "CityId";    // Aquí el valor que tomará al seleccionar
+            cbCiudad.DisplayMemberPath = "Nombre";    
+            cbCiudad.SelectedValuePath = "CityId";    
 
         }
 

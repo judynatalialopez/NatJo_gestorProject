@@ -26,41 +26,50 @@ namespace NatJoProject.Pages
         public DashboardPage()
         {
             InitializeComponent();
-            CargarProyectos();
+            Loaded += DashboardPage_Loaded;
         }
 
-        private void CargarProyectos()
+        private async void DashboardPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            await Task.Run(() => CargarProyectosSeguro());
+        }
+
+       
+        private void CargarProyectosSeguro()
         {
             try
             {
                 var userId = SesionApp.UsuarioActual?.Id;
-
                 if (string.IsNullOrEmpty(userId))
                 {
-                    txtSinProyectos.Text = "Error: usuario no autenticado.";
-                    txtSinProyectos.Visibility = Visibility.Visible;
+                    Dispatcher.Invoke(() =>
+                    {
+                        txtSinProyectos.Text = "Error: usuario no autenticado.";
+                        txtSinProyectos.Visibility = Visibility.Visible;
+                    });
                     return;
                 }
 
-                List<Project> proyectos = dashboardController.GetProjectsByUserId(userId);
+                var proyectos = dashboardController.GetProjectsByUserId(userId);
 
                 if (proyectos == null || proyectos.Count == 0)
                 {
-                    txtSinProyectos.Visibility = Visibility.Visible;
+                    Dispatcher.Invoke(() => txtSinProyectos.Visibility = Visibility.Visible);
                     return;
                 }
 
-                txtSinProyectos.Visibility = Visibility.Collapsed;
+                Dispatcher.Invoke(() => txtSinProyectos.Visibility = Visibility.Collapsed);
 
                 foreach (var proyecto in proyectos)
                 {
                     var card = CrearCardProyecto(proyecto);
-                    wrapProyectos.Children.Add(card);
+                    Dispatcher.Invoke(() => wrapProyectos.Children.Add(card));
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR: " + ex.Message, "Error al cargar el Dashboard", MessageBoxButton.OK, MessageBoxImage.Error);
+                Dispatcher.Invoke(() =>
+                    MessageBox.Show("Error al cargar el dashboard: " + ex.Message));
             }
         }
 

@@ -27,6 +27,14 @@ namespace NatJoProject.Views
         {
             InitializeComponent();
 
+            var usuario = Session.Session.UsuarioActual;
+            if (usuario != null)
+            {
+                // Primer nombre y primer apellido
+                string nombreUsuario = $"{usuario.Pnombre?.Split(' ')[0]} {usuario.Sapellido?.Split(' ')[0]}";
+                UserDisplayName.Text = nombreUsuario;
+            }
+
         }
 
         private void Dashboard_Click(object sender, RoutedEventArgs e)
@@ -50,7 +58,7 @@ namespace NatJoProject.Views
 
             if (usuario != null)
             {
-                string nombreCompleto = $"{usuario.Pnombre} {usuario.Snombre} {usuario.Papellido} {usuario.Sapellido}".Replace("  ", " ");
+                string nombreCompleto = $"{usuario.Pnombre} {usuario.Snombre} {usuario.Sapellido} {usuario.Papellido}".Replace("  ", " ");
                 UserNameText.Text = $"Nombre: {nombreCompleto}";
                 UserDocText.Text = $"Documento: {usuario.Tipo_docIdent} {usuario.NdocIdent}";
                 UserLocationText.Text = $"Ubicación: {usuario.Ciudad?.Nombre}, {usuario.Pais?.Nombre}";
@@ -65,6 +73,7 @@ namespace NatJoProject.Views
                 MessageBox.Show("No hay ningún usuario en sesión.", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
