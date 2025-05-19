@@ -1,0 +1,140 @@
+﻿<Window x:Class="NatJoProject.ViewsPrueba.Ciudades"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NatJoProject.ViewsPrueba"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="Ciudades" Height="450" Width="800">
+    <Border CornerRadius="12">
+        <Border CornerRadius="10"
+            BorderThickness="2"
+            Opacity="0.95" RenderTransformOrigin="0.5,0.517" Margin="0,0,10,-449">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462AD8" Offset="0"/>
+                    <GradientStop Color="#DA34AE" Offset="0.75"/>
+                    <GradientStop Color="#8A16C1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1B1448" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <!-- Usa un Canvas para posicionar libremente -->
+            <Canvas>
+                <!-- Título -->
+                <TextBlock Text="Registrar Ciudad"
+                       Foreground="White"
+                       FontSize="25"
+                       FontWeight="Medium"
+                       FontFamily="Montserrat"
+                       Canvas.Left="335"
+                       Canvas.Top="19" />
+
+                <!-- Primer Nombre -->
+                <TextBlock Text="Nombre"
+                       Foreground="DarkGray"
+                       FontSize="12"
+                       FontWeight="Medium"
+                       FontFamily="Montserrat"
+                       Canvas.Left="174"
+                       Canvas.Top="72" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox x:Name="txtNombre"
+                     FontSize="13"
+                     FontWeight="Medium"
+                     FontFamily="Montserrat"
+                     Foreground="Black"
+                     CaretBrush="Black"
+                     BorderBrush="Black"
+                     BorderThickness="0,0,0,2"
+                     Width="200"
+                     Height="28"
+                     VerticalContentAlignment="Center"
+                     Padding="10,0,0,0"
+                     Canvas.Left="174"
+                     Canvas.Top="102" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+                <!-- Segundo Nombre -->
+
+                <!-- Botón -->
+                <Button x:Name="btnRegistrarCiudad"
+                    Content="Registrar"
+                    Foreground="White"
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                    Width="150"
+                    Height="40"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Canvas.Left="335"
+                    Canvas.Top="344"
+                    Click="RegistrarCiudad_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#462AD8"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBlock Text="Codigo Postal"
+                Foreground="DarkGray"
+                FontSize="12"
+                FontWeight="Medium"
+                FontFamily="Montserrat"
+                Canvas.Left="174" Canvas.Top="154" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox x:Name="txtCodPostal"
+                FontSize="13"
+                FontWeight="Medium"
+                FontFamily="Montserrat"
+                Foreground="Black"
+                CaretBrush="Black"
+                BorderBrush="Black"
+                BorderThickness="0,0,0,2"
+                Width="200"
+                Height="28"
+                VerticalContentAlignment="Center"
+                Padding="10,0,0,0"
+                Canvas.Left="174" Canvas.Top="188" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBlock Text="Pais"
+                Foreground="DarkGray"
+                FontSize="12"
+                FontWeight="Medium"
+                FontFamily="Montserrat"
+                Canvas.Left="174" Canvas.Top="242" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <ComboBox x:Name="cbPais"
+                   FontSize="13"
+                   FontWeight="Medium"
+                   FontFamily="Montserrat"
+                   Foreground="Black"
+                   BorderBrush="Black"
+                   BorderThickness="0,0,0,2"
+                   Width="200"
+                   Height="28"
+                   VerticalContentAlignment="Center"
+                   Padding="10,0,0,0"
+                   Canvas.Left="174" Canvas.Top="275"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"  />
+            </Canvas>
+        </Border>
+    </Border>
+
+</Window>

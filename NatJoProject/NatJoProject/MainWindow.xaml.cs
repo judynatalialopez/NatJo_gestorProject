@@ -66,5 +66,11 @@ namespace NatJoProject
                 MessageBox.Show("Email o contraseña incorrectos.", "Error de login", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void btnAdmin(object sender, RoutedEventArgs e)
+        {
+            Administradores administradores = new Administradores();
+            administradores.Show();
+            this.Close();
+        }
     }
 }

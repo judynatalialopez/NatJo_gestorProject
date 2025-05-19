@@ -1,0 +1,116 @@
+﻿<Window x:Class="NatJoProject.Views.Administradores"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NatJoProject.Views"
+        mc:Ignorable="d"
+        Title="Administradores" Height="450" Width="800">
+
+    <!-- RECURSOS (DEBEN IR ANTES DEL CONTENIDO VISUAL) -->
+    <Window.Resources>
+        <Style x:Key="MenuButtonStyle" TargetType="Button">
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="10,5,5,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                            <StackPanel Orientation="Horizontal" Margin="5,0">
+                                <TextBlock Text="{TemplateBinding Tag}" 
+                                           FontFamily="Segoe MDL2 Assets" 
+                                           FontSize="18" Margin="5,0,10,0"/>
+                                <TextBlock Text="{TemplateBinding Content}" 
+                                           VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#2e3d4f"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <!-- CONTENIDO VISUAL -->
+    <StackPanel Background="#FF003366" Margin="0,0,612,0">
+        <!-- Perfil de usuario -->
+        <StackPanel Margin="10" HorizontalAlignment="Center">
+
+            <TextBlock Text="Administradores" Foreground="White"
+                       FontWeight="Bold" FontSize="20" Margin="0,10,0,0"
+                       HorizontalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- Opciones del menú -->
+        <StackPanel Margin="0,20,0,0">
+            <Button Content="Insertar Roles"
+            Click="Button_Click"
+            Width="161"
+            Height="40"
+            Background="#FF003366"
+            Foreground="White"
+            FontSize="14"
+            FontWeight="Bold"
+            BorderBrush="#FF001F33"
+            BorderThickness="0"
+            Padding="5"
+            HorizontalAlignment="Center"
+            Cursor="Hand"/>
+
+            <Button Content="Insertar Paises"
+                Click="Button_Paises"
+                Width="160"
+                Height="40"
+                Background="#FF003366"
+                Foreground="White"
+                FontSize="14"
+                FontWeight="Bold"
+                BorderBrush="#FF001F33"
+                BorderThickness="0"
+                Padding="5"
+                Cursor="Hand"/>
+
+            <Button Content="Insertar Estados Tareas"
+            Click="Button_Estados_Treas"
+            Width="160"
+            Height="40"
+            Background="#FF003366"
+            Foreground="White"
+            FontSize="14"
+            FontWeight="Bold"
+            BorderBrush="#FF001F33"
+            BorderThickness="0"
+            Padding="5"
+            Cursor="Hand"/>
+
+            <Button Content="Insertar Ciudades"
+                Click="Button_Ciudades"
+                Width="160"
+                Height="40"
+                Background="#FF003366"
+                Foreground="White"
+                FontSize="14"
+                FontWeight="Bold"
+                BorderBrush="#FF001F33"
+                BorderThickness="0"
+                Padding="5"
+Cursor="Hand"/>
+
+        </StackPanel>
+
+
+
+
+    </StackPanel>
+
+</Window>
