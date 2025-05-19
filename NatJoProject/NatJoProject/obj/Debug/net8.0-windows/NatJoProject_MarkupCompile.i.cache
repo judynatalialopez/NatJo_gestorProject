@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\
 NatJoProject
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
-141003561812
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
+17-40407216
 
-601387612015
-2061010492641
-MainWindow.xaml;Pages\DashboardPage.xaml;Pages\ProjectPage.xaml;Pages\TeamPage.xaml;ViewsPrueba\Ciudades.xaml;ViewsPrueba\Estados_Task.xaml;ViewsPrueba\Paises.xaml;ViewsPrueba\Register.xaml;ViewsPrueba\Roles.xaml;ViewsPrueba\Sexos.xaml;Views\Administradores.xaml;Views\BacklogView.xaml;Views\CrearProyecto.xaml;Views\Registro.xaml;
+63-394620684
+206-663927231
+MainWindow.xaml;Pages\DashboardPage.xaml;Pages\ProjectPage.xaml;Pages\RolPage.xaml;Pages\TeamPage.xaml;ViewsPrueba\Ciudades.xaml;ViewsPrueba\EditarRoles.xaml;ViewsPrueba\EliminarRoles.xaml;ViewsPrueba\Estados_Task.xaml;ViewsPrueba\Paises.xaml;ViewsPrueba\Register.xaml;ViewsPrueba\Roles.xaml;ViewsPrueba\Sexos.xaml;Views\Administradores.xaml;Views\BacklogView.xaml;Views\CrearProyecto.xaml;Views\Registro.xaml;
 
-False
+True
 

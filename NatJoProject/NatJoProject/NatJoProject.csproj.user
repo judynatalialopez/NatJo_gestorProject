@@ -5,6 +5,15 @@
     <Compile Update="Pages\DashboardPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\RolPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ViewsPrueba\EditarRoles.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ViewsPrueba\EliminarRoles.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ViewsPrueba\Estados_Task.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

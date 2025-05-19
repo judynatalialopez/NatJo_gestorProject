@@ -64,6 +64,11 @@ namespace NatJoProject.Controllers
             }
         }
 
+        public List<Rol> GetAllRoles()
+        {
+            return rolService.GetAllRoles();
+        }
+
         public void DeleteRol(int rolId)
         {
             bool result = rolService.DeleteRol(rolId);

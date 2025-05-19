@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NatJoProject.Views"
         mc:Ignorable="d"
-        Title="Administradores" Height="450" Width="800">
+        Title="Administradores" Height="488" Width="1071">
 
-    <!-- RECURSOS (DEBEN IR ANTES DEL CONTENIDO VISUAL) -->
     <Window.Resources>
+        <!-- Tu estilo original intacto -->
         <Style x:Key="MenuButtonStyle" TargetType="Button">
             <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
             <Setter Property="Foreground" Value="White"/>
@@ -41,76 +41,58 @@
         </Style>
     </Window.Resources>
 
-    <!-- CONTENIDO VISUAL -->
-    <StackPanel Background="#FF003366" Margin="0,0,612,0">
-        <!-- Perfil de usuario -->
-        <StackPanel Margin="10" HorizontalAlignment="Center">
+    <!-- CONTENIDO VISUAL ORGANIZADO -->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <!-- menú -->
+            <ColumnDefinition Width="*"/>
+            <!-- contenido -->
+        </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Administradores" Foreground="White"
-                       FontWeight="Bold" FontSize="20" Margin="0,10,0,0"
-                       HorizontalAlignment="Center"/>
+        <!-- Panel lateral -->
+        <StackPanel Background="#FF003366" Grid.Column="0">
+            <StackPanel Margin="10" HorizontalAlignment="Center">
+                <TextBlock Text="Administradores" Foreground="White"
+                           FontWeight="Bold" FontSize="20" Margin="0,10,0,0"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel>
+                <Button Content="Insertar Roles"
+                        Click="Button_Click"
+                        Foreground="White"
+                        Width="161" Height="40"
+                        Background="#FF003366" FontSize="14" FontWeight="Bold"/>
+
+                <Button Content="Insertar Paises"
+                        Click="Button_Paises"
+                        Foreground="White"
+                        Width="160" Height="40"
+                        Background="#FF003366" FontSize="14" FontWeight="Bold"/>
+
+                <Button Content="Insertar Estados Tareas"
+                        Click="Button_Estados_Treas"
+                        Foreground="White"
+                        Width="160" Height="40"
+                        Background="#FF003366" FontSize="14" FontWeight="Bold"/>
+
+                <Button Content="Insertar Ciudades"
+                        Click="Button_Ciudades"
+                        Foreground="White"
+                        Width="160" Height="40"
+                        Background="#FF003366" FontSize="14" FontWeight="Bold"/>
+
+                <Button Content="Insertar Sexos"
+                        Click="Button_Sexos"
+                        Foreground="White"
+                        Width="160" Height="40"
+                        Background="#FF003366" FontSize="14" FontWeight="Bold"/>
+            </StackPanel>
         </StackPanel>
 
-        <!-- Opciones del menú -->
-        <StackPanel Margin="0,20,0,0">
-            <Button Content="Insertar Roles"
-            Click="Button_Click"
-            Width="161"
-            Height="40"
-            Background="#FF003366"
-            Foreground="White"
-            FontSize="14"
-            FontWeight="Bold"
-            BorderBrush="#FF001F33"
-            BorderThickness="0"
-            Padding="5"
-            HorizontalAlignment="Center"
-            Cursor="Hand"/>
+        <!-- Frame de navegación -->
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="26,52,25,52" Grid.Column="1"/>
 
-            <Button Content="Insertar Paises"
-                Click="Button_Paises"
-                Width="160"
-                Height="40"
-                Background="#FF003366"
-                Foreground="White"
-                FontSize="14"
-                FontWeight="Bold"
-                BorderBrush="#FF001F33"
-                BorderThickness="0"
-                Padding="5"
-                Cursor="Hand"/>
-
-            <Button Content="Insertar Estados Tareas"
-            Click="Button_Estados_Treas"
-            Width="160"
-            Height="40"
-            Background="#FF003366"
-            Foreground="White"
-            FontSize="14"
-            FontWeight="Bold"
-            BorderBrush="#FF001F33"
-            BorderThickness="0"
-            Padding="5"
-            Cursor="Hand"/>
-
-            <Button Content="Insertar Ciudades"
-                Click="Button_Ciudades"
-                Width="160"
-                Height="40"
-                Background="#FF003366"
-                Foreground="White"
-                FontSize="14"
-                FontWeight="Bold"
-                BorderBrush="#FF001F33"
-                BorderThickness="0"
-                Padding="5"
-Cursor="Hand"/>
-
-        </StackPanel>
-
-
-
-
-    </StackPanel>
-
+    </Grid>
 </Window>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.TextFormatting;
 using System.Windows.Shapes;
+using NatJoProject.Pages;
 using NatJoProject.ViewsPrueba;
 
 namespace NatJoProject.Views
@@ -28,11 +29,7 @@ namespace NatJoProject.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            Roles roles = new Roles();
-            roles.Show();
-            this.Close();
-
+            MainFrame.Navigate(new RolPage());
         }
 
         private void Button_Paises(object sender, RoutedEventArgs e)
@@ -53,6 +50,13 @@ namespace NatJoProject.Views
         {
             Ciudades ciudades = new Ciudades();
             ciudades.Show();
+            this.Close();
+        }
+
+        private void Button_Sexos(object sender, RoutedEventArgs e)
+        {
+            Sexos sexos = new Sexos();
+            sexos.Show();
             this.Close();
         }
     }

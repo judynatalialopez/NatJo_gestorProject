@@ -1,0 +1,31 @@
+﻿<Window x:Class="NatJoProject.ViewsPrueba.EditarRoles"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Editar Rol" Height="237" Width="486" WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0,0,0,10">
+            <TextBlock Text="ID del Rol:" FontWeight="Bold"/>
+            <TextBox x:Name="txtIdRol" IsEnabled="False" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="0,0,0,10">
+            <TextBlock Text="Descripción:" FontWeight="Bold"/>
+            <TextBox x:Name="txtDescripcion" />
+        </StackPanel>
+
+        <Button Grid.Row="2" Content="Guardar"
+                Width="100" Height="30"
+                HorizontalAlignment="Right"
+                Background="#4CAF50"
+                Foreground="White"
+                FontWeight="Bold"
+                Click="BtnGuardar_Click"/>
+    </Grid>
+</Window>
