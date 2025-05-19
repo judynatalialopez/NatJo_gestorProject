@@ -46,6 +46,28 @@ namespace NatJoProject.Controllers
             }
         }
 
+        public List<Pais> GetAllPaises()
+        {
+            var paises = paisService.GetAllPaises();
+            if (paises.Count > 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"Total de Pises encontrados: {paises.Count}");
+                foreach (var pais in paises)
+                {
+                    Console.WriteLine($"ID: {pais.PaisId} | Nombre: {pais.Nombre}");
+                }
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("No se encontraron paises. ");
+                Console.ResetColor();
+            }
+            return paises;
+        }
+
         public void UpdatePais(Pais pais)
         {
             bool result = paisService.UpdatePais(pais);
