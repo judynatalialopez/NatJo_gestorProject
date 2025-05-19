@@ -200,6 +200,38 @@ namespace NatJoProject.Services
             return loginSuccess;
         }
 
+        public bool UserLoginByAdmin(string email, string pwd)
+        {
+            var conexion = ConexionDB.conectar();
+            bool loginSuccess = false;
+
+            try
+            {
+                string query = @"SELECT 1 FROM administradores WHERE email = @email AND pwd = @pwd LIMIT 1";
+
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@pwd", pwd);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        loginSuccess = reader.Read(); // Si devuelve al menos una fila, el login es correcto
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al intentar login: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return loginSuccess;
+        }
+
         public User? GetUserByLogin(string login)
         {
             var conexion = ConexionDB.conectar();

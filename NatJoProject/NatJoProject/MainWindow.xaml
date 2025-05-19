@@ -44,9 +44,9 @@
                         Height="40"
                         BorderThickness="0"
                         Cursor="Hand"
-                        Margin="0,5,0,0" Click="btnRegistro"
+                        Margin="0,5,0,5" Click="btnRegistro"
                         />
-                <Button Content="Admin"
+                <Button Content="Entrar como admin"
                     Background="#6f42c1"
                     Foreground="White"
                     FontWeight="Bold"
