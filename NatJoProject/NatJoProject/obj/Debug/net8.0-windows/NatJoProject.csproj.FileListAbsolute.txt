@@ -48,7 +48,6 @@ C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\bin\Debug\n
 C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
 C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
 C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\bin\Debug\net8.0-windows\MySql.Data.dll
-C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\bin\Debug\net8.0-windows\System.Diagnostics.DiagnosticSource.dll
 C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
 C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
 C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\bin\Debug\net8.0-windows\System.Text.Json.dll
@@ -135,3 +134,9 @@ C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsP
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\EditarRoles.g.cs
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\EliminarRoles.baml
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\EliminarRoles.g.cs
+C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\EditarRoles.baml
+C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\EliminarRoles.baml
+C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\RolPage.g.cs
+C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\EditarRoles.g.cs
+C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\EliminarRoles.g.cs
+C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\RolPage.baml

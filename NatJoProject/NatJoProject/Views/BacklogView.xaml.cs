@@ -92,6 +92,11 @@ namespace NatJoProject.Views
             }
         }
 
-
+        private void InsertarProyecto_Click(object sender, RoutedEventArgs e)
+        {
+            CrearProyecto crearProyecto = new CrearProyecto();
+            crearProyecto.Owner = this;  // Aquí estableces la ventana padre
+            crearProyecto.ShowDialog();
+        }
     }
 }

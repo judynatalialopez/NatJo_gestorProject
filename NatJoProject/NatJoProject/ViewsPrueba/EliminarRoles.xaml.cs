@@ -73,6 +73,11 @@ using NatJoProject.Database;
             {
                 Close();
             }
+
+        private void Eliminar_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
+    }
     }
 

@@ -85,7 +85,7 @@
                        Margin="20,0,0,0" 
                        VerticalAlignment="Center" 
                        Foreground="#061B70"/>
-
+                
                 <!-- Perfil usuario -->
                 <Button DockPanel.Dock="Right"
                 HorizontalAlignment="Right"
@@ -103,6 +103,34 @@
 
                         </Ellipse>
                     </StackPanel>
+                </Button>
+                <Button x:Name="btnRegistrarProyecto"
+                    Content="Crear nuevo proyecto +"
+                    Foreground="White"
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Click="InsertarProyecto_Click" Width="247">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#462AD8"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
                 </Button>
 
             </DockPanel>
