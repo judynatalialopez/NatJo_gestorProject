@@ -111,7 +111,7 @@ namespace NatJoProject.Views
                 IndActivo: 'N',
                 Miembros: miembros,
                 Proyecto: project,
-                Owner: owner
+                Owner: owner  
             );
             teamController.InsertTeam(team);
 
