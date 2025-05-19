@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2025 a las 20:57:18
+-- Tiempo de generación: 19-05-2025 a las 03:04:16
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `natjoproject`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `administradores`
+--
+
+CREATE TABLE `administradores` (
+  `admin_id` int(11) NOT NULL,
+  `email` varchar(150) DEFAULT NULL,
+  `pwd` varchar(150) DEFAULT NULL,
+  `pNombre` varchar(80) DEFAULT NULL,
+  `sNombre` varchar(80) DEFAULT NULL,
+  `pApellido` varchar(80) DEFAULT NULL,
+  `sApellido` varchar(80) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `administradores`
+--
+
+INSERT INTO `administradores` (`admin_id`, `email`, `pwd`, `pNombre`, `sNombre`, `pApellido`, `sApellido`) VALUES
+(1, 'natisjcl02@gmail.com', 'Nata', 'Judy', 'Natalia', 'Correa', 'Lopez');
 
 -- --------------------------------------------------------
 
@@ -99,6 +122,15 @@ CREATE TABLE `miembros` (
   `ind_admin` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `miembros`
+--
+
+INSERT INTO `miembros` (`user_id`, `rol_id`, `ind_owner`, `ind_admin`) VALUES
+('1047037318', 2, 'S', 'S'),
+('1047037318', 2, 'S', 'S'),
+('1047037318', 2, 'S', 'S');
+
 -- --------------------------------------------------------
 
 --
@@ -133,6 +165,22 @@ CREATE TABLE `proyectos` (
   `f_terminacion` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `proyectos`
+--
+
+INSERT INTO `proyectos` (`proj_id`, `nombre`, `descripcion`, `team_id`, `f_inicio`, `f_terminacion`) VALUES
+(1, 'asd', 'adad', NULL, '2025-05-01 00:00:00', '2025-05-16 00:00:00'),
+(2, 'asd', 'adad', NULL, '2025-05-01 00:00:00', '2025-05-16 00:00:00'),
+(3, 'adasdd', 'dad', NULL, '2025-05-08 00:00:00', '2025-05-31 00:00:00'),
+(4, 'asda', 'adad', NULL, '2025-05-02 00:00:00', '2025-05-31 00:00:00'),
+(5, 'adasd', 'adadd', NULL, '2025-05-03 00:00:00', '2025-05-17 00:00:00'),
+(6, 'adasd', 'adadd', NULL, '2025-05-03 00:00:00', '2025-05-17 00:00:00'),
+(7, 'adasd', 'adadd', NULL, '2025-05-03 00:00:00', '2025-05-17 00:00:00'),
+(8, 'adsa', 'asdad', NULL, '2025-05-01 00:00:00', '2025-05-30 00:00:00'),
+(9, 'Callofudty', 'juegodedisparo', NULL, '2025-05-15 00:00:00', '2025-05-30 00:00:00'),
+(10, 'ada', 'asdad', 10, '2025-05-01 00:00:00', '2025-05-31 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -143,6 +191,13 @@ CREATE TABLE `roles` (
   `rol_id` int(11) NOT NULL,
   `descripcion` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`rol_id`, `descripcion`) VALUES
+(2, 'Owner');
 
 -- --------------------------------------------------------
 
@@ -184,12 +239,27 @@ CREATE TABLE `tasksproject` (
 --
 
 CREATE TABLE `teams` (
-  `team_id` int(11) DEFAULT NULL,
+  `team_id` int(11) NOT NULL,
   `nombre` varchar(15) DEFAULT NULL,
   `ind_activo` char(1) DEFAULT NULL,
   `proj_id` int(11) DEFAULT NULL,
   `owner_id` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `teams`
+--
+
+INSERT INTO `teams` (`team_id`, `nombre`, `ind_activo`, `proj_id`, `owner_id`) VALUES
+(2, 'Equipo de desar', 'N', 2, '1047037318'),
+(3, 'Equipo de desar', 'N', 3, '1047037318'),
+(4, 'Equipo de desar', 'N', 4, '1047037318'),
+(5, 'Equipo de desar', 'N', 5, '1047037318'),
+(6, 'Equipo de desar', 'N', 6, '1047037318'),
+(7, 'Equipo de desar', 'N', 7, '1047037318'),
+(8, 'Equipo de desar', 'N', 8, '1047037318'),
+(9, 'Equipo de desar', 'N', 9, '1047037318'),
+(10, 'ada', 'N', 10, '1047037318');
 
 -- --------------------------------------------------------
 
@@ -198,9 +268,18 @@ CREATE TABLE `teams` (
 --
 
 CREATE TABLE `team_members` (
-  `team_id` int(11) NOT NULL,
+  `team_id` int(11) DEFAULT NULL,
   `member_id` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `team_members`
+--
+
+INSERT INTO `team_members` (`team_id`, `member_id`) VALUES
+(8, '1047037318'),
+(9, '1047037318'),
+(10, '1047037318');
 
 -- --------------------------------------------------------
 
@@ -235,11 +314,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `pNombre`, `sNombre`, `pApellido`, `sApellido`, `ndocIdent`, `tipo_docIdent`, `pais_id`, `ciudad_id`, `sexo_id`, `fNacimiento`, `nTelefono1`, `nTelefono2`, `direccion`, `login`, `pwd`, `email`, `indBloqueado`, `indActivo`) VALUES
-('1047037318', 'Angel', 'David', 'Acuna', 'Meza', '1047037318', 'TI', 1, 1, 1, '2025-05-01 00:00:00', '3024330119', '3024330119', 'calle249354', 'angel@gmail.com', 'angel@gmail.com', 'angel@gmail.com', 'N', 'S');
+('1047037318', 'Angel', 'David', 'Acuna', 'Meza', '1047037318', 'TI', 1, 1, 1, '2025-05-01 00:00:00', '3024330119', '3024330119', 'calle249354', 'angel@gmail.com', 'angel@gmail.com', 'angel@gmail.com', 'N', 'S'),
+('1047037319', 'Angel', 'Acuna', 'Acuna', 'Meza', '1047037319', 'TI', 1, 1, 2, '2025-05-03 00:00:00', '3024330119', '3024330119', 'calle1043', 'angelo@gmail.co', 'adasd', 'angelo@gmail.co', 'N', 'S');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `administradores`
+--
+ALTER TABLE `administradores`
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indices de la tabla `ciudades`
@@ -317,7 +403,7 @@ ALTER TABLE `tasksproject`
 -- Indices de la tabla `teams`
 --
 ALTER TABLE `teams`
-  ADD KEY `team_id` (`team_id`),
+  ADD PRIMARY KEY (`team_id`),
   ADD KEY `proj_id` (`proj_id`),
   ADD KEY `owner_id` (`owner_id`);
 
@@ -325,7 +411,7 @@ ALTER TABLE `teams`
 -- Indices de la tabla `team_members`
 --
 ALTER TABLE `team_members`
-  ADD PRIMARY KEY (`team_id`),
+  ADD KEY `team_id` (`team_id`),
   ADD KEY `member_id` (`member_id`);
 
 --
@@ -340,6 +426,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `administradores`
+--
+ALTER TABLE `administradores`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `ciudades`
@@ -369,13 +461,13 @@ ALTER TABLE `paises`
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `proj_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `proj_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `rol_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `sexos`
@@ -390,10 +482,10 @@ ALTER TABLE `tasksproject`
   MODIFY `tasks_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `team_members`
+-- AUTO_INCREMENT de la tabla `teams`
 --
-ALTER TABLE `team_members`
-  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `teams`
+  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas
@@ -447,7 +539,6 @@ ALTER TABLE `tasksproject`
 -- Filtros para la tabla `teams`
 --
 ALTER TABLE `teams`
-  ADD CONSTRAINT `teams_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `team_members` (`team_id`),
   ADD CONSTRAINT `teams_ibfk_2` FOREIGN KEY (`proj_id`) REFERENCES `proyectos` (`proj_id`),
   ADD CONSTRAINT `teams_ibfk_3` FOREIGN KEY (`owner_id`) REFERENCES `users` (`id`);
 
@@ -455,7 +546,8 @@ ALTER TABLE `teams`
 -- Filtros para la tabla `team_members`
 --
 ALTER TABLE `team_members`
-  ADD CONSTRAINT `team_members_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `miembros` (`user_id`);
+  ADD CONSTRAINT `team_members_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `miembros` (`user_id`),
+  ADD CONSTRAINT `team_members_ibfk_2` FOREIGN KEY (`team_id`) REFERENCES `teams` (`team_id`);
 
 --
 -- Filtros para la tabla `users`
