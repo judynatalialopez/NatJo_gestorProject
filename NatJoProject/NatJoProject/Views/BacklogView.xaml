@@ -1,0 +1,128 @@
+﻿<Window x:Class="NatJoProject.Views.BacklogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Backlog" Height="688" Width="1563"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="CanResize"
+        WindowState="Maximized"
+        Topmost="True"
+        WindowStartupLocation="CenterScreen"
+        Background="#F0F2F5">
+
+    <Grid>
+        <!-- Columnas principales -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="37.995"/>
+            <ColumnDefinition Width="182.005"/>
+            <!-- Menú lateral -->
+            <ColumnDefinition Width="*"/>
+            <!-- Contenido -->
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Resources/logo.png" Height="100"
+      Margin="0,0,2,590" Grid.ColumnSpan="2"/>
+
+        <!-- Menú lateral -->
+        <StackPanel Grid.Column="0" Background="#DCDCDC" Margin="0,100,0,0" Grid.ColumnSpan="2">
+            <TextBlock Text="Para tí" 
+                   Foreground="#4682B4" 
+                   TextAlignment="Center"
+                   FontSize="22" 
+                   FontFamily="Arial"
+                   Margin="30,20,0,20"
+                   FontWeight="Bold" RenderTransformOrigin="0.451,-0.22"/>
+
+            <Image Source="/Resources/iconoInis.png"
+            Width="50" Height="50"
+            Margin="20,-50,125,0"/>
+
+            <ListBox x:Name="ProjectList" 
+         Background="Transparent" 
+         BorderThickness="0" 
+         Foreground="White"
+         Margin="10" Height="448">
+
+                <ListBoxItem BorderThickness="0" Background="Transparent">
+                    <StackPanel Orientation="Horizontal" Margin="30,20,0,0">
+                        <Image Source="/Resources/iconDBoard.png" Width="30" Height="30" Margin="0,0,10,0"/>
+                        <Button Content="Mi Dashboard" Click="Dashboard_Click" Foreground="#4682B4" FontSize="15" BorderThickness="0"/>
+                    </StackPanel>
+                </ListBoxItem>
+
+                <ListBoxItem BorderThickness="0" Background="Transparent">
+                    <StackPanel Orientation="Horizontal" Margin="30,20,0,0">
+                        <Image Source="/Resources/iconProyecto.png" Width="35" Height="30" Margin="0,0,10,0"/>
+                        <Button Content="Proyectos" Click="Proyectos_Click" Foreground="#4682B4" FontSize="15" BorderThickness="0"/>
+                    </StackPanel>
+                </ListBoxItem>
+
+                <ListBoxItem BorderThickness="0" Background="Transparent">
+                    <StackPanel Orientation="Horizontal" Margin="30,20,0,0">
+                        <Image Source="/Resources/iconTeam.png" Width="30" Height="35" Margin="0,0,10,0"/>
+                        <Button Content="Equipos" Click="Teams_Click" FontSize="15" Foreground="#4682B4" BorderThickness="0"/>
+                    </StackPanel>
+                </ListBoxItem>
+
+            </ListBox>
+
+        </StackPanel>
+
+        <!-- Contenido principal -->
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <!-- Barra superior -->
+                <RowDefinition Height="*"/>
+                <!-- Contenido backlog -->
+            </Grid.RowDefinitions>
+
+            <!-- Barra superior -->
+            <DockPanel Background="White" VerticalAlignment="Center" Margin="0,0,0,0" Height="87" RenderTransformOrigin="0.499,0.729">
+                <!-- Título / Logo -->
+                <TextBlock Text="Gestor de Proyectos NatJo" 
+                       FontSize="20" 
+                       FontWeight="Bold" 
+                       Margin="20,0,0,0" 
+                       VerticalAlignment="Center" 
+                       Foreground="#061B70"/>
+
+                <!-- Perfil usuario -->
+                <Button DockPanel.Dock="Right"
+                HorizontalAlignment="Right"
+                Margin="0,0,20,0"
+                Background="Transparent"
+                BorderThickness="0"
+                Click="UserProfile_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="UserDisplayName"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,0"
+                           Foreground="#2F3E4D"/>
+
+                        <Ellipse Width="32" Height="32">
+
+                        </Ellipse>
+                    </StackPanel>
+                </Button>
+
+            </DockPanel>
+
+            <Popup x:Name="UserPopup" Placement="Bottom" StaysOpen="False" AllowsTransparency="True">
+                <Border Background="White" CornerRadius="8" Padding="10" BorderBrush="#DDD" BorderThickness="1" Width="300" >
+                    <StackPanel>
+                        <TextBlock Text="Perfil de usuario" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                        <TextBlock x:Name="UserNameText" TextWrapping="Wrap" Margin="0,0,0,5"/>
+                        <TextBlock x:Name="UserDocText" TextWrapping="Wrap" Margin="0,0,0,5"/>
+                        <TextBlock x:Name="UserLocationText" TextWrapping="Wrap" Margin="0,0,0,5"/>
+                        <TextBlock x:Name="UserEmailText" TextWrapping="Wrap" Margin="0,0,0,10"/>
+
+                        <Button Content="Cerrar sesión" Background="#ada6cf" Foreground="White" Click="Logout_Click" />
+                    </StackPanel>
+                </Border>
+            </Popup>
+
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,45,0,60" Grid.Row="1"/>
+
+        </Grid>
+    </Grid>
+</Window>
