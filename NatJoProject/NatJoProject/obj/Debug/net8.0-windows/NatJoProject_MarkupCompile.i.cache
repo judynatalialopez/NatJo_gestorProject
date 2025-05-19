@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\
 NatJoProject
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
-13-618305258
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
+141003561812
 
-59360766266
-206-1495605178
-MainWindow.xaml;Pages\DashboardPage.xaml;Pages\ProjectPage.xaml;Pages\TeamPage.xaml;ViewsPrueba\Ciudades.xaml;ViewsPrueba\Estados_Task.xaml;ViewsPrueba\Paises.xaml;ViewsPrueba\Register.xaml;ViewsPrueba\Roles.xaml;Views\Administradores.xaml;Views\BacklogView.xaml;Views\CrearProyecto.xaml;Views\Registro.xaml;
+601387612015
+2061010492641
+MainWindow.xaml;Pages\DashboardPage.xaml;Pages\ProjectPage.xaml;Pages\TeamPage.xaml;ViewsPrueba\Ciudades.xaml;ViewsPrueba\Estados_Task.xaml;ViewsPrueba\Paises.xaml;ViewsPrueba\Register.xaml;ViewsPrueba\Roles.xaml;ViewsPrueba\Sexos.xaml;Views\Administradores.xaml;Views\BacklogView.xaml;Views\CrearProyecto.xaml;Views\Registro.xaml;
 
 True
 

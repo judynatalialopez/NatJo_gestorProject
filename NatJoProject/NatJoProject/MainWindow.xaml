@@ -46,7 +46,16 @@
                         Cursor="Hand"
                         Margin="0,5,0,0" Click="btnRegistro"
                         />
+                <Button Content="Admin"
+                    Background="#6f42c1"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    Height="40"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Click="btnAdmin"/>
             </StackPanel>
         </Border>
+
     </Grid>
 </Window>

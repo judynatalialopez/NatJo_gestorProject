@@ -17,6 +17,9 @@
     <Compile Update="ViewsPrueba\Roles.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ViewsPrueba\Sexos.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\CrearProyecto.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -26,6 +29,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ViewsPrueba\Register.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ViewsPrueba\Sexos.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\CrearProyecto.xaml">

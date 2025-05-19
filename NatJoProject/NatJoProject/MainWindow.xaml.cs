@@ -57,9 +57,11 @@ namespace NatJoProject
                 User? usuario = userController.GetUserByLogin(email);
                 SesionApp.UsuarioActual = usuario;
 
+                
                 BacklogView backlogView = new BacklogView();
                 backlogView.Show();
                 this.Close();
+                
             }
             else
             {

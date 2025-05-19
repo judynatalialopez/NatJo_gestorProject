@@ -115,3 +115,15 @@ C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsP
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\Administradores.baml
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\CrearProyecto.g.cs
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\CrearProyecto.baml
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\ProjectPage.g.cs
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\TeamPage.g.cs
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\Ciudades.g.cs
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\Sexos.g.cs
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\Administradores.g.cs
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\CrearProyecto.g.cs
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\ProjectPage.baml
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\TeamPage.baml
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\Ciudades.baml
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\Sexos.baml
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\Administradores.baml
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\CrearProyecto.baml
