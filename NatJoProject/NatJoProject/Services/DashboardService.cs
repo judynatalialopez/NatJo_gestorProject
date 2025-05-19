@@ -202,5 +202,43 @@ namespace NatJoProject.Services
 
             return result;
         }
+
+        public List<Project> GetProjectsByUserId(string userId)
+        {
+            List<Project> proyectos = new List<Project>();
+            var conexion = ConexionDB.conectar();
+
+            try
+            {
+                // Obtener el ID del dashboard del usuario
+                string queryDashboard = "SELECT dboard_id FROM dashboards WHERE user_id = @user_id LIMIT 1";
+                int? dboardId = null;
+
+                using (var cmd = new MySqlCommand(queryDashboard, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@user_id", userId);
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                        dboardId = Convert.ToInt32(result);
+                }
+
+                // Si no se encontró dashboard, retornar lista vacía
+                if (dboardId == null)
+                    return proyectos;
+
+                // Obtener proyectos relacionados
+                proyectos = GetProjectsByDashboardId(dboardId.Value);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en GetProjectsByUserId: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return proyectos;
+        }
     }
 }

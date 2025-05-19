@@ -30,6 +30,15 @@ namespace NatJoProject.Controllers
             }
         }
 
+        public List<Project> GetProjectsByUserId(string userId)
+        {
+            if (string.IsNullOrEmpty(userId))
+                return new List<Project>();
+
+
+            return dashboardService.GetProjectsByUserId(userId);
+        }
+
         public void BuscarPorId(int id)
         {
             var dashboard = dashboardService.GetDashboardById(id);

@@ -109,3 +109,7 @@ C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\DashboardPage.baml
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\ProjectPage.baml
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\TeamPage.baml
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\Ciudades.g.cs
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\Administradores.g.cs
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\Ciudades.baml
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\Administradores.baml
