@@ -12,7 +12,7 @@ namespace NatJoProject.Models
         public string Nombre { get; set; }
         public string Descripcion {  get; set; } 
         public List<TaskProject> Tasks { get; set; }
-        public Team Team { get; set; }
+        public Team? Team { get; set; }
         public DateTime Finicio { get; set; }
         public DateTime Fterminacion { get; set;}
 
@@ -33,11 +33,10 @@ namespace NatJoProject.Models
         }
 
         //METODO CONSTRUCTOR QUE NO RECIBE ID
-        public Project(string Nombre, string Descripcion, List<TaskProject> Tasks, Team Team, DateTime Finicio, DateTime Fterminacion)
+        public Project(string Nombre, string Descripcion, Team Team, DateTime Finicio, DateTime Fterminacion)
         {
             this.Nombre = Nombre;
             this.Descripcion = Descripcion;
-            this.Tasks = Tasks;
             this.Team = Team;
             this.Finicio = Finicio;
             this.Fterminacion = Fterminacion;

@@ -9,40 +9,55 @@ namespace NatJoProject.Services
 {
     public class ProjectService
     {
-        private readonly TeamService teamService = new TeamService();
-        private readonly TaskProjectService task0Service = new TaskProjectService();
+        private readonly TeamService teamService;
+        private readonly TaskProjectService task0Service;
 
-        public bool InsertProject(Project project)
+        // Constructor vacío si se desea (solo si vas a configurar luego)
+        public ProjectService() { }
+
+        // Constructor con inyección manual
+        public ProjectService(TeamService teamService, TaskProjectService taskService)
         {
+            this.teamService = teamService;
+            this.task0Service = taskService;
+        }
+
+        public int InsertProject(Project project)
+        {
+            int newId = 0;
             var conexion = ConexionDB.conectar();
-            bool result = false;
 
             try
             {
                 string query = @"INSERT INTO proyectos (nombre, descripcion, team_id, f_inicio, f_terminacion)
-                                 VALUES (@nombre, @descripcion, @team_id, @f_inicio, @f_terminacion)";
+                         VALUES (@nombre, @descripcion, @team_id, @f_inicio, @f_terminacion)";
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
                     cmd.Parameters.AddWithValue("@nombre", project.Nombre);
                     cmd.Parameters.AddWithValue("@descripcion", project.Descripcion);
-                    cmd.Parameters.AddWithValue("@team_id", project.Team.TeamId);
+                    cmd.Parameters.AddWithValue("@team_id", project.Team != null ? (object)project.Team.TeamId : DBNull.Value);
                     cmd.Parameters.AddWithValue("@f_inicio", project.Finicio);
                     cmd.Parameters.AddWithValue("@f_terminacion", project.Fterminacion);
 
-                    result = cmd.ExecuteNonQuery() > 0;
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        newId = (int)cmd.LastInsertedId;
+                        project.ProjId = newId; // Opcional, si quieres actualizar el objeto también
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al insertar proyecto: " + ex.Message);
+                MessageBox.Show("Error al insertar proyecto: " + ex.Message);
             }
             finally
             {
                 ConexionDB.desconectar(conexion);
             }
 
-            return result;
+            return newId; // retorna el ID o 0 si falló
         }
 
         public Project? GetProjectById(int projId)
