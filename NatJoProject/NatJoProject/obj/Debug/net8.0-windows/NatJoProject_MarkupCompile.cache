@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
-10-697882554
+11923984516
 
-54-2116263288
+55-1089417539
 206-663927231
-MainWindow.xaml;Pages\DashboardPage.xaml;ViewsPrueba\Ciudades.xaml;ViewsPrueba\Estados_Task.xaml;ViewsPrueba\Paises.xaml;ViewsPrueba\Register.xaml;ViewsPrueba\Roles.xaml;Views\Administradores.xaml;Views\BacklogView.xaml;Views\Registro.xaml;
+MainWindow.xaml;Pages\DashboardPage.xaml;ViewsPrueba\Ciudades.xaml;ViewsPrueba\Estados_Task.xaml;ViewsPrueba\Paises.xaml;ViewsPrueba\Register.xaml;ViewsPrueba\Roles.xaml;ViewsPrueba\Sexos.xaml;Views\Administradores.xaml;Views\BacklogView.xaml;Views\Registro.xaml;
 
 False
 

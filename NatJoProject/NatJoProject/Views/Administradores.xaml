@@ -104,7 +104,20 @@
                 BorderBrush="#FF001F33"
                 BorderThickness="0"
                 Padding="5"
-Cursor="Hand"/>
+                Cursor="Hand"/>
+
+            <Button Content="Insertar Sexos"
+                Click="Button_Sexos"
+                Width="160"
+                Height="40"
+                Background="#FF003366"
+                Foreground="White"
+                FontSize="14"
+                FontWeight="Bold"
+                BorderBrush="#FF001F33"
+                BorderThickness="0"
+                Padding="5"
+                Cursor="Hand"/>
 
         </StackPanel>
 

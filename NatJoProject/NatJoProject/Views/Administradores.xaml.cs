@@ -55,5 +55,13 @@ namespace NatJoProject.Views
             ciudades.Show();
             this.Close();
         }
+
+        private void Button_Sexos(object sender, RoutedEventArgs e)
+        {
+
+            Sexos sexos = new Sexos();
+            sexos.Show();
+            this.Close();
+        }
     }
 }
