@@ -9,41 +9,56 @@ namespace NatJoProject.Services
 {
     public class TeamService
     {
-        private readonly MemberService memberService = new MemberService();
-        private readonly ProjectService projectService = new ProjectService();
-        private readonly UserService userService = new UserService();
+        private readonly MemberService memberService;
+        private readonly ProjectService projectService;
+        private readonly UserService userService;
 
-        public bool InsertTeam(Team team)
+        // Constructor vacío (por defecto)
+        public TeamService(){}
+
+        // Constructor con inyección manual
+        public TeamService(MemberService memberService, ProjectService projectService, UserService userService)
+        {
+            this.memberService = memberService;
+            this.projectService = projectService;
+            this.userService = userService;
+        }
+
+        public int InsertTeam(Team team)
         {
             var conexion = ConexionDB.conectar();
-            bool result = false;
+            int insertedTeamId = 0;
 
             try
             {
-                string query = @"INSERT INTO teams (team_id, nombre, ind_activo, project_id, owner_id)
-                                 VALUES (@team_id, @nombre, @ind_activo, @project_id, @owner_id)";
+                string query = @"INSERT INTO teams (nombre, ind_activo, proj_id, owner_id)
+                         VALUES (@nombre, @ind_activo, @project_id, @owner_id)";
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@team_id", team.TeamId);
                     cmd.Parameters.AddWithValue("@nombre", team.Nombre);
                     cmd.Parameters.AddWithValue("@ind_activo", team.IndActivo);
                     cmd.Parameters.AddWithValue("@project_id", team.Proyecto.ProjId);
-                    cmd.Parameters.AddWithValue("@owner_id", team.Proyecto.ProjId);
+                    cmd.Parameters.AddWithValue("@owner_id", team.Owner.Id);
 
-                    result = cmd.ExecuteNonQuery() > 0;
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        insertedTeamId = (int)cmd.LastInsertedId;
+                        team.TeamId = insertedTeamId;
+                    }
                 }
 
-                if (result && team.Miembros != null)
+                if (insertedTeamId > 0 && team.Miembros != null)
                 {
                     foreach (var miembro in team.Miembros)
                     {
                         string miembroQuery = @"INSERT INTO team_members (team_id, member_id)
-                                                VALUES (@team_id, @member_id)";
+                                        VALUES (@team_id, @member_id)";
 
                         using (var cmd = new MySqlCommand(miembroQuery, conexion))
                         {
-                            cmd.Parameters.AddWithValue("@team_id", team.TeamId);
+                            cmd.Parameters.AddWithValue("@team_id", insertedTeamId);
                             cmd.Parameters.AddWithValue("@member_id", miembro.Id);
                             cmd.ExecuteNonQuery();
                         }
@@ -52,14 +67,14 @@ namespace NatJoProject.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al insertar team: " + ex.Message);
+                MessageBox.Show("Error al insertar team: " + ex.Message);
             }
             finally
             {
                 ConexionDB.desconectar(conexion);
             }
 
-            return result;
+            return insertedTeamId;
         }
 
         public Team? GetTeamById(string teamId)

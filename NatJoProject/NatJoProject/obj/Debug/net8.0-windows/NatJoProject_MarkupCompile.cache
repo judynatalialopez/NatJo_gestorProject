@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\
 NatJoProject
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
-11923984516
+C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
+12217087009
 
-55-1089417539
-206-663927231
-MainWindow.xaml;Pages\DashboardPage.xaml;ViewsPrueba\Ciudades.xaml;ViewsPrueba\Estados_Task.xaml;ViewsPrueba\Paises.xaml;ViewsPrueba\Register.xaml;ViewsPrueba\Roles.xaml;ViewsPrueba\Sexos.xaml;Views\Administradores.xaml;Views\BacklogView.xaml;Views\Registro.xaml;
+56-148062
+2061010492641
+MainWindow.xaml;Pages\DashboardPage.xaml;ViewsPrueba\Ciudades.xaml;ViewsPrueba\Estados_Task.xaml;ViewsPrueba\Paises.xaml;ViewsPrueba\Register.xaml;ViewsPrueba\Roles.xaml;ViewsPrueba\Sexos.xaml;Views\Administradores.xaml;Views\BacklogView.xaml;Views\CrearProyecto.xaml;Views\Registro.xaml;
 
 False
 

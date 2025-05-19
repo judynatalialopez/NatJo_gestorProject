@@ -13,12 +13,20 @@ namespace NatJoProject.Controllers
     {
         private readonly ProjectService projectService = new ProjectService();
 
-        public void InsertProject(Project project)
+        public int InsertProject(Project project)
         {
-            if (projectService.InsertProject(project))
-                Console.WriteLine($"[INFO] Proyecto {project.ProjId} insertado correctamente.");
+            int id = projectService.InsertProject(project);
+
+            if (id > 0)
+            {
+                Console.WriteLine($"[INFO] Proyecto insertado correctamente con ID: {id}.");
+            }
             else
-                Console.WriteLine($"[ERROR] No se pudo insertar el proyecto {project.ProjId}.");
+            {
+                Console.WriteLine($"[ERROR] No se pudo insertar el proyecto.");
+            }
+
+            return id;
         }
 
         public void GetProjectById(int projId)

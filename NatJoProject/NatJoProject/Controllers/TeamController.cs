@@ -13,22 +13,21 @@ namespace NatJoProject.Controllers
     {
         private readonly TeamService teamService = new TeamService();
 
-        public void InsertTeam(Team team)
+        public int InsertTeam(Team team)
         {
-            bool result = teamService.InsertTeam(team);
+            int id = teamService.InsertTeam(team);
 
-            if (result)
+            if (id > 0)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Equipo {team.TeamId} insertado correctamente.");
+                Console.WriteLine($"[INFO] Team insertado correctamente con ID: {id}.");
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo insertar el equipo {team.TeamId}.");
+                Console.WriteLine($"[ERROR] No se pudo insertar el team.");
             }
 
-            Console.ResetColor();
+            return id;
+
         }
 
         public void GetTeamById(string teamId)

@@ -9,14 +9,22 @@ namespace NatJoProject.Services
 {
     public class MemberService
     {
-        private readonly UserService userService = new UserService();
-        private readonly RolService rolService = new RolService();
+
+        private readonly UserService userService;
+        private readonly RolService rolService;
+
+        // Constructor vacío si lo necesitas para pruebas simples o DI manual
+        public MemberService(){}
+
+        // Constructor con inyección manual
+        public MemberService(UserService userService, RolService rolService)
+        {
+            this.userService = userService;
+            this.rolService = rolService;
+        }
 
         public bool InsertMember(Member member)
         {
-            // Primero insertamos al User
-            if (!userService.InsertUser(member))
-                return false;
 
             var conexion = ConexionDB.conectar();
             bool result = false;
@@ -38,7 +46,7 @@ namespace NatJoProject.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al insertar Member: " + ex.Message);
+                MessageBox.Show("Error al insertar Member: " + ex.Message);
             }
             finally
             {
@@ -103,7 +111,7 @@ namespace NatJoProject.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al obtener Member: " + ex.Message);
+                MessageBox.Show("Error al obtener Member: " + ex.Message);
             }
             finally
             {

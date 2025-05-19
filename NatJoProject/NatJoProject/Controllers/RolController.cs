@@ -26,7 +26,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void GetRolById(int rolId)
+        public Rol? GetRolById(int rolId)
         {
             var rol = rolService.GetRolById(rolId);
 
@@ -42,6 +42,8 @@ namespace NatJoProject.Controllers
                 Console.WriteLine($"Rol con ID {rolId} no encontrado.");
                 Console.ResetColor();
             }
+
+            return rol;
         }
 
         public void UpdateRol(Rol rol)
