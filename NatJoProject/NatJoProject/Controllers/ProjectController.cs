@@ -58,6 +58,25 @@ namespace NatJoProject.Controllers
                 Console.WriteLine("No hay proyectos registrados.");
             }
         }
+        public List<Project> MostrarProyectosPorUsuario(string userId)
+        {
+            var projects = projectService.GetProjectsByUserId(userId);
+
+            if (projects.Count > 0)
+            {
+                Console.WriteLine($"Se encontraron {projects.Count} proyectos para el usuario {userId}:");
+                foreach (var p in projects)
+                {
+                    Console.WriteLine($"- {p.ProjId}: {p.Nombre} ({p.Finicio:yyyy-MM-dd})");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"No hay proyectos registrados para el usuario {userId}.");
+            }
+
+            return projects;
+        }
 
         public void UpdateProject(Project project)
         {

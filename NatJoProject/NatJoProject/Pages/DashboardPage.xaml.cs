@@ -23,7 +23,7 @@ namespace NatJoProject.Pages
     /// </summary>
     public partial class DashboardPage : Page
     {
-        private readonly DashboardController dashboardController = new DashboardController();
+        private readonly ProjectController projectController = new ProjectController();
 
         public DashboardPage()
         {
@@ -35,8 +35,6 @@ namespace NatJoProject.Pages
         {
             await Task.Run(() => CargarProyectosSeguro());
         }
-
-
         private void CargarProyectosSeguro()
         {
             try
@@ -52,21 +50,29 @@ namespace NatJoProject.Pages
                     return;
                 }
 
-                var proyectos = dashboardController.GetProjectsByUserId(userId);
+                var proyectos = projectController.MostrarProyectosPorUsuario(userId);
 
                 if (proyectos == null || proyectos.Count == 0)
                 {
-                    Dispatcher.Invoke(() => txtSinProyectos.Visibility = Visibility.Visible);
+                    Dispatcher.Invoke(() =>
+                    {
+                        wrapProyectos.Children.Clear();
+                        txtSinProyectos.Visibility = Visibility.Visible;
+                    });
                     return;
                 }
 
-                Dispatcher.Invoke(() => txtSinProyectos.Visibility = Visibility.Collapsed);
-
-                foreach (var proyecto in proyectos)
+                Dispatcher.Invoke(() =>
                 {
-                    var card = CrearCardProyecto(proyecto);
-                    Dispatcher.Invoke(() => wrapProyectos.Children.Add(card));
-                }
+                    wrapProyectos.Children.Clear();
+                    txtSinProyectos.Visibility = Visibility.Collapsed;
+
+                    foreach (var proyecto in proyectos)
+                    {
+                        var card = CrearCardProyecto(proyecto);
+                        wrapProyectos.Children.Add(card);
+                    }
+                });
             }
             catch (Exception ex)
             {

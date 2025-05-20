@@ -100,5 +100,12 @@ namespace NatJoProject
                 MessageBox.Show("Email o contraseña incorrectos.", "Error de login", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void btnPrueba_CLick(object sender, RoutedEventArgs e)
+        {
+            ProyetosPrueba proyetosPrueba = new ProyetosPrueba();
+            proyetosPrueba.Show();
+            this.Close();
+        }
     }
 }

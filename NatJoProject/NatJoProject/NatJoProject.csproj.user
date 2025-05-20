@@ -26,6 +26,9 @@
     <Compile Update="ViewsPrueba\Paises.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ViewsPrueba\ProyetosPrueba.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="ViewsPrueba\Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

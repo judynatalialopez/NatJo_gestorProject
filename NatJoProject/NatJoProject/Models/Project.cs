@@ -21,6 +21,16 @@ namespace NatJoProject.Models
         }
 
         //METODO CONSTRUCTOR QUE RECIBE ID
+        public Project(int ProjId, string Nombre, string Descripcion, DateTime Finicio, DateTime Fterminacion)
+        {
+            this.ProjId = ProjId;
+            this.Nombre = Nombre;
+            this.Descripcion = Descripcion;
+            this.Finicio = Finicio;
+            this.Fterminacion = Fterminacion;
+        }
+
+        //METODO CONSTRUCTOR QUE RECIBE ID
         public Project(int ProjId, string Nombre, string Descripcion, List<TaskProject> Tasks, Team Team, DateTime Finicio, DateTime Fterminacion) 
         {
             this.ProjId = ProjId;

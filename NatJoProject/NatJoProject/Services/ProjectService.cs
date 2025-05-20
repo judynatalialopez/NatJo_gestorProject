@@ -107,6 +107,61 @@ namespace NatJoProject.Services
             return project;
         }
 
+        //Para obtener proyectos por el id del usuario
+        public List<Project> GetProjectsByUserId(string userId)
+        {
+            var lista = new List<Project>();
+            var conexion = ConexionDB.conectar();
+
+            try
+            {
+                string query = @"
+            SELECT DISTINCT p.proj_id, p.nombre, p.descripcion, p.f_inicio, p.f_terminacion, p.team_id
+            FROM proyectos p
+            JOIN teams t ON p.team_id = t.team_id
+            JOIN team_members tm ON t.team_id = tm.team_id
+            WHERE tm.member_id = @user_id";
+
+                using (var cmd = new MySqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@user_id", userId);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int projId = Convert.ToInt32(reader["proj_id"]);
+                            int teamId = Convert.ToInt32(reader["team_id"]);
+
+                            var project = new Project(
+                                projId,
+                                reader["nombre"].ToString(),
+                                reader["descripcion"].ToString(),
+                                Convert.ToDateTime(reader["f_inicio"]),
+                                Convert.ToDateTime(reader["f_terminacion"])
+                            );
+
+                            // Cargar el equipo completo con miembros
+                            project.Team = GetTeamById(teamId, conexion);
+
+                            lista.Add(project);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener proyectos por usuario: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return lista;
+        }
+
+
         public List<Project> GetAllProjects()
         {
             var lista = new List<Project>();
@@ -141,7 +196,7 @@ namespace NatJoProject.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al obtener proyectos: " + ex.Message);
+                MessageBox.Show("Error al obtener proyectos: " + ex.Message);
             }
             finally
             {
