@@ -156,5 +156,15 @@ namespace NatJoProject.Views
             crearProyecto.Owner = this;  // Aquí estableces la ventana padre
             crearProyecto.ShowDialog();
         }
+
+        private void ProjectList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

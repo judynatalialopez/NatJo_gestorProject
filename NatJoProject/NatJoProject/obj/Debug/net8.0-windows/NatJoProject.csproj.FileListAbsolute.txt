@@ -153,3 +153,7 @@ C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\n
 C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\bin\Debug\net8.0-windows\System.Diagnostics.DiagnosticSource.dll
 C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\AsignarTarea.g.cs
 C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\AsignarTarea.baml
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\ProyetosPrueba.g.cs
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\AsignarTarea.g.cs
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\ProyetosPrueba.baml
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\AsignarTarea.baml

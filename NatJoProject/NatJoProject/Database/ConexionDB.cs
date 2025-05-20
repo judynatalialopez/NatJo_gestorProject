@@ -11,7 +11,7 @@ namespace NatJoProject.Database
     public class ConexionDB
     {
 
-        private static readonly string connectionString = "server=localhost;Database=natjoproject;Uid=root;Pwd=''";
+        private static readonly string connectionString = "server=localhost;Database=natjoproject;Uid=root;Pwd='JFRB131415hola'";
 
         //SIN CONTRASEÑA
         //private static readonly string connectionString = "server=localhost;Database=natjoproject;Uid=root;Pwd=JFRB131415hola;";

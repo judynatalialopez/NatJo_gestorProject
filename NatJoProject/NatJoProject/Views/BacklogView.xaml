@@ -36,11 +36,12 @@
             Width="50" Height="50"
             Margin="20,-50,125,0"/>
 
-            <ListBox x:Name="ProjectList" 
+            <ListBox x:Name="ProjectList"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
          Background="Transparent" 
          BorderThickness="0" 
          Foreground="White"
-         Margin="10" Height="448">
+         Margin="10" Height="490" SelectionChanged="ProjectList_SelectionChanged">
 
                 <ListBoxItem BorderThickness="0" Background="Transparent">
                     <StackPanel Orientation="Horizontal" Margin="30,20,0,0">
@@ -53,16 +54,65 @@
                     <StackPanel Orientation="Vertical" Margin="30,20,0,0">
                         <!-- Botón principal -->
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/Resources/iconProyecto.png" Width="35" Height="30" Margin="0,0,10,0"/>
+                            <Image Source="/Resources/iconProyecto.png" Width="35" Height="30" Margin="0,0,0,0"/>
                             <Button Content="Proyectos" Click="Proyectos_Click" Foreground="#4682B4" FontSize="15" BorderThickness="0"/>
+                            <Button x:Name="btnRegistrarProyecto"
+                                    Content="Nuevo+"
+                                    Margin="10,0,0,0"
+                                     Foreground="White"
+                                     FontSize="11"
+                                     FontFamily="Montserrat"
+                                     BorderThickness="0"
+                                     Cursor="Hand"
+                                Click="InsertarProyecto_Click" Width="50">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="#4682B4"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#28AEED"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border CornerRadius="20"
+                                         Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
                         </StackPanel>
 
                         <!-- Lista de proyectos -->
                         <ItemsControl x:Name="ListaProyectos" Visibility="Collapsed">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Nombre}" Margin="45,5,0,0" Foreground="Black"/>
+                                    <Button Content="{Binding Nombre}" Click="ViewProject_Click"
+                                          Margin="0,15,0,0" 
+                                            FontSize="13" 
+                                            FontFamily="Arial"
+                                            Foreground="#789399"
+                                            Cursor="Hand"
+                                            BorderBrush="LightGray"
+                                            Padding="4,4">
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}"
+                                                 BorderBrush="{TemplateBinding BorderBrush}"
+                                                 BorderThickness="{TemplateBinding BorderThickness}"
+                                                 CornerRadius="6">
+                                                    <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
                                 </DataTemplate>
+
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </StackPanel>
@@ -115,34 +165,6 @@
 
                         </Ellipse>
                     </StackPanel>
-                </Button>
-                <Button x:Name="btnRegistrarProyecto"
-                    Content="Crear nuevo proyecto +"
-                    Foreground="White"
-                    FontSize="12"
-                    FontFamily="Montserrat"
-                    BorderThickness="0"
-                    Cursor="Hand"
-                    Click="InsertarProyecto_Click" Width="247">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Background" Value="#462AD8"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#28AEED"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="{x:Type Button}">
-                            <Border CornerRadius="20"
-                                Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                    HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
                 </Button>
 
             </DockPanel>
