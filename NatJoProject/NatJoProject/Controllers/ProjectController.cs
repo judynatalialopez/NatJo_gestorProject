@@ -29,7 +29,7 @@ namespace NatJoProject.Controllers
             return id;
         }
 
-        public void GetProjectById(int projId)
+        public Project? GetProjectById(int projId)
         {
             var project = projectService.GetProjectById(projId);
             if (project != null)
@@ -40,6 +40,8 @@ namespace NatJoProject.Controllers
             {
                 Console.WriteLine($"[WARNING] Proyecto con ID {projId} no encontrado.");
             }
+
+            return project;
         }
 
         public void GetAllProjects()

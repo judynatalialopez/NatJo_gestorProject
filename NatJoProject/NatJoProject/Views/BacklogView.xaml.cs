@@ -23,6 +23,9 @@ namespace NatJoProject.Views
     /// </summary>
     public partial class BacklogView : Window
     {
+
+        ProjectController projectController = new ProjectController();
+
         public BacklogView()
         {
             InitializeComponent();
@@ -37,15 +40,70 @@ namespace NatJoProject.Views
 
         }
 
-        private void Dashboard_Click(object sender, RoutedEventArgs e)
+        private bool proyectosMostrados = false;
+
+        private void Proyectos_Click(object sender, RoutedEventArgs e)
+        {
+            var userId = SesionApp.UsuarioActual?.Id;
+            if (string.IsNullOrEmpty(userId))
+            {
+                MessageBox.Show("Error: usuario no autenticado.");
+                return;
+            }
+
+            // Buscar el contenedor donde está el ItemsControl
+            var parent = ((Button)sender).Parent as StackPanel;
+            var container = parent?.Parent as StackPanel;
+
+            if (container != null)
+            {
+                var listaControl = container.Children
+                    .OfType<ItemsControl>()
+                    .FirstOrDefault(ic => ic.Name == "ListaProyectos");
+
+                if (listaControl != null)
+                {
+                    if (!proyectosMostrados)
+                    {
+                        try
+                        {
+                            var proyectos = projectController.MostrarProyectosPorUsuario(userId);
+                            if (proyectos != null && proyectos.Count > 0)
+                            {
+                                listaControl.ItemsSource = proyectos;
+                                listaControl.Visibility = Visibility.Visible;
+                                proyectosMostrados = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No hay proyectos disponibles.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al cargar proyectos: " + ex.Message);
+                        }
+                    }
+                    else
+                    {
+                        listaControl.Visibility = Visibility.Collapsed;
+                        proyectosMostrados = false;
+                    }
+                }
+            }
+        }
+
+            private void Dashboard_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new DashboardPage());
         }
 
+        /*
         private void Proyectos_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new ProjectPage());
         }
+        */
 
         private void Teams_Click(object sender, RoutedEventArgs e)
         {

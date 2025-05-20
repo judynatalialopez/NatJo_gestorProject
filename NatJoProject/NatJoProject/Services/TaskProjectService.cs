@@ -20,8 +20,11 @@ namespace NatJoProject.Services
 
             try
             {
-                string query = @"INSERT INTO tasks (titulo, descripcion, estado_id, f_entrega)
-                                 VALUES (@titulo, @descripcion, @estado_id, @f_entrega)";
+                string query = @"INSERT INTO tasksproject (titulo, descripcion, estado_id, f_entrega)
+                         VALUES (@titulo, @descripcion, @estado_id, @f_entrega);
+                         SELECT LAST_INSERT_ID();";
+
+                int taskId;
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
@@ -30,7 +33,7 @@ namespace NatJoProject.Services
                     cmd.Parameters.AddWithValue("@estado_id", task.Estado.EstId);
                     cmd.Parameters.AddWithValue("@f_entrega", task.Fentrerga);
 
-                    result = cmd.ExecuteNonQuery() > 0;
+                    taskId = Convert.ToInt32(cmd.ExecuteScalar());
                 }
 
                 foreach (var miembro in task.Responsable)
@@ -38,11 +41,13 @@ namespace NatJoProject.Services
                     string relQuery = "INSERT INTO responsables_tarea (task_id, user_id) VALUES (@task_id, @user_id)";
                     using (var relCmd = new MySqlCommand(relQuery, conexion))
                     {
-                        relCmd.Parameters.AddWithValue("@task_id", task.TaskId);
+                        relCmd.Parameters.AddWithValue("@task_id", taskId);
                         relCmd.Parameters.AddWithValue("@user_id", miembro.Id);
                         relCmd.ExecuteNonQuery();
                     }
                 }
+
+                result = true;
             }
             catch (Exception ex)
             {

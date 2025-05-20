@@ -50,9 +50,21 @@
                 </ListBoxItem>
 
                 <ListBoxItem BorderThickness="0" Background="Transparent">
-                    <StackPanel Orientation="Horizontal" Margin="30,20,0,0">
-                        <Image Source="/Resources/iconProyecto.png" Width="35" Height="30" Margin="0,0,10,0"/>
-                        <Button Content="Proyectos" Click="Proyectos_Click" Foreground="#4682B4" FontSize="15" BorderThickness="0"/>
+                    <StackPanel Orientation="Vertical" Margin="30,20,0,0">
+                        <!-- Botón principal -->
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/iconProyecto.png" Width="35" Height="30" Margin="0,0,10,0"/>
+                            <Button Content="Proyectos" Click="Proyectos_Click" Foreground="#4682B4" FontSize="15" BorderThickness="0"/>
+                        </StackPanel>
+
+                        <!-- Lista de proyectos -->
+                        <ItemsControl x:Name="ListaProyectos" Visibility="Collapsed">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Nombre}" Margin="45,5,0,0" Foreground="Black"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </StackPanel>
                 </ListBoxItem>
 

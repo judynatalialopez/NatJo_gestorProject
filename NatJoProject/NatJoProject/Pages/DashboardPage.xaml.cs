@@ -1,6 +1,7 @@
 ﻿using NatJoProject.Models;
 using NatJoProject.Controllers;
 using SesionApp = NatJoProject.Session.Session;
+using NatJoProject.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,9 +34,18 @@ namespace NatJoProject.Pages
 
         private async void DashboardPage_Loaded(object sender, RoutedEventArgs e)
         {
-            await Task.Run(() => CargarProyectosSeguro());
+            try
+            {
+                // Evitar Task.Run para acceso a datos que ya es asíncrono o rápido
+                await CargarProyectosSeguro();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado al cargar el dashboard: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
-        private void CargarProyectosSeguro()
+
+        private async Task CargarProyectosSeguro()
         {
             try
             {
@@ -87,7 +97,7 @@ namespace NatJoProject.Pages
             var border = new Border
             {
                 Width = 280,
-                Height = 160,
+                Height = 180, // un poco más alto para el botón
                 Margin = new Thickness(10),
                 CornerRadius = new CornerRadius(12),
                 Background = Brushes.White,
@@ -126,14 +136,45 @@ namespace NatJoProject.Pages
             stack.Children.Add(new TextBlock
             {
                 Text = $"Inicio: {proyecto.Finicio:dd/MM/yyyy} - Fin: {proyecto.Fterminacion:dd/MM/yyyy}",
-                Margin = new Thickness(0, 10, 0, 0),
+                Margin = new Thickness(0, 10, 0, 6),
                 Foreground = Brushes.SteelBlue,
                 FontSize = 12
             });
 
+            var btnDetalles = new Button
+            {
+                Content = "Ver detalles",
+                HorizontalAlignment = HorizontalAlignment.Left,
+                Width = 100,
+                Margin = new Thickness(0, 10, 0, 0)
+            };
+
+            // Evento click para abrir nueva ventana pasando proyecto
+            btnDetalles.Click += (s, e) => AbrirVentanaDetallesProyecto(proyecto.ProjId);
+
+            stack.Children.Add(btnDetalles);
+
             border.Child = stack;
             return border;
         }
+
+        private void AbrirVentanaDetallesProyecto(int projId)
+        {
+            MessageBox.Show($"Buscando proyecto con ID: {projId}");  // Para confirmar el ID
+
+            Project proyectoCompleto = projectController.GetProjectById(projId);
+
+            if (proyectoCompleto == null)
+            {
+                MessageBox.Show($"Proyecto con ID {projId} no encontrado.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            var asignarTarea = new AsignarTarea(proyectoCompleto);
+            asignarTarea.Owner = Application.Current.MainWindow;
+            asignarTarea.ShowDialog();
+        }
+
     }
 }
 

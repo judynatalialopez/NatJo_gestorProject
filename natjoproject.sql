@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-05-2025 a las 03:04:16
+-- Tiempo de generación: 20-05-2025 a las 12:42:40
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -101,6 +101,17 @@ CREATE TABLE `dashboard_proyectos` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `estados`
+--
+
+CREATE TABLE `estados` (
+  `est_id` int(11) NOT NULL,
+  `descripcion` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `estados_task`
 --
 
@@ -127,6 +138,7 @@ CREATE TABLE `miembros` (
 --
 
 INSERT INTO `miembros` (`user_id`, `rol_id`, `ind_owner`, `ind_admin`) VALUES
+('1047037318', 2, 'S', 'S'),
 ('1047037318', 2, 'S', 'S'),
 ('1047037318', 2, 'S', 'S'),
 ('1047037318', 2, 'S', 'S');
@@ -179,7 +191,19 @@ INSERT INTO `proyectos` (`proj_id`, `nombre`, `descripcion`, `team_id`, `f_inici
 (7, 'adasd', 'adadd', NULL, '2025-05-03 00:00:00', '2025-05-17 00:00:00'),
 (8, 'adsa', 'asdad', NULL, '2025-05-01 00:00:00', '2025-05-30 00:00:00'),
 (9, 'Callofudty', 'juegodedisparo', NULL, '2025-05-15 00:00:00', '2025-05-30 00:00:00'),
-(10, 'ada', 'asdad', 10, '2025-05-01 00:00:00', '2025-05-31 00:00:00');
+(10, 'ada', 'asdad', 10, '2025-05-01 00:00:00', '2025-05-31 00:00:00'),
+(11, 'Callofduty', 'LOOOOL', 11, '2025-05-01 00:00:00', '2025-05-31 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `responsables_tarea`
+--
+
+CREATE TABLE `responsables_tarea` (
+  `task_id` int(11) NOT NULL,
+  `user_id` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -259,7 +283,8 @@ INSERT INTO `teams` (`team_id`, `nombre`, `ind_activo`, `proj_id`, `owner_id`) V
 (7, 'Equipo de desar', 'N', 7, '1047037318'),
 (8, 'Equipo de desar', 'N', 8, '1047037318'),
 (9, 'Equipo de desar', 'N', 9, '1047037318'),
-(10, 'ada', 'N', 10, '1047037318');
+(10, 'ada', 'N', 10, '1047037318'),
+(11, 'Callofduty', 'N', 11, '1047037318');
 
 -- --------------------------------------------------------
 
@@ -279,7 +304,8 @@ CREATE TABLE `team_members` (
 INSERT INTO `team_members` (`team_id`, `member_id`) VALUES
 (8, '1047037318'),
 (9, '1047037318'),
-(10, '1047037318');
+(10, '1047037318'),
+(11, '1047037318');
 
 -- --------------------------------------------------------
 
@@ -355,6 +381,12 @@ ALTER TABLE `dashboard_proyectos`
   ADD KEY `proj_id` (`proj_id`);
 
 --
+-- Indices de la tabla `estados`
+--
+ALTER TABLE `estados`
+  ADD PRIMARY KEY (`est_id`);
+
+--
 -- Indices de la tabla `estados_task`
 --
 ALTER TABLE `estados_task`
@@ -379,6 +411,13 @@ ALTER TABLE `paises`
 ALTER TABLE `proyectos`
   ADD PRIMARY KEY (`proj_id`),
   ADD KEY `team_id` (`team_id`);
+
+--
+-- Indices de la tabla `responsables_tarea`
+--
+ALTER TABLE `responsables_tarea`
+  ADD PRIMARY KEY (`task_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indices de la tabla `roles`
@@ -461,7 +500,7 @@ ALTER TABLE `paises`
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `proj_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `proj_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -485,7 +524,7 @@ ALTER TABLE `tasksproject`
 -- AUTO_INCREMENT de la tabla `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restricciones para tablas volcadas
@@ -528,6 +567,13 @@ ALTER TABLE `miembros`
 --
 ALTER TABLE `proyectos`
   ADD CONSTRAINT `proyectos_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `team_members` (`team_id`);
+
+--
+-- Filtros para la tabla `responsables_tarea`
+--
+ALTER TABLE `responsables_tarea`
+  ADD CONSTRAINT `responsables_tarea_ibfk_1` FOREIGN KEY (`task_id`) REFERENCES `tasksproject` (`tasks_id`),
+  ADD CONSTRAINT `responsables_tarea_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `miembros` (`user_id`);
 
 --
 -- Filtros para la tabla `tasksproject`
