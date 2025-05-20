@@ -18,9 +18,6 @@ using System.Windows.Shapes;
 
 namespace NatJoProject.Views
 {
-    /// <summary>
-    /// Lógica de interacción para BacklogView.xaml
-    /// </summary>
     public partial class BacklogView : Window
     {
         public BacklogView()
@@ -30,7 +27,6 @@ namespace NatJoProject.Views
             var usuario = Session.Session.UsuarioActual;
             if (usuario != null)
             {
-                // Primer nombre y primer apellido
                 string nombreUsuario = $"{usuario.Pnombre?.Split(' ')[0]} {usuario.Sapellido?.Split(' ')[0]}";
                 UserDisplayName.Text = nombreUsuario;
             }
@@ -64,7 +60,6 @@ namespace NatJoProject.Views
                 UserLocationText.Text = $"Ubicación: {usuario.Ciudad?.Nombre}, {usuario.Pais?.Nombre}";
                 UserEmailText.Text = $"Email: {usuario.Email}";
 
-                // Mostrar popup
                 UserPopup.PlacementTarget = sender as Button;
                 UserPopup.IsOpen = true;
             }
@@ -88,14 +83,14 @@ namespace NatJoProject.Views
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
-                this.Close(); // Cierra la ventana actual
+                this.Close(); 
             }
         }
 
         private void InsertarProyecto_Click(object sender, RoutedEventArgs e)
         {
             CrearProyecto crearProyecto = new CrearProyecto();
-            crearProyecto.Owner = this;  // Aquí estableces la ventana padre
+            crearProyecto.Owner = this;  
             crearProyecto.ShowDialog();
         }
     }

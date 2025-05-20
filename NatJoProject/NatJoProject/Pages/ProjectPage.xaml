@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:NatJoProject.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ProjectPage">
+      Title="ProjectPage"
+      Background="White">
 
     <Grid>
         <ScrollViewer Grid.Row="1" Padding="20" Margin="39,37,39,37">
@@ -14,49 +15,41 @@
                 <!-- Sprint 1 -->
                 <StackPanel Margin="0,0,0,30">
                     <TextBlock Text="Sprint 1 - Junio 2025" FontSize="16" FontWeight="Bold" Foreground="#333"/>
-                    <ItemsControl>
-                        <ItemsControl.ItemContainerStyle>
-                            <Style>
-                                <Setter Property="FrameworkElement.Margin" Value="0,10,0,0"/>
-                            </Style>
-                        </ItemsControl.ItemContainerStyle>
+                    <ItemsControl ItemsSource="{Binding Tareas}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Background="White" Padding="10" CornerRadius="5" BorderBrush="#CCC" BorderThickness="1">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Titulo}" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Estado.Descripcion}" FontSize="12" Foreground="Gray"/>
+                                        <TextBlock Text="{Binding Descripcion}" FontSize="12" Foreground="Gray"/>
+                                        <TextBlock Text="{Binding Fentrerga}" FontSize="12" Foreground="Gray"/>
 
-                        <ItemsControl.Items>
-                            <Border Background="White" Padding="10" CornerRadius="5" BorderBrush="#CCC" BorderThickness="1">
-                                <StackPanel>
-                                    <TextBlock Text="Tarea: Diseño del login" FontWeight="Bold"/>
-                                    <TextBlock Text="Responsable: Ana López" FontSize="12" Foreground="Gray"/>
-                                </StackPanel>
-                            </Border>
+                                        <TextBlock Text="Responsables:" FontWeight="Bold" Margin="5,10,0,0"/>
+                                        <StackPanel>
+                                            <ItemsControl ItemsSource="{Binding Responsable}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding Pnombre} {Binding Papellido}" FontSize="12" Foreground="Gray"/>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
 
-                            <Border Background="White" Padding="10" CornerRadius="5" BorderBrush="#CCC" BorderThickness="1">
-                                <StackPanel>
-                                    <TextBlock Text="Tarea: API de autenticación" FontWeight="Bold"/>
-                                    <TextBlock Text="Responsable: Carlos Díaz" FontSize="12" Foreground="Gray"/>
-                                </StackPanel>
-                            </Border>
-                        </ItemsControl.Items>
-                    </ItemsControl>
-                </StackPanel>
-
-                <!-- Sprint 2 -->
-                <StackPanel>
-                    <TextBlock Text="Sprint 2 - Julio 2025" FontSize="16" FontWeight="Bold" Foreground="#333"/>
-                    <ItemsControl>
-                        <ItemsControl.ItemContainerStyle>
-                            <Style>
-                                <Setter Property="FrameworkElement.Margin" Value="0,10,0,0"/>
-                            </Style>
-                        </ItemsControl.ItemContainerStyle>
-
-                        <ItemsControl.Items>
-                            <Border Background="White" Padding="10" CornerRadius="5" BorderBrush="#CCC" BorderThickness="1">
-                                <StackPanel>
-                                    <TextBlock Text="Tarea: Dashboard del usuario" FontWeight="Bold"/>
-                                    <TextBlock Text="Responsable: Marta Ruiz" FontSize="12" Foreground="Gray"/>
-                                </StackPanel>
-                            </Border>
-                        </ItemsControl.Items>
+                                        <TextBlock Text="Comentarios:" FontWeight="Bold" Margin="5,10,0,0"/>
+                                        <StackPanel>
+                                            <ItemsControl ItemsSource="{Binding Comentarios}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="[ {Binding Fcomentario} ] {Binding Autor}: {Binding Texto}" FontSize="12" Foreground="Gray"/>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </StackPanel>
             </StackPanel>
