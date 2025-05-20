@@ -59,11 +59,17 @@
             </StackPanel>
 
             <StackPanel>
-                <Button Content="Insertar Roles"
+                <Button Content="Gestionar Roles"
                         Click="Button_Click"
                         Foreground="White"
                         Width="161" Height="40"
                         Background="#FF003366" FontSize="14" FontWeight="Bold"/>
+
+                <Button Content="Gestionar Usuarios"
+                    Click="Button_Users"
+                    Foreground="White"
+                    Width="161" Height="40"
+                    Background="#FF003366" FontSize="14" FontWeight="Bold"/>
 
                 <Button Content="Insertar Paises"
                         Click="Button_Paises"

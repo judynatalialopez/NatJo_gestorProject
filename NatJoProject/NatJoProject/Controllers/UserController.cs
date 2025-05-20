@@ -185,7 +185,7 @@ namespace NatJoProject.Controllers
             }
         }
 
-        public void GetAllUsers()
+        public List<User> GetAllUsers()
         {
             var users = userService.GetAllUsers();
 
@@ -205,6 +205,9 @@ namespace NatJoProject.Controllers
                 Console.WriteLine("No se encontraron usuarios.");
                 Console.ResetColor();
             }
+
+            return users;
         }
+
     }
 }

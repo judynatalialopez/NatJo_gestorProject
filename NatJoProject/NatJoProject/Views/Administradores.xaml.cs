@@ -59,5 +59,10 @@ namespace NatJoProject.Views
             sexos.Show();
             this.Close();
         }
+
+        private void Button_Users(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new UserPage());
+        }
     }
 }

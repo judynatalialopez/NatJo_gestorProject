@@ -140,3 +140,7 @@ C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\n
 C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\EditarRoles.g.cs
 C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\EliminarRoles.g.cs
 C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\RolPage.baml
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\UserPage.g.cs
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Pages\UserPage.baml
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\EliminarUsers.baml
+C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\EliminarUsers.g.cs

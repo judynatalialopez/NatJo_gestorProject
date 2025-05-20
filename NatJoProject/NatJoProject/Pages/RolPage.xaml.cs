@@ -45,16 +45,16 @@ namespace NatJoProject.Pages
 
         private void btnEditarRol(object sender, RoutedEventArgs e)
         {
-            // Obtener el rol seleccionado en el DataGrid
+            
             Rol? rolSeleccionado = dgRoles.SelectedItem as Rol;
 
             if (rolSeleccionado != null)
             {
-                // Abrir ventana de edición con el rol seleccionado
+             
                 var ventanaEditar = new EditarRoles(rolSeleccionado);
                 bool? resultado = ventanaEditar.ShowDialog();
 
-                // Si se guardó correctamente, recargar la lista
+                
                 if (resultado == true)
                 {
                     _ = CargarRoles();
