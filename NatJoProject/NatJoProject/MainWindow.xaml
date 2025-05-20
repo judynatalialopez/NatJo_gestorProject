@@ -54,14 +54,6 @@
                     BorderThickness="0"
                     Cursor="Hand"
                     Click="btnAdmin"/>
-                <Button Content="Entrar"
-                    Background="#6f42c1"
-                    Foreground="White"
-                    FontWeight="Bold"
-                    Height="40"
-                    BorderThickness="0"
-                    Cursor="Hand"
-                    Click="btnPrueba_CLick"/>
             </StackPanel>
         </Border>
 

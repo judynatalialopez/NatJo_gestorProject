@@ -141,9 +141,6 @@ namespace NatJoProject.Services
                                 Convert.ToDateTime(reader["f_terminacion"])
                             );
 
-                            // Cargar el equipo completo con miembros
-                            project.Team = GetTeamById(teamId, conexion);
-
                             lista.Add(project);
                         }
                     }

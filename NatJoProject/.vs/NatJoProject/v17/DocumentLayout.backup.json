@@ -383,7 +383,7 @@
               "RelativeDocumentMoniker": "NatJoProject\\Services\\ProjectService.cs",
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Services\\ProjectService.cs",
               "RelativeToolTip": "NatJoProject\\Services\\ProjectService.cs",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAowIYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAkwI0AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-17T17:34:35.097Z",
               "EditorCaption": ""
@@ -398,8 +398,7 @@
               "RelativeToolTip": "NatJoProject\\Services\\TeamService.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T17:59:49.164Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-17T17:59:49.164Z"
             },
             {
               "$type": "Document",
@@ -411,8 +410,7 @@
               "RelativeToolTip": "NatJoProject\\Services\\PaisService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T04:00:33.874Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T04:00:33.874Z"
             },
             {
               "$type": "Document",
@@ -424,8 +422,7 @@
               "RelativeToolTip": "NatJoProject\\Services\\MemberSevice.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAuwBcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T04:52:36.209Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T04:52:36.209Z"
             },
             {
               "$type": "Document",
@@ -437,8 +434,7 @@
               "RelativeToolTip": "NatJoProject\\Services\\UserService.cs",
               "ViewState": "AgIAAHUAAAAAAAAAAAAcwIYAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T19:35:15.651Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T19:35:15.651Z"
             },
             {
               "$type": "Document",
@@ -450,8 +446,7 @@
               "RelativeToolTip": "NatJoProject\\Services\\TaskProjectService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T19:35:06.73Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T19:35:06.73Z"
             },
             {
               "$type": "Document",
@@ -463,8 +458,7 @@
               "RelativeToolTip": "NatJoProject\\Models\\User.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAYwEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T03:06:42.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T03:06:42.819Z"
             },
             {
               "$type": "Document",
@@ -476,8 +470,7 @@
               "RelativeToolTip": "NatJoProject\\Models\\Member.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAxwCsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T04:52:19.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T04:52:19.898Z"
             },
             {
               "$type": "Document",
@@ -489,8 +482,7 @@
               "RelativeToolTip": "NatJoProject\\Models\\Project.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T04:34:04.742Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T04:34:04.742Z"
             },
             {
               "$type": "Document",
@@ -502,8 +494,7 @@
               "RelativeToolTip": "NatJoProject\\Services\\CiudadService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T04:38:00.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T04:38:00.919Z"
             },
             {
               "$type": "Document",
@@ -515,8 +506,7 @@
               "RelativeToolTip": "NatJoProject\\Models\\Team.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAuwCwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T17:11:09.574Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-17T17:11:09.574Z"
             },
             {
               "$type": "Document",
@@ -528,8 +518,7 @@
               "RelativeToolTip": "NatJoProject\\Pages\\DashboardPage.xaml.cs",
               "ViewState": "AgIAADQAAAAAAAAAAAAYwE0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T02:10:23.568Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T02:10:23.568Z"
             },
             {
               "$type": "Document",
@@ -541,8 +530,7 @@
               "RelativeToolTip": "NatJoProject\\Controllers\\ProjectController.cs",
               "ViewState": "AgIAADQAAAAAAAAAAAAowEAAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T18:02:56.701Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-17T18:02:56.701Z"
             },
             {
               "$type": "Document",
@@ -554,8 +542,7 @@
               "RelativeToolTip": "NatJoProject\\Views\\CrearProyecto.xaml.cs",
               "ViewState": "AgIAAGMAAAAAAAAAAADwv4IAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T22:01:47.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T22:01:47.366Z"
             },
             {
               "$type": "Document",
@@ -567,8 +554,7 @@
               "RelativeToolTip": "NatJoProject\\Controllers\\PaisController.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAgwEEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T04:23:11.717Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T04:23:11.717Z"
             },
             {
               "$type": "Document",
@@ -580,8 +566,7 @@
               "RelativeToolTip": "NatJoProject\\ViewsPrueba\\ProyetosPrueba.xaml.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAACUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T01:58:22.411Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T01:58:22.411Z"
             },
             {
               "$type": "Document",
@@ -593,8 +578,7 @@
               "RelativeToolTip": "NatJoProject\\Services\\RolService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T17:37:49.337Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-17T17:37:49.337Z"
             },
             {
               "$type": "Document",
@@ -605,8 +589,7 @@
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\ViewsPrueba\\Register.xaml",
               "RelativeToolTip": "NatJoProject\\ViewsPrueba\\Register.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-15T20:58:20.646Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T20:58:20.646Z"
             },
             {
               "$type": "Document",
@@ -617,8 +600,7 @@
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Pages\\DashboardPage.xaml",
               "RelativeToolTip": "NatJoProject\\Pages\\DashboardPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-18T00:24:56.144Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T00:24:56.144Z"
             },
             {
               "$type": "Document",
@@ -629,8 +611,7 @@
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\MainWindow.xaml",
               "RelativeToolTip": "NatJoProject\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-29T01:51:21.475Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-29T01:51:21.475Z"
             },
             {
               "$type": "Document",
@@ -642,8 +623,7 @@
               "RelativeToolTip": "NatJoProject\\MainWindow.xaml.cs",
               "ViewState": "AgIAAFkAAAAAAAAAAAAcwGsAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T01:51:18.393Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-29T01:51:18.393Z"
             },
             {
               "$type": "Document",
@@ -654,8 +634,7 @@
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\ViewsPrueba\\ProyetosPrueba.xaml",
               "RelativeToolTip": "NatJoProject\\ViewsPrueba\\ProyetosPrueba.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-20T01:57:57.642Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T01:57:57.642Z"
             },
             {
               "$type": "Document",
@@ -667,8 +646,7 @@
               "RelativeToolTip": "NatJoProject\\Views\\BacklogView.xaml.cs",
               "ViewState": "AgIAAE8AAAAAAAAAAAAuwFwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T00:24:19.188Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T00:24:19.188Z"
             },
             {
               "$type": "Document",
@@ -679,8 +657,7 @@
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\Administradores.xaml",
               "RelativeToolTip": "NatJoProject\\Views\\Administradores.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-19T04:23:52.439Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T04:23:52.439Z"
             },
             {
               "$type": "Document",
@@ -691,8 +668,7 @@
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Pages\\RolPage.xaml",
               "RelativeToolTip": "NatJoProject\\Pages\\RolPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-19T22:01:17.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T22:01:17.887Z"
             },
             {
               "$type": "Document",
@@ -704,8 +680,7 @@
               "RelativeToolTip": "NatJoProject\\Pages\\RolPage.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T22:01:22.845Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T22:01:22.845Z"
             },
             {
               "$type": "Document",
@@ -727,8 +702,7 @@
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\CrearProyecto.xaml",
               "RelativeToolTip": "NatJoProject\\Views\\CrearProyecto.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-19T22:01:43.399Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T22:01:43.399Z"
             },
             {
               "$type": "Document",
@@ -739,8 +713,7 @@
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\BacklogView.xaml",
               "RelativeToolTip": "NatJoProject\\Views\\BacklogView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-18T00:24:37.84Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T00:24:37.84Z"
             },
             {
               "$type": "Document",
@@ -819,8 +792,7 @@
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\App.xaml",
               "RelativeToolTip": "NatJoProject\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-15T21:19:37.974Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T21:19:37.974Z"
             },
             {
               "$type": "Document",
