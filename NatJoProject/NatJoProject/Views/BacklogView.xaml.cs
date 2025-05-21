@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NatJoProject.Services;
 
 namespace NatJoProject.Views
 {
@@ -169,6 +170,23 @@ namespace NatJoProject.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        public class BlaklogViewModel
+        {
+            private readonly TaskProjectService taskProjectService = new TaskProjectService();
+
+            public BlaklogViewModel()
+            {
+                NotificarTareas();
+            }
+
+            private void NotificarTareas()
+            {
+                taskProjectService.NotificarTareasPorVencer();
+            }
+
 
         }
     }

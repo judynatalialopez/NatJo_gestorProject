@@ -4,30 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
-C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\
-NatJoProject
-none
-false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
-22-180694791
-
-66-1214346153
-206701958269
-=======
-C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\
+C:\Users\migue\OneDrive\Escritorio\RamaAngel\a\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\
 NatJoProject
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
+C:\Users\migue\OneDrive\Escritorio\RamaAngel\a\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
 22-180694791
 
 66-1214346153
-206-1495605178
->>>>>>> 5bd24809d0d92034e0a99ee1a804dc4d716e785b
+206830837482
 MainWindow.xaml;Pages\DashboardPage.xaml;Pages\ProjectPage.xaml;Pages\RolPage.xaml;Pages\TeamPage.xaml;Pages\UserPage.xaml;ViewsPrueba\Ciudades.xaml;ViewsPrueba\EditarRoles.xaml;ViewsPrueba\EliminarRoles.xaml;ViewsPrueba\EliminarUsers.xaml;ViewsPrueba\Estados_Task.xaml;ViewsPrueba\Paises.xaml;ViewsPrueba\ProyetosPrueba.xaml;ViewsPrueba\Register.xaml;ViewsPrueba\Roles.xaml;ViewsPrueba\Sexos.xaml;Views\Administradores.xaml;Views\AsignarTarea.xaml;Views\BacklogView.xaml;Views\CrearProyecto.xaml;Views\Registro.xaml;Views\VistaMiembros.xaml;
 
-False
+True
 

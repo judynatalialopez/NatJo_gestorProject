@@ -147,7 +147,23 @@
                        Margin="20,0,0,0" 
                        VerticalAlignment="Center" 
                        Foreground="#061B70"/>
-                
+
+                <Button DockPanel.Dock="Right"
+                       HorizontalAlignment="Right"
+                       Margin="0,0,10,0"
+                       Background="Transparent"
+                       BorderThickness="0"
+                       Foreground="#2F3E4D"
+                       FontSize="14"
+                       FontWeight="Bold"
+                       Cursor="Hand"
+                       Click="Notifications_Click">
+                            <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Notificaciones" Cursor=""
+                                        />
+                    </StackPanel>
+                </Button>
+
                 <!-- Perfil usuario -->
                 <Button DockPanel.Dock="Right"
                 HorizontalAlignment="Right"
@@ -168,6 +184,22 @@
                 </Button>
 
             </DockPanel>
+
+            <Popup x:Name="NotificationsPopup" Placement="Bottom" StaysOpen="False" AllowsTransparency="True">
+                <Border Background="White" CornerRadius="8" Padding="10" BorderBrush="#DDD" BorderThickness="1" Width="350">
+                    <StackPanel>
+                        <TextBlock Text="Próximos vencimientos de proyectos" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                        <ItemsControl x:Name="UpcomingProjectsList">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="0,5,0,5"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+            </Popup>
+
 
             <Popup x:Name="UserPopup" Placement="Bottom" StaysOpen="False" AllowsTransparency="True">
                 <Border Background="White" CornerRadius="8" Padding="10" BorderBrush="#DDD" BorderThickness="1" Width="300" >

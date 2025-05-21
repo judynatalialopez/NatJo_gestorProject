@@ -315,5 +315,25 @@ namespace NatJoProject.Services
 
             return result;
         }
+
+        public void NotificarTareasPorVencer()
+        {
+            var tareas = GetAllTaskProjects(); // reutiliza tu método que obtiene todas las tareas
+            var hoy = DateTime.Today;
+
+            foreach (var tarea in tareas)
+            {
+                // Si la tarea vence hoy o mañana
+                if ((tarea.Fentrerga - hoy).TotalDays <= 1 && (tarea.Fentrerga - hoy).TotalDays >= 0)
+                {
+                    MessageBox.Show(
+                        $"La tarea \"{tarea.Titulo}\" está por vencer el {tarea.Fentrerga.ToShortDateString()}",
+                        "Tarea próxima a vencer",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Warning
+                    );
+                }
+            }
+        }
     }
 }
