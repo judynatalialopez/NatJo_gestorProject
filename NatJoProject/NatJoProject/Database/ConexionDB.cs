@@ -14,7 +14,6 @@ namespace NatJoProject.Database
         private static readonly string connectionString = "server=localhost;Database=natjoproject;Uid=root;Pwd=''";
 
 
-
         public static MySqlConnection conectar()
         {
             MySqlConnection conexion = null;

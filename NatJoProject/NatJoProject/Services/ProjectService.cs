@@ -67,7 +67,30 @@ namespace NatJoProject.Services
 
             try
             {
-                string query = "SELECT * FROM proyectos WHERE proj_id = @proj_id";
+                string query = @"
+            SELECT DISTINCT
+                p.proj_id,
+                p.nombre AS proj_nombre,
+                p.descripcion,
+                p.f_inicio,
+                p.f_terminacion,
+                t.team_id,
+                t.nombre AS team_nombre,
+                t.ind_activo,
+                t.owner_id,
+                u.id AS member_id,
+                u.pNombre,
+                u.pApellido,
+                u.login,
+                m.rol_id,
+                r.descripcion AS rol_desc
+            FROM proyectos p
+            JOIN teams t ON t.proj_id = p.proj_id
+            JOIN team_members tm ON tm.team_id = t.team_id
+            JOIN users u ON u.id = tm.member_id
+            JOIN miembros m ON m.user_id = u.id
+            JOIN roles r ON r.rol_id = m.rol_id
+            WHERE p.proj_id = @proj_id;";
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
@@ -75,23 +98,63 @@ namespace NatJoProject.Services
 
                     using (var reader = cmd.ExecuteReader())
                     {
-                        if (reader.Read())
-                        {
+                        var miembros = new List<Member>();
 
-                            project = new Project(
-                                Convert.ToInt32(reader["proj_id"].ToString()),
-                                reader["nombre"].ToString(),
-                                reader["descripcion"].ToString(),
-                                Convert.ToDateTime(reader["f_inicio"]),
-                                Convert.ToDateTime(reader["f_terminacion"])
-                            );
+                        while (reader.Read())
+                        {
+                            if (project == null)
+                            {
+                                // Crear el proyecto
+                                project = new Project(
+                                    Convert.ToInt32(reader["proj_id"]),
+                                    reader["proj_nombre"].ToString(),
+                                    reader["descripcion"].ToString(),
+                                    Convert.ToDateTime(reader["f_inicio"]),
+                                    Convert.ToDateTime(reader["f_terminacion"])
+                                );
+
+                                // Crear el Team
+                                var team = new Team(
+                                    TeamId: Convert.ToInt32(reader["team_id"]),
+                                    Nombre: reader["team_nombre"].ToString(),
+                                    IndActivo: Convert.ToChar(reader["ind_activo"]),
+                                    Miembros: miembros,
+                                    Proyecto: project,
+                                    Owner: new User(reader["owner_id"].ToString())
+                                );
+
+                                project.Team = team;
+                            }
+
+                            // Verificar si el miembro ya fue agregado
+                            string memberId = reader["member_id"].ToString();
+                            if (!miembros.Any(m => m.Id == memberId))
+                            {
+                                Rol rol = new Rol(
+                                    RolId: Convert.ToInt32(reader["rol_id"]),
+                                    Descripcion: reader["rol_desc"].ToString()
+                                );
+
+                                var member = new Member(
+                                    Id: memberId,
+                                    RolUser: rol,
+                                    IndOwner: 'N',  // ajustar si tienes el dato
+                                    IndAdmin: 'N'
+                                );
+
+                                member.Pnombre = reader["pNombre"].ToString();
+                                member.Papellido = reader["pApellido"].ToString();
+                                member.Login = reader["login"].ToString();
+
+                                miembros.Add(member);
+                            }
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al obtener proyecto: " + ex.Message);
+                MessageBox.Show("Error al obtener proyecto por ID: " + ex.Message);
             }
             finally
             {
@@ -100,6 +163,7 @@ namespace NatJoProject.Services
 
             return project;
         }
+
 
         public List<Project> GetProjectsByUserId(string userId)
         {

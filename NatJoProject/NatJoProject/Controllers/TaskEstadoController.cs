@@ -22,7 +22,7 @@ namespace NatJoProject.Controllers
             Console.ResetColor();
         }
 
-        public void GetEstadoById(int id)
+        public TaskEstado? GetEstadoById(int id)
         {
             var estado = estadoService.GetEstadoById(id);
             if (estado != null)
@@ -36,6 +36,8 @@ namespace NatJoProject.Controllers
                 Console.WriteLine("Estado no encontrado.");
             }
             Console.ResetColor();
+
+            return estado;
         }
 
         public void UpdateEstado(TaskEstado estado)
@@ -54,9 +56,10 @@ namespace NatJoProject.Controllers
             Console.ResetColor();
         }
 
-        public void GetAllEstados()
+        public List<TaskEstado> GetAllEstados()
         {
             var lista = estadoService.GetAllEstados();
+
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Listado de Estados:");
             foreach (var est in lista)
@@ -64,6 +67,8 @@ namespace NatJoProject.Controllers
                 Console.WriteLine($"ID: {est.EstId} | Descripción: {est.Descripcion}");
             }
             Console.ResetColor();
+
+            return lista;
         }
     }
 }

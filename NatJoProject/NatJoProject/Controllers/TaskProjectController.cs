@@ -31,7 +31,7 @@ namespace NatJoProject.Controllers
             Console.ResetColor();
         }
 
-        public void InsertTask0(TaskProject task)
+        public bool InsertTask0(TaskProject task)
         {
             bool result = task0Service.InsertTaskProject(task);
             Console.ForegroundColor = result ? ConsoleColor.Green : ConsoleColor.Red;
@@ -39,6 +39,8 @@ namespace NatJoProject.Controllers
                 ? $"[INFO] Tarea {task.TaskId} insertada con éxito."
                 : $"[ERROR] No se pudo insertar la Tarea {task.TaskId}.");
             Console.ResetColor();
+
+            return result;
         }
 
         public void GetTask0ById(int taskId)

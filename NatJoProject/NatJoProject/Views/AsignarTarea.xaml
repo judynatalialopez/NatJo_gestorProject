@@ -3,10 +3,134 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Loaded="Window_Loaded"
         xmlns:local="clr-namespace:NatJoProject.Views"
         mc:Ignorable="d"
-        Title="AsignarTarea" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="AsignarTarea" Height="731" Width="800">
+    <Border CornerRadius="12">
+        <Border CornerRadius="10"
+    BorderThickness="2"
+    Opacity="0.95" RenderTransformOrigin="0.5,0.517" Height="715" VerticalAlignment="Center">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462AD8" Offset="0"/>
+                    <GradientStop Color="#DA34AE" Offset="0.75"/>
+                    <GradientStop Color="#8A16C1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1B1448" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <!-- Usa un Canvas para posicionar libremente -->
+            <Canvas Height="664" VerticalAlignment="Top">
+                <!-- Título -->
+                <TextBlock Text="Asignar tarea"
+               Foreground="White"
+               FontSize="25"
+               FontWeight="Medium"
+               FontFamily="Montserrat"
+               Canvas.Left="318"
+               Canvas.Top="24" />
+
+                <!-- Primer Nombre -->
+                <TextBlock Text="Titulo"
+               Foreground="DarkGray"
+               FontSize="12"
+               FontWeight="Medium"
+               FontFamily="Montserrat"
+               Canvas.Left="238"
+               Canvas.Top="87" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox x:Name="txtTitulo"
+             FontSize="13"
+             FontWeight="Medium"
+             FontFamily="Montserrat"
+             Foreground="Black"
+             CaretBrush="Black"
+             BorderBrush="Black"
+             BorderThickness="0,0,0,2"
+             Width="268"
+             Height="28"
+             VerticalContentAlignment="Center"
+             Padding="10,0,0,0"
+             Canvas.Left="229"
+             Canvas.Top="128" HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+                <!-- Segundo Nombre -->
+
+                <!-- Botón -->
+                <Button x:Name="btnRegistrarCiudad"
+            Content="Asignar tarea"
+            Foreground="White"
+            FontSize="12"
+            FontFamily="Montserrat"
+            Width="150"
+            Height="40"
+            BorderThickness="0"
+            Cursor="Hand"
+            Canvas.Left="329"
+            Canvas.Top="416"
+            Click="AsignarTarea_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#462AD8"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#28AEED"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <ComboBox x:Name="cmbMiembros"
+          Width="329"
+          Height="36"
+          FontSize="13"
+          FontFamily="Montserrat"
+          Foreground="Black"
+          HorizontalAlignment="Left"
+          VerticalAlignment="Top"
+          DisplayMemberPath="Pnombre" Canvas.Left="229" Canvas.Top="314" />
+                <TextBlock Text="Miembro"
+Foreground="DarkGray"
+FontSize="12"
+FontWeight="Medium"
+FontFamily="Montserrat"
+Canvas.Left="229" Canvas.Top="266" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.456,0.765" />
+                <TextBlock Text="Descripcion"
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"
+                    Canvas.Left="235"
+                    Canvas.Top="174" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox x:Name="txtDescripcion"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"
+                    Foreground="Black"
+                    CaretBrush="Black"
+                    BorderBrush="Black"
+                    BorderThickness="0,0,0,2"
+                    Width="268"
+                    Height="28"
+                    VerticalContentAlignment="Center"
+                    Padding="10,0,0,0"
+                    Canvas.Left="229"
+                    Canvas.Top="209" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            </Canvas>
+        </Border>
+    </Border>
 </Window>
