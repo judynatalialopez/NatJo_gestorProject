@@ -1,0 +1,42 @@
+﻿<Window x:Class="NatJoProject.Views.VistaMiembros"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="VistaMiembros" Height="450" Width="800">
+    <Grid Margin="10">
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 10" HorizontalAlignment="Left">
+            <TextBox x:Name="txtCorreo" Width="300" Margin="0 0 10 0" />
+            <Button Content="Agregar miembro al equipo"
+                    Click="BtnAgregarMiembro_Click"
+                    Background="LightGreen"
+                    Foreground="Black"
+                    Padding="6"
+                    MinWidth="150" />
+        </StackPanel>
+
+        <DataGrid x:Name="dataGridMiembros"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  Margin="0,40,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Pnombre}" Width="*"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Papellido}" Width="*"/>
+                <DataGridTextColumn Header="No. Doc" Binding="{Binding NdocIdent}" Width="*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+                <DataGridTextColumn Header="Telefono" Binding="{Binding Ntelefono1}" Width="*"/>
+                <DataGridTemplateColumn Header="Acciones" Width="180">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Eliminar miembro del equipo"
+                                    Background="IndianRed"
+                                    Foreground="White"
+                                    Padding="4"
+                                    Click="BtnEliminarMiembro_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

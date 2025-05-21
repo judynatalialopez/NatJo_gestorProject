@@ -37,7 +37,7 @@ namespace NatJoProject.Pages
             try
             {
                 // Evitar Task.Run para acceso a datos que ya es asíncrono o rápido
-                await CargarProyectosSeguro();
+                await CargarProyectos();
             }
             catch (Exception ex)
             {
@@ -45,7 +45,7 @@ namespace NatJoProject.Pages
             }
         }
 
-        private async Task CargarProyectosSeguro()
+        private async Task CargarProyectos()
         {
             try
             {
@@ -143,7 +143,7 @@ namespace NatJoProject.Pages
 
             var btnDetalles = new Button
             {
-                Content = "Ver detalles",
+                Content = "Asignar tarea",
                 HorizontalAlignment = HorizontalAlignment.Left,
                 Width = 100,
                 Margin = new Thickness(0, 10, 0, 0)
@@ -160,7 +160,6 @@ namespace NatJoProject.Pages
 
         private void AbrirVentanaDetallesProyecto(int projId)
         {
-            MessageBox.Show($"Buscando proyecto con ID: {projId}");  // Para confirmar el ID
 
             Project proyectoCompleto = projectController.GetProjectById(projId);
 

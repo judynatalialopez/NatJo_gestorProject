@@ -32,14 +32,14 @@ namespace NatJoProject.Models
         }
 
         //METODO CONSTRUCTOR QUE NO RECIBE ID
-        public TaskProject(string Titulo, string Descripcion, List<Member> Responsable, TaskEstado Estado, DateTime Fentrerga, List<Comment> Comentarios)
+        public TaskProject(string Titulo, string Descripcion, List<Member> Responsable, TaskEstado Estado, DateTime Fentrerga)
         {
             this.Titulo = Titulo;
             this.Descripcion = Descripcion;
             this.Responsable = Responsable;
             this.Estado = Estado;
             this.Fentrerga = Fentrerga;
-            this.Comentarios = Comentarios;
+            this.Comentarios = new List<Comment>(); // inicializo para evitar null reference
         }
     }
 }

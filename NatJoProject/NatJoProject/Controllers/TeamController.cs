@@ -83,19 +83,37 @@ namespace NatJoProject.Controllers
             Console.ResetColor();
         }
 
-        public void DeleteTeam(string teamId)
+        public void AddUserToTeam(int teamId, string email)
         {
-            bool result = teamService.DeleteTeam(teamId);
+            bool result = teamService.AddUserToTeam(teamId, email);
 
             if (result)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Equipo {teamId} eliminado con éxito.");
+                MessageBox.Show($"[INFO] Usuario añadido con exito");
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] No se pudo eliminar el equipo {teamId}.");
+                MessageBox.Show($"[ERROR] No se pudo añadir al equipo");
+            }
+
+            Console.ResetColor();
+        }
+
+        public void DeleteUserFromTeam(int teamId, string member_id)
+        {
+            bool result = teamService.DeleteUserFromTeam(teamId, member_id);
+
+            if (result)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"[INFO] usuario eliminado con éxito.");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[ERROR] No se pudo eliminar del equipo.");
             }
 
             Console.ResetColor();

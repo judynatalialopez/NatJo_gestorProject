@@ -234,32 +234,92 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public bool DeleteTeam(string teamId)
+        public bool AddUserToTeam(int teamId, string email)
         {
             var conexion = ConexionDB.conectar();
             bool result = false;
 
             try
             {
-                // Borrar miembros asociados
-                string deleteMembers = "DELETE FROM team_members WHERE team_id = @team_id";
-                using (var cmd = new MySqlCommand(deleteMembers, conexion))
+                // 1. Obtener el member_id (suponiendo que es NdocIdent) desde usuarios por correo
+                string queryUsuario = "SELECT NdocIdent FROM users WHERE Email = @Email";
+                string memberId = null;
+
+                using (var cmd = new MySqlCommand(queryUsuario, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@team_id", teamId);
-                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("@Email", email);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            memberId = reader["NdocIdent"].ToString();
+                        }
+                    }
                 }
 
-                // Borrar el team
-                string deleteTeam = "DELETE FROM teams WHERE team_id = @team_id";
-                using (var cmd = new MySqlCommand(deleteTeam, conexion))
+                if (string.IsNullOrEmpty(memberId))
+                {
+                    MessageBox.Show("No se encontró un usuario con ese correo.");
+                    return false;
+                }
+
+                // 2. Verificar si ya está en el equipo
+                string checkQuery = "SELECT COUNT(*) FROM team_members WHERE team_id = @team_id AND member_id = @member_id";
+                using (var cmd = new MySqlCommand(checkQuery, conexion))
                 {
                     cmd.Parameters.AddWithValue("@team_id", teamId);
+                    cmd.Parameters.AddWithValue("@member_id", memberId);
+
+                    long count = (long)cmd.ExecuteScalar();
+                    if (count > 0)
+                    {
+                        MessageBox.Show("El usuario ya está en el equipo.");
+                        return false;
+                    }
+                }
+
+                // 3. Insertar en team_members
+                string insertQuery = "INSERT INTO team_members (team_id, member_id) VALUES (@team_id, @member_id)";
+                using (var cmd = new MySqlCommand(insertQuery, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@team_id", teamId);
+                    cmd.Parameters.AddWithValue("@member_id", memberId);
+
                     result = cmd.ExecuteNonQuery() > 0;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al eliminar team: " + ex.Message);
+                MessageBox.Show("Error al agregar usuario al equipo: " + ex.Message);
+            }
+            finally
+            {
+                ConexionDB.desconectar(conexion);
+            }
+
+            return result;
+        }
+
+        public bool DeleteUserFromTeam(int teamId, string userId)
+        {
+            var conexion = ConexionDB.conectar();
+            bool result = false;
+
+            try
+            {
+                // Borrar la relación usuario-equipo en team_members (solo ese usuario de ese equipo)
+                string deleteMember = "DELETE FROM team_members WHERE team_id = @team_id AND member_id = @member_id";
+                using (var cmd = new MySqlCommand(deleteMember, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@team_id", teamId);
+                    cmd.Parameters.AddWithValue("@member_id", userId);
+                    result = cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar usuario del equipo: " + ex.Message);
             }
             finally
             {

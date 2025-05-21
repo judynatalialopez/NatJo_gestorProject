@@ -122,7 +122,7 @@ namespace NatJoProject.Views
                 UserLocationText.Text = $"Ubicación: {usuario.Ciudad?.Nombre}, {usuario.Pais?.Nombre}";
                 UserEmailText.Text = $"Email: {usuario.Email}";
 
-                
+                // Mostrar popup
                 UserPopup.PlacementTarget = sender as Button;
                 UserPopup.IsOpen = true;
             }
