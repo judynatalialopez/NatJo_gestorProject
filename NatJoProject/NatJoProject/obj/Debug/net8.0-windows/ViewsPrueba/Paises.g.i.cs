@@ -77,7 +77,7 @@ namespace NatJoProject.ViewsPrueba {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/NatJoProject;V1.0.0.0;component/viewsprueba/paises.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/NatJoProject;component/viewsprueba/paises.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ViewsPrueba\Paises.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

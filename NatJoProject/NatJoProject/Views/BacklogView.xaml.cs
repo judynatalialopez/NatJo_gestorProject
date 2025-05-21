@@ -98,12 +98,12 @@ namespace NatJoProject.Views
             MainFrame.Navigate(new DashboardPage());
         }
 
-        /*
-        private void Proyectos_Click(object sender, RoutedEventArgs e)
+        
+        private void ViewProject_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new ProjectPage());
         }
-        */
+       
 
         private void Teams_Click(object sender, RoutedEventArgs e)
         {

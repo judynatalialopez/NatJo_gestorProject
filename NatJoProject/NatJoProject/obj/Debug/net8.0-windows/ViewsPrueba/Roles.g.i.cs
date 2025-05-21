@@ -69,7 +69,7 @@ namespace NatJoProject.ViewsPrueba {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/NatJoProject;V1.0.0.0;component/viewsprueba/roles.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/NatJoProject;component/viewsprueba/roles.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ViewsPrueba\Roles.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

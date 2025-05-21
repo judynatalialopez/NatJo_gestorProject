@@ -13,8 +13,7 @@ namespace NatJoProject.Database
 
         private static readonly string connectionString = "server=localhost;Database=natjoproject;Uid=root;Pwd='JFRB131415hola'";
 
-        //SIN CONTRASEÑA
-        //private static readonly string connectionString = "server=localhost;Database=natjoproject;Uid=root;Pwd=JFRB131415hola;";
+
 
         public static MySqlConnection conectar()
         {
