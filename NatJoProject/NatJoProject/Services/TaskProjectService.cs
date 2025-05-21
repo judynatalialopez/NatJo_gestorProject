@@ -106,7 +106,7 @@ namespace NatJoProject.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al obtener tarea: " + ex.Message);
+                MessageBox.Show("Error al obtener tarea: " + ex.Message);
             }
             finally
             {
@@ -221,61 +221,103 @@ namespace NatJoProject.Services
             return result;
         }
 
-        public List<TaskProject> GetTasksByProjectId(int projId)
+        public List<TaskProject> GetTasksByProjectId(int projectId)
         {
-            var tasks = new List<TaskProject>();
+            var taskDict = new Dictionary<int, TaskProject>();
             var conexion = ConexionDB.conectar();
 
             try
             {
-                string query = "SELECT * FROM TaskProject WHERE proj_id = @proj_id";
+                string query = @"
+            SELECT 
+              t.tasks_id,
+              t.titulo,
+              t.descripcion,
+              t.f_entrega,
+              t.estado_id,
+              e.descripcion AS estado_desc,
+              u.id AS user_id,
+              u.pNombre,
+              u.pApellido,
+              u.ndocIdent,
+              u.login,
+              u.nTelefono1
+            FROM tasksproject t
+            JOIN responsables_tarea rt ON rt.task_id = t.tasks_id
+            JOIN users u ON u.id = rt.user_id
+            JOIN estados_task e ON e.estado_id = t.estado_id
+            WHERE t.proj_id = @projectId;
+        ";
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
-                    cmd.Parameters.AddWithValue("@proj_id", projId);
+                    cmd.Parameters.AddWithValue("@projectId", projectId);
 
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            var taskId = Convert.ToInt32(reader["task_id"].ToString());
-                            var memberId = reader["member_id"].ToString();
-                            var estadoId = Convert.ToInt32(reader["estado_id"].ToString());
+                            int taskId = Convert.ToInt32(reader["tasks_id"]);
 
-                            var miembro = memberService.GetMemberById(memberId);
-                            var estado = estadoService.GetEstadoById(estadoId);
-                            var comentario = commentService.GetCommentById(Convert.ToInt32(taskId));
+                            if (!taskDict.TryGetValue(taskId, out TaskProject task))
+                            {
+                                // Crear objeto Estado
+                                var estado = new TaskEstado
+                                {
+                                    EstId = Convert.ToInt32(reader["estado_id"]),
+                                    Descripcion = reader["estado_desc"].ToString()
+                                };
 
-                            //Obtener lista
-                            var comentarios = new List<Comment> { comentario };
-                            var miembros = new List<Member>() { miembro };
+                                // Suponiendo que el proyecto ya fue cargado antes o quieres mantenerlo nulo
+                                Project project = new Project { ProjId = projectId };
 
-                            var task = new TaskProject(
-                                taskId,
-                                reader["titulo"].ToString(),
-                                reader["descripcion"].ToString(),
-                                miembros,
-                                estado,
-                                Convert.ToDateTime(reader["f_entrega"]),
-                                comentarios
+                                task = new TaskProject(
+                                    TaskId: taskId,
+                                    Titulo: reader["titulo"].ToString(),
+                                    Descripcion: reader["descripcion"].ToString(),
+                                    Responsable: new List<Member>(),
+                                    Estado: estado,
+                                    Fentrerga: Convert.ToDateTime(reader["f_entrega"]),
+                                    Comentarios: new List<Comment>(), // llenar si haces otra consulta
+                                    project: project
+                                );
 
-                            );
+                                taskDict.Add(taskId, task);
+                            }
 
-                            tasks.Add(task);
+                            // Crear miembro responsable
+                            var memberId = reader["user_id"].ToString();
+                            if (!task.Responsable.Any(m => m.Id == memberId))
+                            {
+                                var member = new Member(
+                                    Id: memberId,
+                                    RolUser: null, // puedes obtenerlo si haces JOIN con roles
+                                    IndOwner: 'N',
+                                    IndAdmin: 'N'
+                                );
+
+                                member.Pnombre = reader["pNombre"].ToString();
+                                member.Papellido = reader["pApellido"].ToString();
+                                member.NdocIdent = reader["ndocIdent"].ToString();
+                                member.Email = reader["login"].ToString();
+                                member.Ntelefono1 = reader["nTelefono1"].ToString();
+
+                                task.Responsable.Add(member);
+                            }
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al obtener tareas del proyecto: " + ex.Message);
+                MessageBox.Show("Error al obtener tareas por proyecto: " + ex.Message);
             }
             finally
             {
                 ConexionDB.desconectar(conexion);
             }
 
-            return tasks;
+            return taskDict.Values.ToList();
         }
 
 
