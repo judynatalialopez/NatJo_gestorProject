@@ -183,7 +183,7 @@
                 </Border>
             </Popup>
 
-            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,45,0,60" Grid.Row="1"/>
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="0,45,0,10" Grid.Row="1"/>
 
         </Grid>
     </Grid>
