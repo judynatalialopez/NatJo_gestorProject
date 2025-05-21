@@ -118,7 +118,6 @@ namespace NatJoProject.Views
             project.Team = team; // Asocias el team completo
             projectController.UpdateProject(project);
 
-
             try
             {
                 MessageBox.Show($"Proyecto insertado con éxito.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);

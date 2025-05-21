@@ -20,8 +20,8 @@ namespace NatJoProject.Services
 
             try
             {
-                string query = @"INSERT INTO tasksproject (titulo, descripcion, estado_id, f_entrega)
-                         VALUES (@titulo, @descripcion, @estado_id, @f_entrega);
+                string query = @"INSERT INTO tasksproject (titulo, descripcion, estado_id, f_entrega, proj_id)
+                         VALUES (@titulo, @descripcion, @estado_id, @f_entrega, @proj_id);
                          SELECT LAST_INSERT_ID();";
 
                 int taskId;
@@ -32,6 +32,7 @@ namespace NatJoProject.Services
                     cmd.Parameters.AddWithValue("@descripcion", task.Descripcion);
                     cmd.Parameters.AddWithValue("@estado_id", task.Estado.EstId);
                     cmd.Parameters.AddWithValue("@f_entrega", task.Fentrerga);
+                    cmd.Parameters.AddWithValue("@proj_id", task.Project.ProjId);
 
                     taskId = Convert.ToInt32(cmd.ExecuteScalar());
                 }
@@ -51,7 +52,7 @@ namespace NatJoProject.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al insertar tarea: " + ex.Message);
+                MessageBox.Show("Error al insertar tarea: " + ex.Message);
             }
             finally
             {

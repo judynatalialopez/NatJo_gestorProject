@@ -14,13 +14,27 @@ namespace NatJoProject.Models
         public TaskEstado Estado { get; set; }
         public DateTime Fentrerga { get; set; }
         public List<Comment> Comentarios { get; set; }
+        public Project Project { get; set; }
 
         public TaskProject()
         {
         }
 
         //METODO CONSTRUCTOR QUE RECIBE ID
-        public TaskProject (int TaskId, string Titulo, string Descripcion, List<Member> Responsable, TaskEstado Estado, DateTime Fentrerga, List<Comment> Comentarios)
+        public TaskProject (int TaskId, string Titulo, string Descripcion, List<Member> Responsable, TaskEstado Estado, DateTime Fentrerga, List<Comment> Comentarios, Project project)
+        {
+            this.TaskId = TaskId;
+            this.Titulo = Titulo;
+            this.Descripcion = Descripcion;
+            this.Responsable = Responsable;
+            this.Estado = Estado;
+            this.Fentrerga = Fentrerga;
+            this.Comentarios = Comentarios;
+            this.Project = Project;
+        }
+
+        //METODO CONSTRUCTOR QUE NO RECIBE PROYECTO
+        public TaskProject(int TaskId, string Titulo, string Descripcion, List<Member> Responsable, TaskEstado Estado, DateTime Fentrerga, List<Comment> Comentarios)
         {
             this.TaskId = TaskId;
             this.Titulo = Titulo;
@@ -32,7 +46,7 @@ namespace NatJoProject.Models
         }
 
         //METODO CONSTRUCTOR QUE NO RECIBE ID
-        public TaskProject(string Titulo, string Descripcion, List<Member> Responsable, TaskEstado Estado, DateTime Fentrerga)
+        public TaskProject(string Titulo, string Descripcion, List<Member> Responsable, TaskEstado Estado, DateTime Fentrerga, Project project)
         {
             this.Titulo = Titulo;
             this.Descripcion = Descripcion;
@@ -40,6 +54,7 @@ namespace NatJoProject.Models
             this.Estado = Estado;
             this.Fentrerga = Fentrerga;
             this.Comentarios = new List<Comment>(); // inicializo para evitar null reference
+            this.Project = Project;
         }
     }
 }

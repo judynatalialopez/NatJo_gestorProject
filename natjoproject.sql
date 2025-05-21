@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2025 a las 20:19:01
+-- Tiempo de generación: 21-05-2025 a las 21:05:51
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -120,6 +120,15 @@ CREATE TABLE `estados_task` (
   `descripcion` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `estados_task`
+--
+
+INSERT INTO `estados_task` (`estado_id`, `descripcion`) VALUES
+(3, 'Pendiente'),
+(4, 'En progreso'),
+(5, 'Finalizado');
+
 -- --------------------------------------------------------
 
 --
@@ -205,6 +214,14 @@ CREATE TABLE `responsables_tarea` (
   `user_id` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `responsables_tarea`
+--
+
+INSERT INTO `responsables_tarea` (`task_id`, `user_id`) VALUES
+(6, '1047037318'),
+(7, '1047037318');
+
 -- --------------------------------------------------------
 
 --
@@ -253,8 +270,17 @@ CREATE TABLE `tasksproject` (
   `titulo` varchar(25) DEFAULT NULL,
   `descripcion` varchar(25) DEFAULT NULL,
   `estado_id` int(11) DEFAULT NULL,
-  `f_entrega` datetime DEFAULT NULL
+  `f_entrega` datetime DEFAULT NULL,
+  `proj_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tasksproject`
+--
+
+INSERT INTO `tasksproject` (`tasks_id`, `titulo`, `descripcion`, `estado_id`, `f_entrega`, `proj_id`) VALUES
+(6, 'asdasa', 'aasdad', 3, '2025-05-28 14:00:33', 9),
+(7, 'sda', 'asdad', 3, '2025-05-31 00:00:00', 9);
 
 -- --------------------------------------------------------
 
@@ -435,7 +461,8 @@ ALTER TABLE `sexos`
 --
 ALTER TABLE `tasksproject`
   ADD PRIMARY KEY (`tasks_id`),
-  ADD KEY `estado_id` (`estado_id`);
+  ADD KEY `estado_id` (`estado_id`),
+  ADD KEY `fk_proj` (`proj_id`);
 
 --
 -- Indices de la tabla `teams`
@@ -487,7 +514,7 @@ ALTER TABLE `dashboard_proyectos`
 -- AUTO_INCREMENT de la tabla `estados_task`
 --
 ALTER TABLE `estados_task`
-  MODIFY `estado_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `estado_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `paises`
@@ -517,7 +544,7 @@ ALTER TABLE `sexos`
 -- AUTO_INCREMENT de la tabla `tasksproject`
 --
 ALTER TABLE `tasksproject`
-  MODIFY `tasks_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tasks_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `teams`
@@ -578,6 +605,7 @@ ALTER TABLE `responsables_tarea`
 -- Filtros para la tabla `tasksproject`
 --
 ALTER TABLE `tasksproject`
+  ADD CONSTRAINT `fk_proj` FOREIGN KEY (`proj_id`) REFERENCES `proyectos` (`proj_id`) ON DELETE SET NULL,
   ADD CONSTRAINT `tasksproject_ibfk_1` FOREIGN KEY (`estado_id`) REFERENCES `estados_task` (`estado_id`);
 
 --
