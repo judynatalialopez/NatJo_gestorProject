@@ -157,6 +157,7 @@ namespace NatJoProject.Views
             crearProyecto.ShowDialog();
         }
 
+
         private void ProjectList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

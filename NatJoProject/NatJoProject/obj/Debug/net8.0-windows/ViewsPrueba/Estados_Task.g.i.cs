@@ -69,7 +69,7 @@ namespace NatJoProject.ViewsPrueba {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/NatJoProject;component/viewsprueba/estados_task.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/NatJoProject;V1.0.0.0;component/viewsprueba/estados_task.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\ViewsPrueba\Estados_Task.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

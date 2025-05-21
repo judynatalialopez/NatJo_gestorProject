@@ -16,5 +16,5 @@ C:\NatJo_gestorProject\NatJoProject\NatJoProject\App.xaml
 206-1495605178
 MainWindow.xaml;Pages\DashboardPage.xaml;Pages\ProjectPage.xaml;Pages\RolPage.xaml;Pages\TeamPage.xaml;Pages\UserPage.xaml;ViewsPrueba\Ciudades.xaml;ViewsPrueba\EditarRoles.xaml;ViewsPrueba\EliminarRoles.xaml;ViewsPrueba\EliminarUsers.xaml;ViewsPrueba\Estados_Task.xaml;ViewsPrueba\Paises.xaml;ViewsPrueba\ProyetosPrueba.xaml;ViewsPrueba\Register.xaml;ViewsPrueba\Roles.xaml;ViewsPrueba\Sexos.xaml;Views\Administradores.xaml;Views\AsignarTarea.xaml;Views\BacklogView.xaml;Views\CrearProyecto.xaml;Views\Registro.xaml;
 
-True
+False
 
