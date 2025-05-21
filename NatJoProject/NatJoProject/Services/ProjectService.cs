@@ -110,17 +110,30 @@ namespace NatJoProject.Services
             {
                 string query = @"
                         SELECT DISTINCT
-                        p.proj_id, p.nombre AS proj_nombre, p.descripcion, p.f_inicio, p.f_terminacion,
-                        t.team_id, t.nombre AS team_nombre, t.ind_activo, t.owner_id,
-                        u.id AS member_id, u.pNombre, u.pApellido, u.login,
-                        m.rol_id,
-                        r.descripcion AS rol_desc
+                          p.proj_id,
+                          p.nombre AS proj_nombre,
+                          p.descripcion,
+                          p.f_inicio,
+                          p.f_terminacion,
+                          t.team_id,
+                          t.nombre AS team_nombre,
+                          t.ind_activo,
+                          t.owner_id,
+                          u.id AS member_id,
+                          u.pNombre,
+                          u.pApellido,
+                          u.login,
+                          m.rol_id,
+                          r.descripcion AS rol_desc
                         FROM proyectos p
                         JOIN teams t ON t.proj_id = p.proj_id
-                        JOIN miembros m ON m.user_id = @user_id
-                        JOIN users u ON u.id = m.user_id
+                        JOIN team_members tm ON tm.team_id = t.team_id
+                        JOIN users u ON u.id = tm.member_id
+                        JOIN miembros m ON m.user_id = u.id
                         JOIN roles r ON r.rol_id = m.rol_id
-                        WHERE t.owner_id = u.id OR u.id = @user_id";
+                        WHERE t.team_id IN (
+                            SELECT team_id FROM team_members WHERE member_id = @user_id
+                        );";
 
                 using (var cmd = new MySqlCommand(query, conexion))
                 {
@@ -198,8 +211,6 @@ namespace NatJoProject.Services
 
             return proyectosDict.Values.ToList();
         }
-
-
 
         public List<Project> GetAllProjects()
         {
