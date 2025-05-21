@@ -93,7 +93,7 @@ namespace NatJoProject.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/NatJoProject;component/views/asignartarea.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/NatJoProject;V1.0.0.0;component/views/asignartarea.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\AsignarTarea.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

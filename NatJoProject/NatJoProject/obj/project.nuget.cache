@@ -34,5 +34,15 @@
     "C:\\Users\\Angel\\.nuget\\packages\\system.windows.extensions\\8.0.0\\system.windows.extensions.8.0.0.nupkg.sha512",
     "C:\\Users\\Angel\\.nuget\\packages\\zstdsharp.port\\0.8.5\\zstdsharp.port.0.8.5.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Problema al leer el archivo de caché C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
+      "projectPath": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\NatJoProject.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\NatJoProject.csproj",
+      "targetGraphs": []
+    }
+  ]
 }
