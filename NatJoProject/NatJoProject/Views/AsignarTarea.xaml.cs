@@ -27,6 +27,7 @@ namespace NatJoProject.Views
         //CONTROLLERS
         private TaskProjectController taskProjectController = new TaskProjectController();
         private TaskEstadoController taskEstadoController = new TaskEstadoController();
+        private ProjectController projectController = new ProjectController();
 
         public AsignarTarea(Project proyecto)
         {
@@ -58,8 +59,19 @@ namespace NatJoProject.Views
         private void AsignarTarea_Click(object sender, RoutedEventArgs e)
         {
 
+            DateTime fechaEntrega;
+            if (!DateTime.TryParse(txtFechaEntrega.Text.Trim(), out fechaEntrega))
+            {
+                MessageBox.Show("Fecha de entrega invalida.", "Validación", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+
             //OBTENER EL OBJETO TASK ESTADO POR ID
-            var estadoTask = taskEstadoController.GetEstadoById(4);
+            var estadoTask = taskEstadoController.GetEstadoById(3);
+
+            //OBTENER OBJETO DEL PROYECTO POR ID
+            var proyecto = projectController.GetProjectById(proyectoActual.ProjId);
 
             try
             {
@@ -70,8 +82,9 @@ namespace NatJoProject.Views
                     Descripcion = txtDescripcion.Text.Trim(),
                     Responsable = new List<Member> { (Member)cmbMiembros.SelectedItem },
                     Estado = estadoTask,
-                    Fentrerga = DateTime.Now.AddDays(7), 
-                    Comentarios = new List<Comment>()
+                    Fentrerga = fechaEntrega, 
+                    Comentarios = new List<Comment>(),
+                    Project = proyecto
                 };
 
                 // Llamamos al método que guarda la tarea y asigna responsable

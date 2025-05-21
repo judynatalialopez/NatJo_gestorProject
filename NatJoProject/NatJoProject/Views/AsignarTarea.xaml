@@ -71,8 +71,8 @@
             Height="40"
             BorderThickness="0"
             Cursor="Hand"
-            Canvas.Left="329"
-            Canvas.Top="416"
+            Canvas.Left="327"
+            Canvas.Top="528"
             Click="AsignarTarea_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Button.Style>
                         <Style TargetType="Button">
@@ -130,6 +130,25 @@ Canvas.Left="229" Canvas.Top="266" HorizontalAlignment="Left" VerticalAlignment=
                     Padding="10,0,0,0"
                     Canvas.Left="229"
                     Canvas.Top="209" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <TextBlock Text="Fecha de entrega"
+                    Foreground="DarkGray"
+                    FontSize="12"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"
+                    Canvas.Left="235" Canvas.Top="382" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <DatePicker x:Name="txtFechaEntrega"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Montserrat"
+                    Foreground="Black"
+                    BorderBrush="Black"
+                    BorderThickness="0,0,0,2"
+                    Width="200"
+                    Height="28"
+                    VerticalContentAlignment="Center"
+                    Padding="10,0,0,0"
+                    Canvas.Left="227" Canvas.Top="412"
+                    SelectedDateFormat="Short" HorizontalAlignment="Left" VerticalAlignment="Top" />
             </Canvas>
         </Border>
     </Border>
