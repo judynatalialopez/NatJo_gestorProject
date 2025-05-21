@@ -127,6 +127,10 @@ namespace NatJoProject.Views
             {
                 MessageBox.Show($"No se pudo insertar el Proyecto.\n\nDetalles: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+            BacklogView backlogView = new BacklogView();
+            backlogView.Show();
+            this.Close();
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
