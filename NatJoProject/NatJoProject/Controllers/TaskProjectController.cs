@@ -10,8 +10,7 @@ namespace NatJoProject.Controllers
     {
         private readonly TaskProjectService task0Service = new TaskProjectService();
 
-        // Método para obtener tareas por proyecto
-        public void GetTasksByProjectId(int projId)
+        public List<TaskProject> GetTasksByProjectId(int projId)
         {
             var tasks = task0Service.GetTasksByProjectId(projId);
 
@@ -29,7 +28,9 @@ namespace NatJoProject.Controllers
             }
 
             Console.ResetColor();
+            return tasks; // ✅ Agrega esta línea para retornar las tareas
         }
+
 
         public bool InsertTask0(TaskProject task)
         {

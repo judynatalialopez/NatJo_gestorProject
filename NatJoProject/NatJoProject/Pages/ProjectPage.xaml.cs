@@ -53,7 +53,7 @@ namespace NatJoProject.Pages
 
         private void CargarTareas(int projId)
         {
-            var tareas = taskProjectController.GetTasksByProjectId(projId); // ✅ CORRECTO
+            var tareas = taskProjectController.GetTasksByProjectId(projId);
 
             PanelTareas.Children.Clear();
 
@@ -73,7 +73,7 @@ namespace NatJoProject.Pages
             {
                 var tareaText = new TextBlock
                 {
-                    Text = $"- {tarea.Titulo}: {tarea.Descripcion} (Entrega: {tarea.Fentrega:dd/MM/yyyy})",
+                    Text = $"- {tarea.Titulo}: {tarea.Descripcion} (Entrega: {tarea.Fentrerga:dd/MM/yyyy})",
                     Margin = new Thickness(0, 5, 0, 0)
                 };
                 PanelTareas.Children.Add(tareaText);
