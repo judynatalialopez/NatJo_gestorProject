@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|solutionrelative:natjoproject\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\controllers\\taskprojectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|solutionrelative:natjoproject\\controllers\\taskprojectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\pages\\projectpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|solutionrelative:natjoproject\\pages\\projectpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\views\\vistamiembros.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|solutionrelative:natjoproject\\views\\vistamiembros.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\pages\\projectpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|solutionrelative:natjoproject\\pages\\projectpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|solutionrelative:natjoproject\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\views\\asignartarea.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,14 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\database\\conexiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|solutionrelative:natjoproject\\database\\conexiondb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\pages\\projectpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|solutionrelative:natjoproject\\pages\\projectpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\pages\\projectpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|solutionrelative:natjoproject\\pages\\projectpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\views\\vistamiembros.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -53,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\viewsprueba\\paises.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|solutionrelative:natjoproject\\viewsprueba\\paises.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\controllers\\taskprojectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|solutionrelative:natjoproject\\controllers\\taskprojectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2AE38800-9C5D-48EF-8491-2B04C810E4FA}|NatJoProject\\NatJoProject.csproj|c:\\users\\angel\\desktop\\natjo_gestorproject\\natjoproject\\natjoproject\\views\\crearproyecto.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -401,45 +401,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProjectPage.xaml",
-              "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Pages\\ProjectPage.xaml",
-              "RelativeDocumentMoniker": "NatJoProject\\Pages\\ProjectPage.xaml",
-              "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Pages\\ProjectPage.xaml",
-              "RelativeToolTip": "NatJoProject\\Pages\\ProjectPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-19T22:05:39.08Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ConexionDB.cs",
-              "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Database\\ConexionDB.cs",
-              "RelativeDocumentMoniker": "NatJoProject\\Database\\ConexionDB.cs",
-              "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Database\\ConexionDB.cs",
-              "RelativeToolTip": "NatJoProject\\Database\\ConexionDB.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T18:08:20.045Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "VistaMiembros.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\VistaMiembros.xaml.cs",
               "RelativeDocumentMoniker": "NatJoProject\\Views\\VistaMiembros.xaml.cs",
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\VistaMiembros.xaml.cs",
               "RelativeToolTip": "NatJoProject\\Views\\VistaMiembros.xaml.cs",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAYwGUAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAQwFoAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-21T09:10:05.349Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "TaskProjectService.cs",
               "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Services\\TaskProjectService.cs",
               "RelativeDocumentMoniker": "NatJoProject\\Services\\TaskProjectService.cs",
@@ -447,12 +422,11 @@
               "RelativeToolTip": "NatJoProject\\Services\\TaskProjectService.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T19:35:06.73Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T19:35:06.73Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "TeamService.cs",
               "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Services\\TeamService.cs",
               "RelativeDocumentMoniker": "NatJoProject\\Services\\TeamService.cs",
@@ -460,12 +434,11 @@
               "RelativeToolTip": "NatJoProject\\Services\\TeamService.cs",
               "ViewState": "AgIAAMYAAAAAAAAAAAAowPEAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T17:59:49.164Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-17T17:59:49.164Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "AsignarTarea.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\AsignarTarea.xaml.cs",
               "RelativeDocumentMoniker": "NatJoProject\\Views\\AsignarTarea.xaml.cs",
@@ -473,12 +446,11 @@
               "RelativeToolTip": "NatJoProject\\Views\\AsignarTarea.xaml.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAiwCQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T07:06:52.01Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T07:06:52.01Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "TeamController.cs",
               "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Controllers\\TeamController.cs",
               "RelativeDocumentMoniker": "NatJoProject\\Controllers\\TeamController.cs",
@@ -486,60 +458,93 @@
               "RelativeToolTip": "NatJoProject\\Controllers\\TeamController.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAAkwAkAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T18:07:31.798Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-17T18:07:31.798Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "ProjectPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Pages\\ProjectPage.xaml.cs",
               "RelativeDocumentMoniker": "NatJoProject\\Pages\\ProjectPage.xaml.cs",
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Pages\\ProjectPage.xaml.cs",
               "RelativeToolTip": "NatJoProject\\Pages\\ProjectPage.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwDcAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T06:55:01.602Z"
+              "WhenOpened": "2025-05-20T06:55:01.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TaskProjectController.cs",
+              "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Controllers\\TaskProjectController.cs",
+              "RelativeDocumentMoniker": "NatJoProject\\Controllers\\TaskProjectController.cs",
+              "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Controllers\\TaskProjectController.cs",
+              "RelativeToolTip": "NatJoProject\\Controllers\\TaskProjectController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAzwBkAAAB4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T18:07:10.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProjectPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Pages\\ProjectPage.xaml",
+              "RelativeDocumentMoniker": "NatJoProject\\Pages\\ProjectPage.xaml",
+              "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Pages\\ProjectPage.xaml",
+              "RelativeToolTip": "NatJoProject\\Pages\\ProjectPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-19T22:05:39.08Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "ConexionDB.cs",
+              "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Database\\ConexionDB.cs",
+              "RelativeDocumentMoniker": "NatJoProject\\Database\\ConexionDB.cs",
+              "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Database\\ConexionDB.cs",
+              "RelativeToolTip": "NatJoProject\\Database\\ConexionDB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T18:08:20.045Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "VistaMiembros.xaml",
               "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\VistaMiembros.xaml",
               "RelativeDocumentMoniker": "NatJoProject\\Views\\VistaMiembros.xaml",
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\VistaMiembros.xaml",
               "RelativeToolTip": "NatJoProject\\Views\\VistaMiembros.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-21T09:14:42.672Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T09:14:42.672Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "AsignarTarea.xaml",
               "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\AsignarTarea.xaml",
               "RelativeDocumentMoniker": "NatJoProject\\Views\\AsignarTarea.xaml",
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\AsignarTarea.xaml",
               "RelativeToolTip": "NatJoProject\\Views\\AsignarTarea.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-20T07:01:50.363Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T07:01:50.363Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "CrearProyecto.xaml",
               "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\CrearProyecto.xaml",
               "RelativeDocumentMoniker": "NatJoProject\\Views\\CrearProyecto.xaml",
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\CrearProyecto.xaml",
               "RelativeToolTip": "NatJoProject\\Views\\CrearProyecto.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-19T22:01:43.399Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T22:01:43.399Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ProjectService.cs",
               "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Services\\ProjectService.cs",
               "RelativeDocumentMoniker": "NatJoProject\\Services\\ProjectService.cs",
@@ -551,7 +556,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Paises.xaml",
               "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\ViewsPrueba\\Paises.xaml",
               "RelativeDocumentMoniker": "NatJoProject\\ViewsPrueba\\Paises.xaml",
@@ -571,18 +576,6 @@
               "ViewState": "AQIAAB4AAAAAAAAAAAAswC4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-21T09:09:52.646Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "TaskProjectController.cs",
-              "DocumentMoniker": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Controllers\\TaskProjectController.cs",
-              "RelativeDocumentMoniker": "NatJoProject\\Controllers\\TaskProjectController.cs",
-              "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Controllers\\TaskProjectController.cs",
-              "RelativeToolTip": "NatJoProject\\Controllers\\TaskProjectController.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T18:07:10.325Z"
             },
             {
               "$type": "Document",
@@ -675,8 +668,7 @@
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\BacklogView.xaml",
               "RelativeToolTip": "NatJoProject\\Views\\BacklogView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-18T00:24:37.84Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T00:24:37.84Z"
             },
             {
               "$type": "Document",
@@ -806,8 +798,7 @@
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\Administradores.xaml",
               "RelativeToolTip": "NatJoProject\\Views\\Administradores.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-19T04:23:52.439Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T04:23:52.439Z"
             },
             {
               "$type": "Document",
@@ -959,8 +950,7 @@
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\Views\\Registro.xaml",
               "RelativeToolTip": "NatJoProject\\Views\\Registro.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-18T00:29:01.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T00:29:01.959Z"
             },
             {
               "$type": "Document",
@@ -1005,8 +995,7 @@
               "ToolTip": "C:\\Users\\Angel\\Desktop\\NatJo_gestorProject\\NatJoProject\\NatJoProject\\App.xaml",
               "RelativeToolTip": "NatJoProject\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-15T21:19:37.974Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T21:19:37.974Z"
             },
             {
               "$type": "Document",

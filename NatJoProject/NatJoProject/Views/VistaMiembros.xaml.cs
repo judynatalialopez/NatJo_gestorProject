@@ -98,14 +98,16 @@ namespace NatJoProject.Views
 
         private void BtnAgregarMiembro_Click(object sender, RoutedEventArgs e)
         {
+            var teamId = proyectoActual.Team?.TeamId;
             string email = txtCorreo.Text.Trim();
+
             if (string.IsNullOrEmpty(email))
             {
                 MessageBox.Show("Por favor ingresa un correo válido.");
                 return;
             }
 
-           teamController.AddUserToTeam(proyectoActual.Team.TeamId, email);
+           teamController.AddUserToTeam(teamId.Value, email);
 
         }
     }
