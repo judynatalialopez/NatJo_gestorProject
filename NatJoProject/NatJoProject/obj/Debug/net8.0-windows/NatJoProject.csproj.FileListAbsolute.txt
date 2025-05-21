@@ -150,7 +150,6 @@ C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\n
 C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\EliminarUsers.g.cs
 C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\ProyetosPrueba.g.cs
 C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\ProyetosPrueba.baml
-C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\bin\Debug\net8.0-windows\System.Diagnostics.DiagnosticSource.dll
 C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\AsignarTarea.g.cs
 C:\Users\ANGEL\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\AsignarTarea.baml
 C:\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ViewsPrueba\ProyetosPrueba.g.cs
@@ -239,3 +238,5 @@ C:\Users\ANGEL\Desktop\ProyectoNuevo\NatJo_gestorProject\NatJoProject\NatJoProje
 C:\Users\ANGEL\Desktop\ProyectoNuevo\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\NatJoPro.9B43DB81.Up2Date
 C:\Users\ANGEL\Desktop\ProyectoNuevo\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\NatJoProject.genruntimeconfig.cache
 C:\Users\ANGEL\Desktop\ProyectoNuevo\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\ref\NatJoProject.dll
+C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\VistaMiembros.baml
+C:\Users\Angel\Desktop\NatJo_gestorProject\NatJoProject\NatJoProject\obj\Debug\net8.0-windows\Views\VistaMiembros.g.cs

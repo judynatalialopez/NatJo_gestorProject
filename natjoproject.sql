@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2025 a las 12:42:40
+-- Tiempo de generación: 21-05-2025 a las 20:19:01
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -302,7 +302,6 @@ CREATE TABLE `team_members` (
 --
 
 INSERT INTO `team_members` (`team_id`, `member_id`) VALUES
-(8, '1047037318'),
 (9, '1047037318'),
 (10, '1047037318'),
 (11, '1047037318');
@@ -566,7 +565,7 @@ ALTER TABLE `miembros`
 -- Filtros para la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  ADD CONSTRAINT `proyectos_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `team_members` (`team_id`);
+  ADD CONSTRAINT `fk_proyectos_team` FOREIGN KEY (`team_id`) REFERENCES `teams` (`team_id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `responsables_tarea`
